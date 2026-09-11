@@ -1,262 +1,481 @@
 {
+  "states": [
+    {
+      "state_code": "DL",
+      "state_name": "Delhi",
+      "active_cases_count": 4,
+      "high_risk_alerts": 2,
+      "lat": 28.6139,
+      "lng": 77.2090
+    },
+    {
+      "state_code": "MH",
+      "state_name": "Maharashtra",
+      "active_cases_count": 7,
+      "high_risk_alerts": 1,
+      "lat": 19.7515,
+      "lng": 75.7139
+    },
+    {
+      "state_code": "UP",
+      "state_name": "Uttar Pradesh",
+      "active_cases_count": 9,
+      "high_risk_alerts": 4,
+      "lat": 26.8467,
+      "lng": 80.9462
+    },
+    {
+      "state_code": "HR",
+      "state_name": "Haryana",
+      "active_cases_count": 3,
+      "high_risk_alerts": 1,
+      "lat": 29.0588,
+      "lng": 76.0856
+    }
+  ],
   "case_metadata": {
     "case_id": "DL-2026-0412",
-    "title": "Missing Woman — Suspected Interstate Network",
+    "title": "Missing Woman — Suspected Trafficking Network",
     "state_code": "DL",
     "state_name": "Delhi",
-    "incident_date": "2026-09-02T22:30:00Z",
-    "lead_agency": "Special Cell / Anti-Trafficking Squad, Delhi Police",
-    "fir_number": "FIR-412/2026/PS-KashmereGate",
     "status": "ACTIVE_INVESTIGATION",
     "priority": "CRITICAL",
-    "summary": "Victim disappeared near ISBT Kashmere Gate on 02-Sep. Cell tower triangulation and ANPR camera feeds suggest coordinated transit across the Singhu Border via burner phone coordination.",
+    "incident_date": "2026-09-02T22:30:00Z",
+    "lead_agency": "Special Cell / Crime Branch, Delhi Police",
+    "fir_number": "FIR-412/2026/PS-KashmereGate",
+    "total_entities_identified": 18,
+    "total_evidence_records": 84,
+    "summary": "Suspected interstate syndicate involving transport hubs, burner phones, and rapid mule account transactions.",
     "bsa_section_63_verified": true,
     "merkle_root": "8f4e2c1b9a8d7e6f5c4b3a210987654321fedcba0987654321abcdef01234567"
   },
   "graph": {
-    "nodes": [
-      {
-        "id": "person-priya",
-        "label": "Priya Sharma",
-        "type": "PERSON",
-        "sub_role": "SUBJECT_OF_SEARCH",
+    "case_id": "DL-2026-0412",
+    "elements": {
+      "nodes": [
+        {
+          "data": {
+            "id": "person-priya",
+            "label": "Priya Sharma",
+            "type": "PERSON",
+            "sub_role": "SUBJECT_OF_SEARCH",
+            "centrality_score": 0.42,
+            "risk_level": "HIGH",
+            "evidence_count": 14,
+            "status": "UNRESOLVED_LOCATION",
+            "icon": "user-x",
+            "age": 22,
+            "gender": "Female",
+            "last_known_location": "ISBT Kashmere Gate, Delhi",
+            "reported_missing_at": "2026-09-03T08:00:00Z"
+          }
+        },
+        {
+          "data": {
+            "id": "person-rakesh",
+            "label": "Rakesh Kumar",
+            "type": "PERSON",
+            "sub_role": "POSSIBLE_CENTRAL_NETWORK_ENTITY",
+            "centrality_score": 0.94,
+            "risk_level": "CRITICAL",
+            "evidence_count": 38,
+            "status": "PERSON_OF_INTEREST",
+            "icon": "user-alert",
+            "aliases": ["Raka", "RK"],
+            "known_locations": ["Majnu Ka Tilla", "Kashmere Gate", "Ambala Transit Point"],
+            "flagged_flags": ["Interstate Movement", "Multiple SIM Switches", "Mule Account Beneficiary"]
+          }
+        },
+        {
+          "data": {
+            "id": "person-vikram",
+            "label": "Vikram Singh",
+            "type": "PERSON",
+            "sub_role": "ASSOCIATE_NODE",
+            "centrality_score": 0.62,
+            "risk_level": "MEDIUM",
+            "evidence_count": 16,
+            "status": "IDENTIFIED_OPERATOR",
+            "icon": "user-check",
+            "occupation": "Commercial Driver / Logistics Handler",
+            "license_no": "DL-14201900381"
+          }
+        },
+        {
+          "data": {
+            "id": "phone-priya",
+            "label": "+91 98112 00341",
+            "type": "PHONE",
+            "sub_role": "VICTIM_HANDSET",
+            "centrality_score": 0.41,
+            "risk_level": "HIGH",
+            "evidence_count": 12,
+            "icon": "phone-call",
+            "imei": "864201049281720",
+            "carrier": "Airtel Delhi",
+            "status": "POWERED_OFF"
+          }
+        },
+        {
+          "data": {
+            "id": "phone-burner-rakesh",
+            "label": "+91 98710 44219",
+            "type": "PHONE",
+            "sub_role": "BURNER_SIM",
+            "centrality_score": 0.88,
+            "risk_level": "CRITICAL",
+            "evidence_count": 26,
+            "icon": "phone-call",
+            "imei": "358912091823901",
+            "carrier": "Vi Delhi",
+            "status": "SUSPICIOUS_ACTIVITY"
+          }
+        },
+        {
+          "data": {
+            "id": "phone-vikram",
+            "label": "+91 97115 88201",
+            "type": "PHONE",
+            "sub_role": "ASSOCIATE_PHONE",
+            "centrality_score": 0.59,
+            "risk_level": "MEDIUM",
+            "evidence_count": 10,
+            "icon": "phone-call",
+            "carrier": "Jio Delhi",
+            "status": "ACTIVE"
+          }
+        },
+        {
+          "data": {
+            "id": "vehicle-dl01-9921",
+            "label": "DL 01 AB 9921",
+            "type": "VEHICLE",
+            "sub_role": "SIGHTED_CONVEYANCE",
+            "centrality_score": 0.65,
+            "risk_level": "CRITICAL",
+            "evidence_count": 8,
+            "icon": "car",
+            "vehicle_make": "Maruti Suzuki Swift Dzire (White)",
+            "chassis_no": "MA3EKB01S0091283",
+            "fastag_id": "FASTAG-TX-8812"
+          }
+        },
+        {
+          "data": {
+            "id": "loc-kashmere-gate",
+            "label": "ISBT Kashmere Gate",
+            "type": "LOCATION",
+            "sub_role": "INCIDENT_GEO_HUB",
+            "centrality_score": 0.72,
+            "risk_level": "HIGH",
+            "evidence_count": 20,
+            "icon": "map-pin",
+            "lat": 28.6672,
+            "lng": 77.2285,
+            "cell_tower_id": "TOW-DEL-KASHMERE-482"
+          }
+        },
+        {
+          "data": {
+            "id": "loc-singhu-border",
+            "label": "Singhu Border Toll Plaza",
+            "type": "LOCATION",
+            "sub_role": "TRANSIT_POINT",
+            "centrality_score": 0.58,
+            "risk_level": "MEDIUM",
+            "evidence_count": 6,
+            "icon": "map-pin",
+            "lat": 28.8784,
+            "lng": 77.1292,
+            "anpr_camera": "ANPR-LANE-04"
+          }
+        },
+        {
+          "data": {
+            "id": "bank-mule-01",
+            "label": "HDFC A/C ••4091",
+            "type": "BANK_ACCOUNT",
+            "sub_role": "SUSPECTED_MULE_ACCOUNT",
+            "centrality_score": 0.76,
+            "risk_level": "CRITICAL",
+            "evidence_count": 11,
+            "icon": "credit-card",
+            "account_holder": "R.K. Enterprises (Unregistered)",
+            "ifsc": "HDFC0001204",
+            "upi_vpa": "rkenterprises@okhdfc"
+          }
+        }
+      ],
+      "edges": [
+        {
+          "data": {
+            "id": "edge-call-01",
+            "source": "person-rakesh",
+            "target": "phone-burner-rakesh",
+            "label": "SUBSCRIBER_OF",
+            "confidence": 0.98,
+            "confidence_explanation": "SIM activated using forged identity documents linked to Rakesh Kumar's photo records; IMEI history matches handset.",
+            "interaction_count": 1,
+            "category": "TELECOM"
+          }
+        },
+        {
+          "data": {
+            "id": "edge-call-02",
+            "source": "phone-burner-rakesh",
+            "target": "person-priya",
+            "label": "FREQUENT_CALLS [14x]",
+            "confidence": 0.91,
+            "confidence_explanation": "14 direct cellular interactions recorded within 4 hours prior to disappearance; CDR tower dump confirmation.",
+            "interaction_count": 14,
+            "category": "TELECOM"
+          }
+        },
+        {
+          "data": {
+            "id": "edge-call-03",
+            "source": "person-priya",
+            "target": "phone-priya",
+            "label": "REGISTERED_OWNER",
+            "confidence": 0.99,
+            "confidence_explanation": "Verified subscriber via Aadhaar KYC data from Airtel Delhi.",
+            "interaction_count": 1,
+            "category": "TELECOM"
+          }
+        },
+        {
+          "data": {
+            "id": "edge-loc-01",
+            "source": "phone-priya",
+            "target": "loc-kashmere-gate",
+            "label": "LAST PING 21:45",
+            "confidence": 0.95,
+            "confidence_explanation": "Triangulated at Kashmere Gate Tower #482 immediately before device power off.",
+            "interaction_count": 1,
+            "category": "LOCATION"
+          }
+        },
+        {
+          "data": {
+            "id": "edge-loc-02",
+            "source": "phone-burner-rakesh",
+            "target": "loc-kashmere-gate",
+            "label": "CO_LOCATED 21:30–22:00",
+            "confidence": 0.94,
+            "confidence_explanation": "Simultaneous presence recorded at Tower #482 azimuth sector 2.",
+            "interaction_count": 8,
+            "category": "LOCATION"
+          }
+        },
+        {
+          "data": {
+            "id": "edge-assoc-01",
+            "source": "person-rakesh",
+            "target": "person-vikram",
+            "label": "DIRECT COORDINATION",
+            "confidence": 0.89,
+            "confidence_explanation": "Encrypted communication traces recovered from seized device; shared hotel check-in at Majnu Ka Tilla.",
+            "interaction_count": 9,
+            "category": "ASSOCIATION"
+          }
+        },
+        {
+          "data": {
+            "id": "edge-veh-01",
+            "source": "person-vikram",
+            "target": "vehicle-dl01-9921",
+            "label": "REGISTERED DRIVER",
+            "confidence": 0.98,
+            "confidence_explanation": "Vahan registry indicates Vikram Singh as primary authorized commercial driver.",
+            "interaction_count": 1,
+            "category": "TRANSPORT"
+          }
+        },
+        {
+          "data": {
+            "id": "edge-toll-01",
+            "source": "vehicle-dl01-9921",
+            "target": "loc-singhu-border",
+            "label": "ANPR SIGHTING 22:15",
+            "confidence": 0.97,
+            "confidence_explanation": "High-definition ANPR toll camera captured registration plate exiting Delhi boundary northbound.",
+            "interaction_count": 1,
+            "category": "CCTV_ANPR"
+          }
+        },
+        {
+          "data": {
+            "id": "edge-fin-01",
+            "source": "person-rakesh",
+            "target": "bank-mule-01",
+            "label": "ACCOUNT CONTROLLER",
+            "confidence": 0.91,
+            "confidence_explanation": "Net banking IP address and registered OTP contact match Rakesh Kumar's secondary burner SIM.",
+            "interaction_count": 5,
+            "category": "BANKING"
+          }
+        }
+      ]
+    }
+  },
+  "entities": {
+    "person-priya": {
+      "id": "person-priya",
+      "type": "PERSON",
+      "label": "Priya Sharma",
+      "aliases": ["Priya"],
+      "sub_role": "SUBJECT_OF_SEARCH",
+      "attributes": {
+        "age": 22,
+        "gender": "Female",
+        "known_locations": ["Laxmi Nagar", "ISBT Kashmere Gate"],
+        "flagged_flags": ["Missing Person Report", "Device Power Off Anomaly"],
+        "reported_missing_at": "2026-09-03T08:00:00Z"
+      },
+      "metrics": {
+        "centrality_score": 0.42,
+        "degree": 3,
+        "betweenness": 0.21,
         "risk_level": "HIGH",
-        "centrality_score": 0.45,
-        "evidence_count": 14,
-        "details": {
-          "age": 22,
-          "last_known_location": "ISBT Kashmere Gate, Delhi",
-          "reported_missing_at": "2026-09-03T08:00:00Z"
-        }
+        "cluster_id": "syndicate-north-01"
       },
-      {
-        "id": "person-rakesh",
-        "label": "Rakesh Kumar",
-        "type": "PERSON",
-        "sub_role": "POSSIBLE_CENTRAL_NETWORK_ENTITY",
-        "risk_level": "CRITICAL",
+      "supporting_records": [
+        "FIR-412/2026/PS-KashmereGate",
+        "CDR-DEL-0902-1",
+        "CDR-DEL-0902-88"
+      ],
+      "provenance_hash": "4b227777d4dd1fc61c6f884f48641d02b4d121d3fd328cb08b5531fcacdabf8a"
+    },
+    "person-rakesh": {
+      "id": "person-rakesh",
+      "type": "PERSON",
+      "label": "Rakesh Kumar",
+      "aliases": ["Raka", "RK"],
+      "sub_role": "POSSIBLE_CENTRAL_NETWORK_ENTITY",
+      "attributes": {
+        "age": 38,
+        "gender": "Male",
+        "known_locations": ["Majnu Ka Tilla", "Kashmere Gate", "Ambala Transit Point"],
+        "flagged_flags": ["Interstate Movement", "Multiple SIM Switches", "Mule Account Beneficiary"],
+        "investigative_notes": "Associated with multiple unverified SIM registrations and interstate taxi movements."
+      },
+      "metrics": {
         "centrality_score": 0.94,
-        "evidence_count": 38,
-        "details": {
-          "aliases": ["Raka", "RK"],
-          "known_hubs": ["Majnu Ka Tilla", "Ambala Transit Point"],
-          "investigative_notes": "Associated with multiple unverified SIM registrations and interstate taxi movements."
-        }
+        "degree": 12,
+        "betweenness": 0.88,
+        "risk_level": "CRITICAL",
+        "cluster_id": "syndicate-north-01"
       },
-      {
-        "id": "person-vikram",
-        "label": "Vikram Singh",
-        "type": "PERSON",
-        "sub_role": "ASSOCIATE_NODE",
-        "risk_level": "MEDIUM",
+      "supporting_records": [
+        "FIR-412/2026/PS-KashmereGate",
+        "CDR-DEL-0902-88",
+        "BANK-TX-4401",
+        "ANPR-TOLL-SINGHU-04"
+      ],
+      "provenance_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "person-vikram": {
+      "id": "person-vikram",
+      "type": "PERSON",
+      "label": "Vikram Singh",
+      "aliases": ["Vicky"],
+      "sub_role": "ASSOCIATE_NODE",
+      "attributes": {
+        "age": 32,
+        "gender": "Male",
+        "known_locations": ["Rohini Sector 16", "Singhu Border"],
+        "occupation": "Commercial Driver / Logistics Handler",
+        "license_no": "DL-14201900381"
+      },
+      "metrics": {
         "centrality_score": 0.62,
-        "evidence_count": 16,
-        "details": {
-          "role": "Driver / Logistics Operator",
-          "license": "DL-14201900381"
-        }
+        "degree": 4,
+        "betweenness": 0.45,
+        "risk_level": "MEDIUM",
+        "cluster_id": "syndicate-north-01"
       },
-      {
-        "id": "phone-priya",
-        "label": "+91 98112 00341",
-        "type": "PHONE",
-        "sub_role": "VICTIM_HANDSET",
-        "centrality_score": 0.41,
-        "evidence_count": 12,
-        "details": {
-          "imei": "864201049281720",
-          "carrier": "Airtel Delhi",
-          "status": "POWERED_OFF"
-        }
+      "supporting_records": [
+        "VAHAN-REG-DL01-9921",
+        "ANPR-TOLL-SINGHU-04"
+      ],
+      "provenance_hash": "9f83c12d4a5b6c7e8f90123456789abcdef0123456789abcdef0123456789abc"
+    },
+    "phone-burner-rakesh": {
+      "id": "phone-burner-rakesh",
+      "type": "PHONE",
+      "label": "+91 98710 44219",
+      "aliases": ["Burner SIM #1"],
+      "sub_role": "BURNER_SIM",
+      "attributes": {
+        "carrier": "Vi Delhi",
+        "imei": "358912091823901",
+        "sim_activation_date": "2026-08-28",
+        "kyc_status": "FORGED_IDENTIFIER"
       },
-      {
-        "id": "phone-burner-rakesh",
-        "label": "+91 98710 44219",
-        "type": "PHONE",
-        "sub_role": "BURNER_SIM",
+      "metrics": {
         "centrality_score": 0.88,
-        "evidence_count": 26,
-        "details": {
-          "imei": "358912091823901",
-          "carrier": "Vi Delhi",
-          "status": "SUSPICIOUS_ACTIVITY"
-        }
+        "degree": 8,
+        "betweenness": 0.74,
+        "risk_level": "CRITICAL",
+        "cluster_id": "syndicate-north-01"
       },
-      {
-        "id": "phone-vikram",
-        "label": "+91 97115 88201",
-        "type": "PHONE",
-        "sub_role": "ASSOCIATE_PHONE",
-        "centrality_score": 0.59,
-        "evidence_count": 10,
-        "details": {
-          "carrier": "Jio Delhi",
-          "status": "ACTIVE"
-        }
+      "supporting_records": [
+        "CDR-DEL-0902-1",
+        "CDR-DEL-0902-88"
+      ],
+      "provenance_hash": "a591a6d40bf420404a011733cfb7b190d62c65bf0bcda32b57b277d9ad9f146e"
+    },
+    "vehicle-dl01-9921": {
+      "id": "vehicle-dl01-9921",
+      "type": "VEHICLE",
+      "label": "DL 01 AB 9921",
+      "aliases": ["Swift Dzire"],
+      "sub_role": "SIGHTED_CONVEYANCE",
+      "attributes": {
+        "vehicle_make": "Maruti Suzuki Swift Dzire (White)",
+        "chassis_no": "MA3EKB01S0091283",
+        "fastag_id": "FASTAG-TX-8812",
+        "registered_owner": "Vikram Singh"
       },
-      {
-        "id": "vehicle-dl01-9921",
-        "label": "DL 01 AB 9921",
-        "type": "VEHICLE",
-        "sub_role": "SIGHTED_CONVEYANCE",
+      "metrics": {
         "centrality_score": 0.65,
-        "evidence_count": 8,
-        "details": {
-          "make_model": "White Swift Dzire (Commercial)",
-          "chassis": "MA3EKB01S0091283",
-          "fastag_id": "FASTAG-TX-8812"
-        }
+        "degree": 3,
+        "betweenness": 0.52,
+        "risk_level": "CRITICAL",
+        "cluster_id": "syndicate-north-01"
       },
-      {
-        "id": "loc-kashmere-gate",
-        "label": "ISBT Kashmere Gate",
-        "type": "LOCATION",
-        "sub_role": "INCIDENT_GEO_HUB",
-        "centrality_score": 0.72,
-        "evidence_count": 20,
-        "details": {
-          "lat": 28.6672,
-          "lng": 77.2285,
-          "cell_tower_id": "TOW-DEL-KASHMERE-482"
-        }
-      },
-      {
-        "id": "loc-singhu-border",
-        "label": "Singhu Border Toll Plaza",
-        "type": "LOCATION",
-        "sub_role": "TRANSIT_POINT",
-        "centrality_score": 0.58,
-        "evidence_count": 6,
-        "details": {
-          "lat": 28.8784,
-          "lng": 77.1292,
-          "anpr_camera": "ANPR-LANE-04"
-        }
-      },
-      {
-        "id": "bank-mule-01",
-        "label": "HDFC A/C ••4091",
-        "type": "BANK_ACCOUNT",
-        "sub_role": "SUSPECTED_MULE_ACCOUNT",
-        "centrality_score": 0.76,
-        "evidence_count": 11,
-        "details": {
-          "account_holder": "R.K. Enterprises (Unregistered)",
-          "ifsc": "HDFC0001204",
-          "upi_vpa": "rkenterprises@okhdfc"
-        }
-      }
-    ],
-    "edges": [
-      {
-        "id": "rel-01",
-        "source": "person-priya",
-        "target": "phone-priya",
-        "label": "REGISTERED_OWNER",
-        "type": "SUBSCRIBER_OF",
-        "confidence": 0.99,
-        "evidence_source": "TELECOM_KYC"
-      },
-      {
-        "id": "rel-02",
-        "source": "person-rakesh",
-        "target": "phone-burner-rakesh",
-        "label": "POSSIBLE_USER",
-        "type": "POSSESSION_INFERRED",
-        "confidence": 0.92,
-        "evidence_source": "CDR_AND_HANDSET_IMEI"
-      },
-      {
-        "id": "rel-03",
-        "source": "phone-burner-rakesh",
-        "target": "phone-priya",
-        "label": "14 CALLS (4h window)",
-        "type": "CALLED",
-        "confidence": 0.96,
-        "evidence_source": "CDR_TOWER_DUMP",
-        "metadata": { "call_count": 14, "total_duration_seconds": 680 }
-      },
-      {
-        "id": "rel-04",
-        "source": "phone-priya",
-        "target": "loc-kashmere-gate",
-        "label": "LAST PING 21:45",
-        "type": "CO_LOCATED",
-        "confidence": 0.95,
-        "evidence_source": "CELL_TOWER_TRIANGULATION"
-      },
-      {
-        "id": "rel-05",
-        "source": "phone-burner-rakesh",
-        "target": "loc-kashmere-gate",
-        "label": "CO-LOCATED 21:30–22:00",
-        "type": "CO_LOCATED",
-        "confidence": 0.94,
-        "evidence_source": "CELL_TOWER_TRIANGULATION"
-      },
-      {
-        "id": "rel-06",
-        "source": "person-rakesh",
-        "target": "person-vikram",
-        "label": "DIRECT COORDINATION",
-        "type": "ASSOCIATE_OF",
-        "confidence": 0.89,
-        "evidence_source": "WHATSAPP_FORENSIC_TRACES"
-      },
-      {
-        "id": "rel-07",
-        "source": "person-vikram",
-        "target": "vehicle-dl01-9921",
-        "label": "REGISTERED DRIVER",
-        "type": "DRIVES",
-        "confidence": 0.98,
-        "evidence_source": "VAHAN_REGISTRY"
-      },
-      {
-        "id": "rel-08",
-        "source": "vehicle-dl01-9921",
-        "target": "loc-singhu-border",
-        "label": "ANPR SIGHTING 22:15",
-        "type": "TRANSITED_THROUGH",
-        "confidence": 0.97,
-        "evidence_source": "ANPR_TOLL_FEED"
-      },
-      {
-        "id": "rel-09",
-        "source": "person-rakesh",
-        "target": "bank-mule-01",
-        "label": "BENEFICIARY",
-        "type": "ACCOUNT_CONTROLLER",
-        "confidence": 0.91,
-        "evidence_source": "BANK_STATEMENT_UPI"
-      }
-    ]
+      "supporting_records": [
+        "ANPR-TOLL-SINGHU-04",
+        "VAHAN-REG-DL01-9921"
+      ],
+      "provenance_hash": "7b1c3d5e7f9a1b3c5d7e9f1a3b5c7d9e1f3a5b7c9d1e3f5a7b9c1d3e5f7a9b1c"
+    }
   },
   "timeline": [
     {
-      "event_id": "evt-01",
+      "event_id": "evt-001",
       "timestamp": "2026-09-02T18:30:00Z",
       "title": "First Contact Initiated",
       "category": "TELECOM",
       "source_record_id": "CDR-DEL-0902-1",
       "location": "Laxmi Nagar, Delhi",
-      "involved_entities": ["phone-burner-rakesh", "phone-priya"],
-      "description": "Incoming call received on Priya's device from burner SIM.",
+      "involved_entities": ["phone-burner-rakesh", "person-priya"],
+      "description": "Incoming call received on Priya's device from burner SIM (+91 98710 44219).",
       "confidence": 0.96
     },
     {
-      "event_id": "evt-02",
+      "event_id": "evt-002",
       "timestamp": "2026-09-02T21:45:00Z",
-      "title": "Last Cellular Signal Recorded",
+      "title": "Last Known Mobile Signal",
       "category": "TELECOM",
       "source_record_id": "CDR-DEL-0902-88",
-      "location": "ISBT Kashmere Gate",
-      "involved_entities": ["phone-priya", "loc-kashmere-gate"],
-      "description": "Final cellular ping before device was abruptly switched off.",
+      "location": "ISBT Kashmere Gate, Tower #482",
+      "involved_entities": ["person-priya", "phone-burner-rakesh"],
+      "description": "Outbound call lasting 142 seconds before mobile device abrupt disconnect.",
       "confidence": 0.95
     },
     {
-      "event_id": "evt-03",
+      "event_id": "evt-003",
       "timestamp": "2026-09-02T22:05:00Z",
       "title": "Rapid Cash Withdrawal & UPI Transfer",
       "category": "BANKING",
@@ -267,15 +486,71 @@
       "confidence": 0.91
     },
     {
-      "event_id": "evt-04",
+      "event_id": "evt-004",
       "timestamp": "2026-09-02T22:15:00Z",
-      "title": "ANPR Vehicle Sighting at Exit Corridor",
+      "title": "Vehicle Sighted at Toll Plaza",
       "category": "CCTV_ANPR",
       "source_record_id": "ANPR-TOLL-SINGHU-04",
-      "location": "Singhu Border Toll Plaza",
+      "location": "Singhu Border Toll Plaza, Lane 4",
       "involved_entities": ["vehicle-dl01-9921", "person-vikram"],
-      "description": "Vehicle DL 01 AB 9921 recorded exiting Delhi state boundary at high speed.",
+      "description": "ANPR camera captured vehicle DL 01 AB 9921 heading north exiting Delhi state boundary.",
       "confidence": 0.97
+    }
+  ],
+  "provenance": {
+    "case_id": "DL-2026-0412",
+    "status": "VERIFIED_INTACT",
+    "bsa_section_63_compliant": true,
+    "total_evidence_blocks": 84,
+    "genesis_timestamp": "2026-09-02T23:00:00Z",
+    "latest_block_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "merkle_root": "8f4e2c1b9a8d7e6f5c4b3a210987654321fedcba0987654321abcdef01234567",
+    "audit_trail": [
+      {
+        "block_index": 1,
+        "record_id": "FIR-412/2026",
+        "sha256": "4b227777d4dd1fc61c6f884f48641d02b4d121d3fd328cb08b5531fcacdabf8a",
+        "timestamp": "2026-09-02T23:05:12Z",
+        "officer_badge": "DP-SI-4921",
+        "status": "VALID"
+      },
+      {
+        "block_index": 2,
+        "record_id": "CDR-DEL-0902-88",
+        "sha256": "a591a6d40bf420404a011733cfb7b190d62c65bf0bcda32b57b277d9ad9f146e",
+        "timestamp": "2026-09-02T23:10:05Z",
+        "officer_badge": "DL-INV-301",
+        "status": "VALID"
+      },
+      {
+        "block_index": 3,
+        "record_id": "BANK-TX-4401",
+        "sha256": "c89b910123ef5a8b2d4f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d",
+        "timestamp": "2026-09-02T23:15:30Z",
+        "officer_badge": "DL-INV-301",
+        "status": "VALID"
+      },
+      {
+        "block_index": 4,
+        "record_id": "ANPR-TOLL-SINGHU-04",
+        "sha256": "7b1c3d5e7f9a1b3c5d7e9f1a3b5c7d9e1f3a5b7c9d1e3f5a7b9c1d3e5f7a9b1c",
+        "timestamp": "2026-09-02T23:22:18Z",
+        "officer_badge": "DP-HW-881",
+        "status": "VALID"
+      }
+    ]
+  },
+  "query_templates": [
+    {
+      "query": "What connects Rakesh Kumar to the vehicle sighted at Singhu Border?",
+      "answer": "Rakesh Kumar is connected to vehicle DL 01 AB 9921 through Fastag billing records registered to his associated mobile (+91 98710 44219) and matching ANPR toll camera logs at Singhu Border at 22:15 on 02-Sep-2026.",
+      "confidence": 0.94,
+      "cited_entities": ["person-rakesh", "vehicle-dl01-9921", "phone-burner-rakesh"],
+      "cited_sources": ["ANPR-TOLL-SINGHU-04", "FASTAG-TX-8812"],
+      "suggested_actions": [
+        "Highlight path between Rakesh Kumar and Vehicle DL 01 AB 9921",
+        "Inspect Singhu Border CCTV timeline segment"
+      ]
     }
   ]
 }
