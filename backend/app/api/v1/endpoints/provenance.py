@@ -11,3 +11,9 @@ async def verify_provenance(case_id: str):
     if not prov:
         raise HTTPException(status_code=404, detail=f"Provenance records for case '{case_id}' not found")
     return prov
+
+@router.post("/evidence/verify", response_model=ProvenanceResponse, summary="Direct evidence verification alias")
+@router.get("/evidence/verify", response_model=ProvenanceResponse, summary="Direct evidence verification alias (GET)")
+async def verify_evidence_alias(case_id: str = "DL-2026-0412"):
+    """Direct alias for the evidence verification modal."""
+    return await verify_provenance(case_id)

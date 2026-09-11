@@ -16,7 +16,6 @@ if str(ROOT_DIR) not in sys.path:
 
 from backend.app.core.config import settings
 from backend.app.api.v1.api import api_router as v1_api_router
-from backend.app.api.routes import router as core_api_router
 from backend.app.security.security_headers import SecurityHeadersMiddleware
 
 app = FastAPI(
@@ -45,9 +44,6 @@ app.add_middleware(
 
 # 3. Mount Modular V1 API Routers (Cases, Forensics, Auth, External, Audit)
 app.include_router(v1_api_router, prefix=settings.API_V1_STR)
-
-# 4. Mount Core API Route Aliases (Assistant & Evidence verification shortcuts)
-app.include_router(core_api_router)
 
 
 @app.get("/health", tags=["System"])

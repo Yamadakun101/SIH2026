@@ -10,6 +10,11 @@ router = APIRouter()
     response_model=CaseForensicsOverview,
     summary="Retrieve complete multi-category forensic intelligence overview"
 )
+@router.get(
+    "/cases/{case_id}/forensics/overview",
+    response_model=CaseForensicsOverview,
+    summary="Retrieve complete multi-category forensic intelligence overview (alias)"
+)
 async def get_case_forensics(case_id: str):
     """
     Returns full multi-source forensic evidence profiles across all 8 disciplines:
