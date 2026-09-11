@@ -117,6 +117,9 @@ export const CASES_LIST = {
       date: '02 Sep 2026',
       agency: 'Crime Branch / Special Cell, Delhi Police',
       status: 'ACTIVE_INVESTIGATION',
+      importance: 'HIGH',
+      importanceLabel: 'High Importance / Critical',
+      importanceColor: '#dc2626',
       risk: 'HIGH',
       summary: 'Victim Pooja Sharma disappeared near North Campus DU. CCTV and ANPR correlation tracks transit vehicle DL 01 AX 4492 towards Singhu/Murthal and Kundli safehouse.',
       entitiesCount: 17,
@@ -130,11 +133,174 @@ export const CASES_LIST = {
       date: '28 Aug 2026',
       agency: 'Cyber Crime Unit, Delhi Police',
       status: 'MONITORING',
+      importance: 'MEDIUM',
+      importanceLabel: 'Medium Importance',
+      importanceColor: '#d97706',
       risk: 'MEDIUM',
       summary: 'Rapid UPI layering across mule accounts originating from Karol Bagh & Civil Lines accounts.',
       entitiesCount: 14,
       evidenceCount: 49,
       matchRate: '88.5%'
+    }
+  ],
+  UP: [
+    {
+      id: 'UP-2026-1102',
+      title: 'Inter-State Illegal Arms & Smuggling Syndicate',
+      fir: 'FIR 214/2026 PS Cantt Varanasi',
+      date: '29 Aug 2026',
+      agency: 'STF, Uttar Pradesh Police',
+      status: 'ACTIVE_INVESTIGATION',
+      importance: 'HIGH',
+      importanceLabel: 'High Importance / Critical',
+      importanceColor: '#dc2626',
+      risk: 'HIGH',
+      summary: 'Interception of arms supply chain along National Highway 19 with encrypted communication links to border distributors.',
+      entitiesCount: 22,
+      evidenceCount: 104,
+      matchRate: '96.4%'
+    },
+    {
+      id: 'UP-2026-0945',
+      title: 'Land Record Forgery & Revenue Document Alteration',
+      fir: 'FIR 145/2026 PS Gomti Nagar Lucknow',
+      date: '15 Aug 2026',
+      agency: 'EOW, Uttar Pradesh Police',
+      status: 'MONITORING',
+      importance: 'MEDIUM',
+      importanceLabel: 'Medium Importance',
+      importanceColor: '#d97706',
+      risk: 'MEDIUM',
+      summary: 'Synthetic mutation documents created to usurp commercial parcels in Lucknow development area.',
+      entitiesCount: 9,
+      evidenceCount: 38,
+      matchRate: '85.2%'
+    }
+  ],
+  MH: [
+    {
+      id: 'MH-2026-0881',
+      title: 'Organized Hawala Network & Multi-City Layering',
+      fir: 'FIR 402/2026 PS Azad Maidan Mumbai',
+      date: '01 Sep 2026',
+      agency: 'Crime Branch Mumbai / ED Liaison',
+      status: 'ACTIVE_INVESTIGATION',
+      importance: 'HIGH',
+      importanceLabel: 'High Importance / Critical',
+      importanceColor: '#dc2626',
+      risk: 'HIGH',
+      summary: 'Cross-border illicit remittance pipeline mapped through diamond bourses and crypto liquidity pools.',
+      entitiesCount: 28,
+      evidenceCount: 130,
+      matchRate: '95.8%'
+    }
+  ],
+  PB: [
+    {
+      id: 'PB-2026-0519',
+      title: 'Cross-Border Drone Contraband Transit Network',
+      fir: 'FIR 88/2026 PS Sadar Amritsar',
+      date: '26 Aug 2026',
+      agency: 'SSOC, Punjab Police',
+      status: 'ACTIVE_INVESTIGATION',
+      importance: 'HIGH',
+      importanceLabel: 'High Importance / Critical',
+      importanceColor: '#dc2626',
+      risk: 'HIGH',
+      summary: 'Automated waypoint drone payloads intercepted near border villages with geo-fence coordinate correlation.',
+      entitiesCount: 15,
+      evidenceCount: 72,
+      matchRate: '93.1%'
+    }
+  ],
+  RJ: [
+    {
+      id: 'RJ-2026-0440',
+      title: 'Impersonation & Fake Government Recruitment Scam',
+      fir: 'FIR 182/2026 PS Vidhyadhar Nagar Jaipur',
+      date: '19 Aug 2026',
+      agency: 'SOG, Rajasthan Police',
+      status: 'UNDER_INQUIRY',
+      importance: 'MEDIUM',
+      importanceLabel: 'Medium Importance',
+      importanceColor: '#d97706',
+      risk: 'MEDIUM',
+      summary: 'Fraudulent examination portals issuing bogus appointment orders for state administrative positions.',
+      entitiesCount: 11,
+      evidenceCount: 52,
+      matchRate: '87.3%'
+    }
+  ],
+  WB: [
+    {
+      id: 'WB-2026-0612',
+      title: 'Counterfeit Note Circulation & Printing Nexus',
+      fir: 'FIR 99/2026 PS Malda Town',
+      date: '14 Aug 2026',
+      agency: 'CID, West Bengal Police',
+      status: 'MONITORING',
+      importance: 'MEDIUM',
+      importanceLabel: 'Medium Importance',
+      importanceColor: '#d97706',
+      risk: 'MEDIUM',
+      summary: 'High-quality synthetic paper currency distribution tracked through border market hubs.',
+      entitiesCount: 13,
+      evidenceCount: 46,
+      matchRate: '89.0%'
+    }
+  ],
+  HR: [
+    {
+      id: 'HR-2026-0721',
+      title: 'Chassis Number Tampering & Luxury Car Racket',
+      fir: 'FIR 310/2026 PS DLF Phase 2 Gurugram',
+      date: '22 Aug 2026',
+      agency: 'Crime Branch Gurugram, Haryana Police',
+      status: 'UNDER_INQUIRY',
+      importance: 'MEDIUM',
+      importanceLabel: 'Medium Importance',
+      importanceColor: '#d97706',
+      risk: 'MEDIUM',
+      summary: 'Re-registration of total-loss vehicles using duplicate forged engine embossings.',
+      entitiesCount: 10,
+      evidenceCount: 39,
+      matchRate: '86.7%'
+    }
+  ],
+  GJ: [
+    {
+      id: 'GJ-2026-0210',
+      title: 'Routine Port Container Clearance Audit',
+      fir: 'Verification 45/2026 PS Mundra Port',
+      date: '10 Aug 2026',
+      agency: 'Marine Police & Port Security',
+      status: 'ROUTINE_CHECK',
+      importance: 'LOW',
+      importanceLabel: 'Low Importance / Minor',
+      importanceColor: '#16a34a',
+      risk: 'LOW',
+      summary: 'Discrepancy in manifest weights resolved as logistical labeling mismatch without contraband findings.',
+      entitiesCount: 5,
+      evidenceCount: 18,
+      matchRate: '76.0%'
+    }
+  ],
+  OR: [
+    {
+      id: 'OR-2026-0118',
+      title: 'Local Commercial Trademark Dispute',
+      fir: 'Complaint 22/2026 PS Saheed Nagar Bhubaneswar',
+      date: '05 Aug 2026',
+      agency: 'Bhubaneswar Commissionerate',
+      status: 'ROUTINE_CHECK',
+      importance: 'LOW',
+      importanceLabel: 'Low Importance / Minor',
+      importanceColor: '#16a34a',
+      risk: 'LOW',
+      summary: 'Minor packaging copyright dispute between retail hardware distributors.',
+      entitiesCount: 4,
+      evidenceCount: 12,
+      matchRate: '72.5%'
     }
   ],
   KA: [
@@ -145,11 +311,32 @@ export const CASES_LIST = {
       date: '12 Aug 2026',
       agency: 'CID Cyber Unit, Karnataka Police',
       status: 'CLOSED_CHARGESHEETED',
-      risk: 'MEDIUM',
-      summary: 'Illegal telecom VoIP exchange dismantled following synthetic packet inspection and CDR triangulation.',
+      importance: 'CLOSED',
+      importanceLabel: 'Closed Case / Chargesheeted',
+      importanceColor: '#2563eb',
+      risk: 'CLOSED',
+      summary: 'Illegal telecom VoIP exchange dismantled following synthetic packet inspection and CDR triangulation. Final chargesheet filed in Special Court.',
       entitiesCount: 12,
       evidenceCount: 41,
       matchRate: '91.0%'
+    }
+  ],
+  TN: [
+    {
+      id: 'TN-2026-0054',
+      title: 'Spurious Drug Manufacturing & Counterfeit Labeling',
+      fir: 'FIR 54/2026 PS Teynampet Chennai',
+      date: '28 Jul 2026',
+      agency: 'CB-CID, Tamil Nadu Police',
+      status: 'RESOLVED_CONVICTION',
+      importance: 'CLOSED',
+      importanceLabel: 'Closed Case / Resolved',
+      importanceColor: '#2563eb',
+      risk: 'CLOSED',
+      summary: 'Illicit formulation unit seized in industrial estate. All 4 main accused chargesheeted and convicted.',
+      entitiesCount: 16,
+      evidenceCount: 65,
+      matchRate: '97.2%'
     }
   ]
 };

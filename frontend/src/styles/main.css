@@ -250,6 +250,60 @@ body {
 .stat-val.med { color: #d97706; }
 .stat-val.blue { color: var(--gov-navy); }
 
+.map-color-stats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+  padding: 0.85rem 1.15rem;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.map-stat-pill {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-light);
+  border-left-width: 4px;
+  border-radius: var(--radius-sm);
+  padding: 0.5rem 0.65rem;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.map-stat-pill:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
+}
+
+.map-stat-pill.active {
+  box-shadow: 0 0 0 2px var(--gov-navy);
+  background: #f8fafc;
+}
+
+.stat-pill-label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-bottom: 0.15rem;
+}
+
+.stat-pill-val {
+  font-size: 0.95rem;
+  font-weight: 800;
+}
+
+.color-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.color-dot.red { background: #dc2626; box-shadow: 0 0 6px rgba(220, 38, 38, 0.4); }
+.color-dot.yellow { background: #d97706; box-shadow: 0 0 6px rgba(217, 119, 6, 0.4); }
+.color-dot.green { background: #16a34a; box-shadow: 0 0 6px rgba(22, 163, 74, 0.4); }
+.color-dot.blue { background: #2563eb; box-shadow: 0 0 6px rgba(37, 99, 235, 0.4); }
+
 .state-list-section {
   padding: 0.85rem 1.15rem;
   flex: 1;
@@ -281,13 +335,12 @@ body {
 }
 
 .state-item:hover {
-  border-color: var(--gov-navy);
-  background: #f8faff;
+  transform: translateX(2px);
+  box-shadow: var(--shadow-sm);
 }
 
 .state-item.selected {
-  border-color: var(--gov-navy);
-  background: #eff6ff;
+  box-shadow: 0 0 0 1.5px var(--gov-navy);
 }
 
 .state-item-name {
@@ -298,6 +351,107 @@ body {
 
 .state-item-cases {
   font-size: 0.7rem;
+  color: var(--text-secondary);
+}
+
+/* Map Top Bar with Filter Chips */
+.map-top-bar {
+  position: absolute;
+  top: 1.25rem;
+  left: 1.5rem;
+  right: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  pointer-events: auto;
+}
+
+.map-filter-group {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--border-medium);
+  padding: 0.35rem 0.5rem;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+}
+
+.map-filter-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.35rem 0.65rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.map-filter-btn:hover {
+  background: #f1f5f9;
+  color: var(--text-primary);
+}
+
+.map-filter-btn.active {
+  background: #0f172a;
+  color: #ffffff;
+  border-color: #0f172a;
+}
+
+.map-filter-btn.high.active { background: #dc2626; border-color: #dc2626; color: #ffffff; }
+.map-filter-btn.med.active { background: #d97706; border-color: #d97706; color: #ffffff; }
+.map-filter-btn.low.active { background: #16a34a; border-color: #16a34a; color: #ffffff; }
+.map-filter-btn.closed.active { background: #2563eb; border-color: #2563eb; color: #ffffff; }
+
+/* Floating Map Legend Dock */
+.map-legend-dock {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 1.5rem;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-md);
+  padding: 0.65rem 0.85rem;
+  box-shadow: var(--shadow-md);
+  max-width: 480px;
+}
+
+.map-legend-header {
+  font-size: 0.68rem;
+  font-weight: 800;
+  color: var(--gov-navy);
+  letter-spacing: 0.05em;
+  margin-bottom: 0.45rem;
+  text-transform: uppercase;
+}
+
+.map-legend-items-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.45rem 0.85rem;
+}
+
+.map-legend-item-card {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.legend-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.legend-desc {
+  font-size: 0.65rem;
   color: var(--text-secondary);
 }
 
