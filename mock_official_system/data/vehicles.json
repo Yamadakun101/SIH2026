@@ -1,0 +1,16 @@
+{
+  "VEHICLE:DL-01-AB-9921": {
+    "source_system": "MOCK_VAHAN_NATIONAL_REGISTRY",
+    "registration_number": "DL 01 AB 9921",
+    "vehicle_class": "Commercial Motor Cab",
+    "registered_owner": "Vikram Singh",
+    "owner_relative_name": "Joginder Singh",
+    "registered_rto": "Mall Road RTO, Delhi",
+    "chassis_number": "MA3EKB01S0091283",
+    "engine_number": "K12MN4829101",
+    "insurance_valid_upto": "2027-04-15",
+    "fitness_valid_upto": "2028-02-10",
+    "fastag_bank": "State Bank of India",
+    "fastag_id": "FASTAG-TX-8812"
+  }
+}

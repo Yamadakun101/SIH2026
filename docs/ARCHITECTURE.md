@@ -89,3 +89,42 @@ flowchart TD
 3. **Graph**: Entities & relationships inserted into Neo4j graph structure.
 4. **Analyze**: Centrality & community algorithms run, updating node metrics.
 5. **Present**: Frontend retrieves graph payload via FastAPI REST API and renders interactive canvas.
+
+---
+
+## 4. Zero-Trust External Integration & Security Architecture
+
+KavachNet implements a high-assurance security perimeter for inter-agency and external departmental intelligence queries:
+
+```mermaid
+sequenceDiagram
+    autonumber
+    participant UI as Client (Investigator)
+    participant API as CrimeNet Backend
+    participant Auth as RBAC & Case Clearance
+    participant Ext as Mock Official Provider
+    participant DB as Knowledge Graph & BSA Vault
+
+    UI->>API: POST /api/v1/auth/login (Argon2id)
+    API-->>UI: JWT Bearer Token (Role & Assigned Cases)
+    UI->>API: POST /api/v1/external/fetch (Token + Case Clearance)
+    API->>Auth: Verify JWT & Case Assignment
+    Auth-->>API: Authorized
+    API->>Ext: POST /challenge (client_id, request_id, resource)
+    Ext-->>API: Nonce + Timestamp + Challenge Expiration
+    API->>API: Compute HMAC-SHA-256 Proof over Canonical String
+    API->>Ext: POST /fetch (Proof + Nonce + Request ID)
+    Ext->>Ext: Validate HMAC & Enforce Single-Use Nonce
+    Ext->>Ext: Sign Canonical JSON with Ed25519 Private Key
+    Ext-->>API: SecureDataPacket (Payload + SHA-256 + Ed25519 Sig)
+    API->>API: Verify SHA-256 Digest & Ed25519 Signature
+    API->>DB: Seal Raw Ingestion Envelope (BSA 2023 Sec 63)
+    API->>DB: Ingest Normalized Entities into Knowledge Graph
+    API-->>UI: Sanitized Ingestion Summary & Envelope Record
+```
+
+- **Authentication & Authorization**: Argon2id password hashing, JWT RBAC (`INVESTIGATOR`, `SUPERVISOR`, `ADMIN`), and case-level clearances.
+- **Mutual Challenge-Response**: Ephemeral single-use nonces, sliding-window timestamps, canonical string HMAC-SHA-256 proof.
+- **Asymmetric Data Integrity**: Ed25519 cryptographic signatures and SHA-256 content digests preventing tampering and repudiation.
+- **Tamper-Evident Audit Ledger**: Redacts secrets/passwords, tracks authentication, external queries, security denials, and rate limit violations.
+

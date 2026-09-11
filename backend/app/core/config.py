@@ -21,4 +21,18 @@ class Settings(BaseModel):
     BASE_DIR: Path = Path(__file__).resolve().parent.parent.parent.parent
     DATA_PATH: Path = BASE_DIR / "data" / "dl-2026-0412.json"
 
+    # Security & JWT Configuration
+    JWT_SECRET_KEY: str = "kavachnet-dev-secret-key-change-in-production-2026"
+    JWT_ALGORITHM: str = "HS256"
+    ACCESS_TOKEN_EXPIRE_MINUTES: int = 60
+
+    # Secure External Provider Integration
+    OFFICIAL_PROVIDER_CLIENT_ID: str = "CRIMENET-DEL-HQ"
+    OFFICIAL_PROVIDER_SHARED_SECRET: str = "kavachnet-official-shared-secret-key-2026"
+    OFFICIAL_PROVIDER_BASE_URL: str = "https://mock-official-provider.internal"
+    CHALLENGE_TIMEOUT_SECONDS: int = 120
+
+    # Rate Limiting
+    RATE_LIMIT_PER_MINUTE: int = 60
+
 settings = Settings()

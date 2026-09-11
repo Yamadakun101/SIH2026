@@ -1,0 +1,12 @@
+{
+  "CCTV:ANPR-SINGHU-04": {
+    "source_system": "MOCK_NHAI_TOLL_HIGHWAY_SURVEILLANCE",
+    "toll_plaza": "Singhu Border Toll Plaza, NH-44",
+    "lane": "Lane 4 Northbound",
+    "timestamp": "2026-09-02T22:15:00Z",
+    "captured_plate": "DL 01 AB 9921",
+    "vehicle_speed_kmph": 78.0,
+    "fastag_scanned_id": "FASTAG-TX-8812",
+    "camera_firmware": "ANPR-SEC-v4.1.9"
+  }
+}

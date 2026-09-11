@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from backend.app.core.config import settings
 from backend.app.api.v1.api import api_router
+from backend.app.security.security_headers import SecurityHeadersMiddleware
 
 app = FastAPI(
     title=settings.PROJECT_NAME,
@@ -11,6 +12,9 @@ app = FastAPI(
     docs_url="/docs",
     redoc_url="/redoc"
 )
+
+# Attach Security Headers Middleware
+app.add_middleware(SecurityHeadersMiddleware)
 
 # Set up CORS middleware for Vite frontend and local tools
 app.add_middleware(
