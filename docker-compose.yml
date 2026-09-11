@@ -1,0 +1,50 @@
+version: "3.8"
+
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    container_name: kavachnet-backend
+    ports:
+      - "8000:8000"
+    environment:
+      - DATABASE_URL=postgresql://kavachnet:kavachnet@postgres:5432/kavachnet
+      - NEO4J_URI=bolt://neo4j:7687
+      - NEO4J_USER=neo4j
+      - NEO4J_PASSWORD=kavachnet2026
+    depends_on:
+      - postgres
+      - neo4j
+    volumes:
+      - ./data:/app/data
+
+  postgres:
+    image: postgres:16-alpine
+    container_name: kavachnet-postgres
+    restart: always
+    environment:
+      - POSTGRES_DB=kavachnet
+      - POSTGRES_USER=kavachnet
+      - POSTGRES_PASSWORD=kavachnet
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  neo4j:
+    image: neo4j:5.18.0-community
+    container_name: kavachnet-neo4j
+    restart: always
+    ports:
+      - "7474:7474"
+      - "7687:7687"
+    environment:
+      - NEO4J_AUTH=neo4j/kavachnet2026
+      - NEO4J_PLUGINS=["apoc", "graph-data-science"]
+    volumes:
+      - neo4jdata:/data
+
+volumes:
+  pgdata:
+  neo4jdata:

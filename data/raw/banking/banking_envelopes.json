@@ -1,0 +1,94 @@
+[
+  {
+    "record_id": "REC-BANK-TX-4401",
+    "source_type": "BANK",
+    "ingested_at": "2026-09-11T11:20:43.224879+00:00",
+    "ingested_by_badge": "DL-INV-301",
+    "raw_content": {
+      "tx_id": "BANK-TX-4401",
+      "timestamp": "2026-09-02T22:05:00Z",
+      "account_number": "HDFC-\u2022\u20224091",
+      "upi_vpa": "rkenterprises@okhdfc",
+      "tx_type": "ATM_CASH_WITHDRAWAL",
+      "amount_inr": 45000.0,
+      "balance_after_inr": 1250.0,
+      "terminal_id": "ATM-DEL-CIVIL-04",
+      "channel": "ATM",
+      "remarks": "Rapid Cash Dispense Civil Lines Delhi"
+    },
+    "provenance": {
+      "sha256_hash": "e2daaf4aaaa04b6ae967377b4e506652a27c1865afb1604a1d3a9bd41c72d5a0",
+      "block_height": 1,
+      "previous_hash": "0000000000000000000000000000000000000000000000000000000000000000"
+    }
+  },
+  {
+    "record_id": "REC-BANK-TX-4398",
+    "source_type": "BANK",
+    "ingested_at": "2026-09-11T11:20:43.224907+00:00",
+    "ingested_by_badge": "DL-INV-301",
+    "raw_content": {
+      "tx_id": "BANK-TX-4398",
+      "timestamp": "2026-09-02T21:50:00Z",
+      "account_number": "HDFC-\u2022\u20224091",
+      "upi_vpa": "rkenterprises@okhdfc",
+      "tx_type": "UPI_CREDIT",
+      "amount_inr": 25000.0,
+      "balance_after_inr": 46250.0,
+      "terminal_id": "UPI-GATEWAY-IN",
+      "channel": "UPI",
+      "remarks": "P2P transfer from anonymous wallet ID 9871044219@paytm"
+    },
+    "provenance": {
+      "sha256_hash": "71321a1f944728b66b4c444bd27d07b826e92225ab301b1066c4b293f25e7ec4",
+      "block_height": 1,
+      "previous_hash": "0000000000000000000000000000000000000000000000000000000000000000"
+    }
+  },
+  {
+    "record_id": "REC-BANK-TX-4395",
+    "source_type": "BANK",
+    "ingested_at": "2026-09-11T11:20:43.224916+00:00",
+    "ingested_by_badge": "DL-INV-301",
+    "raw_content": {
+      "tx_id": "BANK-TX-4395",
+      "timestamp": "2026-09-02T21:35:00Z",
+      "account_number": "HDFC-\u2022\u20224091",
+      "upi_vpa": "rkenterprises@okhdfc",
+      "tx_type": "UPI_CREDIT",
+      "amount_inr": 20000.0,
+      "balance_after_inr": 21250.0,
+      "terminal_id": "UPI-GATEWAY-IN",
+      "channel": "UPI",
+      "remarks": "IMPS transfer from Travel Agency shell account"
+    },
+    "provenance": {
+      "sha256_hash": "f7cbf5d3860e246f44b4f22a0abb1d2d9550dc097475a47c41d4c8f6943c9c8d",
+      "block_height": 1,
+      "previous_hash": "0000000000000000000000000000000000000000000000000000000000000000"
+    }
+  },
+  {
+    "record_id": "REC-BANK-TX-4410",
+    "source_type": "BANK",
+    "ingested_at": "2026-09-11T11:20:43.224923+00:00",
+    "ingested_by_badge": "DL-INV-301",
+    "raw_content": {
+      "tx_id": "BANK-TX-4410",
+      "timestamp": "2026-09-02T22:45:00Z",
+      "account_number": "HDFC-\u2022\u20224091",
+      "upi_vpa": "rkenterprises@okhdfc",
+      "tx_type": "NEFT_TRANSFER_OUT",
+      "amount_inr": 150000.0,
+      "balance_after_inr": 3200.0,
+      "terminal_id": "NETBANKING-IP-103.41",
+      "channel": "NEFT",
+      "remarks": "Logistics clearing transit payment to Panipat Lodge Account"
+    },
+    "provenance": {
+      "sha256_hash": "ddc0578a36f4c678ce3ccf37a8edfbb5d372489366fd0a4ee793f9b010c38bca",
+      "block_height": 1,
+      "previous_hash": "0000000000000000000000000000000000000000000000000000000000000000"
+    }
+  }
+]

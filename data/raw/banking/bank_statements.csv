@@ -1,0 +1,5 @@
+tx_id,timestamp,account_number,upi_vpa,tx_type,amount_inr,balance_after_inr,terminal_id,channel,remarks
+BANK-TX-4401,2026-09-02T22:05:00Z,HDFC-••4091,rkenterprises@okhdfc,ATM_CASH_WITHDRAWAL,45000.0,1250.0,ATM-DEL-CIVIL-04,ATM,Rapid Cash Dispense Civil Lines Delhi
+BANK-TX-4398,2026-09-02T21:50:00Z,HDFC-••4091,rkenterprises@okhdfc,UPI_CREDIT,25000.0,46250.0,UPI-GATEWAY-IN,UPI,P2P transfer from anonymous wallet ID 9871044219@paytm
+BANK-TX-4395,2026-09-02T21:35:00Z,HDFC-••4091,rkenterprises@okhdfc,UPI_CREDIT,20000.0,21250.0,UPI-GATEWAY-IN,UPI,IMPS transfer from Travel Agency shell account
+BANK-TX-4410,2026-09-02T22:45:00Z,HDFC-••4091,rkenterprises@okhdfc,NEFT_TRANSFER_OUT,150000.0,3200.0,NETBANKING-IP-103.41,NEFT,Logistics clearing transit payment to Panipat Lodge Account

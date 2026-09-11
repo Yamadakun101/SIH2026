@@ -1,0 +1,30 @@
+{
+  "record_id": "REC-FIR-FIR-418",
+  "source_type": "FIR",
+  "ingested_at": "2026-09-11T11:20:43.221990+00:00",
+  "ingested_by_badge": "DP-INSP-1092",
+  "raw_content": {
+    "fir_number": "FIR-418/2026/PS-MajnuKaTilla",
+    "case_id": "DL-2026-0418",
+    "police_station": "PS Majnu Ka Tilla, Delhi",
+    "date_of_registration": "2026-09-01T14:15:00Z",
+    "date_of_occurrence": "2026-09-01T11:00:00Z",
+    "acts_sections": [
+      "BNS Section 318 (Cheating)",
+      "BNS Section 336 (Forged Documents)"
+    ],
+    "complainant_name": "Sunil Verma",
+    "complainant_relation": "Store Owner",
+    "victim_name": "Telecom Franchise",
+    "victim_age": null,
+    "incident_narrative": "Unauthorized bulk SIM activation using forged Aadhaar photocopies reported at franchise counter. Handset IMEI footprints linked to syndicate operator known alias Raka.",
+    "investigating_officer": "Inspector Manoj Kumar",
+    "io_badge_number": "DP-INSP-1092",
+    "status": "LINKED_INVESTIGATION"
+  },
+  "provenance": {
+    "sha256_hash": "d38eea4336338fa8af19d78a8f83b934c90f6390b6d80dc781bc7622f9984b33",
+    "block_height": 1,
+    "previous_hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  }
+}

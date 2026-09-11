@@ -1,0 +1,50 @@
+[
+  {
+    "record_id": "REC-HTL-DEL-MAJNU-81",
+    "source_type": "HOTEL",
+    "ingested_at": "2026-09-11T11:20:43.226773+00:00",
+    "ingested_by_badge": "DL-INV-301",
+    "raw_content": {
+      "register_id": "HTL-DEL-MAJNU-81",
+      "lodge_name": "Riverside Comfort Inn, Majnu Ka Tilla",
+      "check_in_time": "2026-09-02T14:30:00Z",
+      "check_out_time": "2026-09-02T20:45:00Z",
+      "guest_name_entered": "R. Kumar",
+      "id_proof_type": "AADHAAR_PHOTOCOPY",
+      "id_proof_number_masked": "\u2022\u2022\u2022\u2022 \u2022\u2022\u2022\u2022 9921",
+      "contact_number": "+919871044219",
+      "room_number": "304",
+      "accompanying_person": "Vikram S.",
+      "payment_mode": "CASH"
+    },
+    "provenance": {
+      "sha256_hash": "02b9850b16460db49762868a59ac64d065b85e0d3ff69e77b4aae13e43d4e4c1",
+      "block_height": 1,
+      "previous_hash": "0000000000000000000000000000000000000000000000000000000000000000"
+    }
+  },
+  {
+    "record_id": "REC-HTL-HR-AMBALA-12",
+    "source_type": "HOTEL",
+    "ingested_at": "2026-09-11T11:20:43.226797+00:00",
+    "ingested_by_badge": "DL-INV-301",
+    "raw_content": {
+      "register_id": "HTL-HR-AMBALA-12",
+      "lodge_name": "Highway Tourist Rest House, Ambala GT Road",
+      "check_in_time": "2026-09-03T01:15:00Z",
+      "check_out_time": "2026-09-03T05:30:00Z",
+      "guest_name_entered": "Vicky Singh",
+      "id_proof_type": "DRIVING_LICENSE",
+      "id_proof_number_masked": "DL-\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022381",
+      "contact_number": "+919711588201",
+      "room_number": "108",
+      "accompanying_person": "2 Guests Unregistered",
+      "payment_mode": "UPI"
+    },
+    "provenance": {
+      "sha256_hash": "f155ca89592603f6a3b881fac73ad6b70bcb0c39ce4487f9126e9cf6cdaf01f5",
+      "block_height": 1,
+      "previous_hash": "0000000000000000000000000000000000000000000000000000000000000000"
+    }
+  }
+]
