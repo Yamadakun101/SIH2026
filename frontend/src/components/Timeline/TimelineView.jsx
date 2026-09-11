@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { 
   Play, 
   Pause, 
@@ -13,14 +13,14 @@ import {
   Video, 
   Camera, 
   Car,
-  Crosshair,
-  ArrowRight
+  FileText
 } from 'lucide-react';
 
 export default function TimelineView({ timelineData, onSelectEntity }) {
   const [selectedCategory, setSelectedCategory] = useState('ALL');
   const [activeEventIndex, setActiveEventIndex] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
+  const scrollContainerRef = useRef(null);
 
   const filteredEvents = selectedCategory === 'ALL'
     ? timelineData
@@ -38,28 +38,36 @@ export default function TimelineView({ timelineData, onSelectEntity }) {
           }
           return prev + 1;
         });
-      }, 2400);
+      }, 2600);
     }
     return () => clearInterval(interval);
   }, [isPlaying, filteredEvents.length]);
 
-  const currentEvent = filteredEvents[activeEventIndex] || filteredEvents[0];
+  // Smooth scroll active card into view
+  useEffect(() => {
+    if (scrollContainerRef.current) {
+      const activeElement = scrollContainerRef.current.querySelector(`.timeline-branch-col:nth-child(${activeEventIndex + 1})`);
+      if (activeElement) {
+        activeElement.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+      }
+    }
+  }, [activeEventIndex]);
 
   const getCategoryIcon = (category) => {
     switch (category) {
       case 'TELECOM':
-        return <PhoneCall size={14} />;
+        return <PhoneCall size={13} />;
       case 'FINANCIAL':
       case 'BANKING':
-        return <CreditCard size={14} />;
+        return <CreditCard size={13} />;
       case 'SURVEILLANCE':
       case 'CCTV':
-        return <Video size={14} />;
+        return <Video size={13} />;
       case 'CONVEYANCE':
       case 'ANPR':
-        return <Car size={14} />;
+        return <Car size={13} />;
       default:
-        return <Clock size={14} />;
+        return <Clock size={13} />;
     }
   };
 
@@ -72,8 +80,8 @@ export default function TimelineView({ timelineData, onSelectEntity }) {
   };
 
   return (
-    <div className="horizontal-timeline-container">
-      {/* Top Filter & Playback Toolbar */}
+    <div className="horizontal-branching-timeline-container">
+      {/* Top Filter & Control Header */}
       <div className="timeline-top-bar">
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem' }}>
           <div className="playback-controls">
@@ -103,11 +111,11 @@ export default function TimelineView({ timelineData, onSelectEntity }) {
           </div>
 
           <div style={{ fontSize: '0.78rem', fontWeight: 600, color: 'var(--text-secondary)' }}>
-            Event {activeEventIndex + 1} of {filteredEvents.length}
+            Chronological Sequence: Event {activeEventIndex + 1} of {filteredEvents.length}
           </div>
         </div>
 
-        {/* Category Filter Chips */}
+        {/* Category Filters */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
           <Filter size={13} color="var(--text-secondary)" />
           {['ALL', 'FINANCIAL', 'SURVEILLANCE', 'CONVEYANCE', 'TELECOM'].map((cat) => (
@@ -127,94 +135,107 @@ export default function TimelineView({ timelineData, onSelectEntity }) {
         </div>
       </div>
 
-      {/* Main Horizontal Track Rail */}
-      <div className="horizontal-track-wrapper">
-        <div className="horizontal-track-line">
-          {/* Progress fill */}
-          <div 
-            className="horizontal-track-progress"
-            style={{
-              width: `${(activeEventIndex / Math.max(filteredEvents.length - 1, 1)) * 100}%`
-            }}
-          />
+      {/* Alternating Horizontal Timeline Tree (Matching Hand-Drawn Sketch) */}
+      <div className="branching-scroll-wrapper" ref={scrollContainerRef}>
+        <div className="branching-timeline-canvas">
+          
+          {/* Continuous Center Horizontal Spine Axis Line */}
+          <div className="central-horizontal-spine" />
 
-          {/* Milestone Step Nodes */}
-          {filteredEvents.map((evt, idx) => {
-            const isCompleted = idx <= activeEventIndex;
-            const isCurrent = idx === activeEventIndex;
+          {/* Event Columns with Alternating Top / Bottom Stem Connectors */}
+          <div className="timeline-branches-row">
+            {filteredEvents.map((evt, idx) => {
+              const isTop = idx % 2 === 0; // Even above, Odd below
+              const isCurrent = idx === activeEventIndex;
+              const isCompleted = idx <= activeEventIndex;
 
-            return (
-              <div
-                key={evt.id}
-                className={`horizontal-step-node ${isCurrent ? 'current' : ''} ${isCompleted ? 'completed' : ''}`}
-                style={{
-                  left: `${(idx / Math.max(filteredEvents.length - 1, 1)) * 100}%`
-                }}
-                onClick={() => {
-                  setActiveEventIndex(idx);
-                  setIsPlaying(false);
-                }}
-              >
-                {/* Node Pill Marker */}
-                <div className="step-marker-circle">
-                  {getCategoryIcon(evt.category)}
+              return (
+                <div 
+                  key={evt.id}
+                  className={`timeline-branch-col ${isTop ? 'branch-top' : 'branch-bottom'} ${isCurrent ? 'active-branch' : ''}`}
+                  onClick={() => {
+                    setActiveEventIndex(idx);
+                    setIsPlaying(false);
+                  }}
+                >
+                  {/* Top Card Area (if isTop) */}
+                  {isTop ? (
+                    <div className="branch-card-container top-position">
+                      <div className={`timeline-event-card-box ${isCurrent ? 'current-card' : ''}`}>
+                        <div className="card-top-row">
+                          <span className="gov-badge-match">
+                            {evt.match_pct}% Match
+                          </span>
+                          <span className="event-time-badge">
+                            {evt.time}
+                          </span>
+                        </div>
+
+                        <h4 className="event-card-title">{evt.title}</h4>
+                        <p className="event-card-description">{evt.description}</p>
+
+                        <div className="event-card-footer">
+                          <div className="event-location-text">
+                            <MapPin size={12} color="var(--gov-navy)" />
+                            <span>{evt.location}</span>
+                          </div>
+                          <span className="event-source-tag">{evt.source}</span>
+                        </div>
+                      </div>
+
+                      {/* Vertical Stem Line going DOWN to center axis */}
+                      <div className="stem-connector-line stem-down" />
+                    </div>
+                  ) : (
+                    <div className="branch-placeholder top-placeholder" />
+                  )}
+
+                  {/* Node Dot on the Central Axis */}
+                  <div className="center-node-anchor">
+                    <div className={`axis-node-dot ${isCurrent ? 'current-dot' : ''} ${isCompleted ? 'completed-dot' : ''}`}>
+                      {getCategoryIcon(evt.category)}
+                    </div>
+                    <div className="axis-node-timestamp">{evt.time}</div>
+                  </div>
+
+                  {/* Bottom Card Area (if not isTop) */}
+                  {!isTop ? (
+                    <div className="branch-card-container bottom-position">
+                      {/* Vertical Stem Line going UP to center axis */}
+                      <div className="stem-connector-line stem-up" />
+
+                      <div className={`timeline-event-card-box ${isCurrent ? 'current-card' : ''}`}>
+                        <div className="card-top-row">
+                          <span className="gov-badge-match">
+                            {evt.match_pct}% Match
+                          </span>
+                          <span className="event-time-badge">
+                            {evt.time}
+                          </span>
+                        </div>
+
+                        <h4 className="event-card-title">{evt.title}</h4>
+                        <p className="event-card-description">{evt.description}</p>
+
+                        <div className="event-card-footer">
+                          <div className="event-location-text">
+                            <MapPin size={12} color="var(--gov-navy)" />
+                            <span>{evt.location}</span>
+                          </div>
+                          <span className="event-source-tag">{evt.source}</span>
+                        </div>
+                      </div>
+                    </div>
+                  ) : (
+                    <div className="branch-placeholder bottom-placeholder" />
+                  )}
                 </div>
+              );
+            })}
+          </div>
 
-                {/* Step Time & Short Label Above/Below */}
-                <div className="step-label-box">
-                  <div className="step-time-text">{evt.time}</div>
-                  <div className="step-category-pill">{evt.category}</div>
-                </div>
-              </div>
-            );
-          })}
         </div>
       </div>
-
-      {/* Active Event Spotlight Card */}
-      {currentEvent && (
-        <div className="active-event-spotlight-card">
-          <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', marginBottom: '0.65rem' }}>
-            <div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem', marginBottom: '0.25rem' }}>
-                <span className="gov-badge-match">
-                  {currentEvent.match_pct}% Evidence Match Score
-                </span>
-                <span className="gov-badge-subtle">
-                  {currentEvent.category} EVENT
-                </span>
-              </div>
-              <h3 style={{ fontSize: '1.15rem', fontWeight: 700, color: 'var(--text-primary)', margin: 0 }}>
-                {currentEvent.title}
-              </h3>
-            </div>
-
-            <div style={{ textAlign: 'right' }}>
-              <div style={{ fontSize: '0.9rem', fontWeight: 700, color: 'var(--gov-navy)' }}>
-                {currentEvent.time}
-              </div>
-              <div style={{ fontSize: '0.72rem', color: 'var(--text-muted)' }}>
-                {currentEvent.date}
-              </div>
-            </div>
-          </div>
-
-          <p style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', lineHeight: 1.55, marginBottom: '0.85rem' }}>
-            {currentEvent.description}
-          </p>
-
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', borderTop: '1px solid var(--border-light)', paddingTop: '0.65rem', fontSize: '0.78rem' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', color: 'var(--text-secondary)' }}>
-              <MapPin size={14} color="var(--gov-navy)" />
-              <span><strong>Location:</strong> {currentEvent.location}</span>
-            </div>
-
-            <div style={{ fontFamily: 'monospace', fontSize: '0.72rem', color: 'var(--text-muted)' }}>
-              Source Record: <strong>{currentEvent.source}</strong>
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   );
 }
