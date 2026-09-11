@@ -7,10 +7,8 @@ import {
   Maximize2, 
   RotateCcw, 
   Search, 
-  Filter,
   Layers,
-  Crosshair,
-  ShieldAlert
+  Crosshair
 } from 'lucide-react';
 
 cytoscape.use(fcose);
@@ -171,8 +169,8 @@ export default function NetworkGraph({
             'border-width': 2,
             'border-color': '#0f172a',
             'color': '#0f172a',
-            'font-size': '9.5px',
-            'font-weight': '600',
+            'font-size': '10px',
+            'font-weight': 'bold',
             'font-family': '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
             'text-valign': 'bottom',
             'text-margin-y': 7,
@@ -183,10 +181,7 @@ export default function NetworkGraph({
             'text-background-padding': '3px',
             'text-background-shape': 'roundrectangle',
             'text-border-width': 1,
-            'text-border-color': '#e2e8f0',
-            'shadow-blur': 10,
-            'shadow-color': 'rgba(15, 23, 42, 0.1)',
-            'shadow-opacity': 0.8
+            'text-border-color': '#e2e8f0'
           }
         },
         {
@@ -199,8 +194,8 @@ export default function NetworkGraph({
             'arrow-scale': 1.0,
             'curve-style': 'bezier',
             'label': 'data(label)',
-            'font-size': '8px',
-            'font-weight': '600',
+            'font-size': '8.5px',
+            'font-weight': 'bold',
             'color': '#475569',
             'text-background-color': '#ffffff',
             'text-background-opacity': 0.95,
@@ -217,9 +212,9 @@ export default function NetworkGraph({
           style: {
             'border-width': 4.5,
             'border-color': '#1e3a8a',
-            'shadow-blur': 24,
-            'shadow-color': 'rgba(30, 58, 138, 0.45)',
-            'shadow-opacity': 1
+            'underlay-color': '#1e3a8a',
+            'underlay-padding': 6,
+            'underlay-opacity': 0.35
           }
         },
         {
@@ -229,7 +224,7 @@ export default function NetworkGraph({
             'line-color': '#1e3a8a',
             'target-arrow-color': '#1e3a8a',
             'color': '#1e3a8a',
-            'font-weight': '700',
+            'font-weight': 'bold',
             'z-index': 100
           }
         },
@@ -239,9 +234,9 @@ export default function NetworkGraph({
           style: {
             'border-width': 5,
             'border-color': '#b91c1c',
-            'shadow-blur': 28,
-            'shadow-color': 'rgba(185, 28, 28, 0.55)',
-            'shadow-opacity': 1
+            'underlay-color': '#b91c1c',
+            'underlay-padding': 8,
+            'underlay-opacity': 0.45
           }
         },
         {
@@ -251,7 +246,7 @@ export default function NetworkGraph({
             'line-color': '#b91c1c',
             'target-arrow-color': '#b91c1c',
             'color': '#b91c1c',
-            'font-weight': '700',
+            'font-weight': 'bold',
             'line-style': 'solid',
             'z-index': 110
           }
@@ -294,10 +289,6 @@ export default function NetworkGraph({
         // Highlight all directly connected edges and nodes
         const connectedEdges = node.connectedEdges();
         const connectedNeighbors = node.neighborhood();
-
-        // Also trace incoming paths and nexus evidence
-        const incomingEdges = node.incomers('edge');
-        const outgoingEdges = node.outgoers('edge');
 
         connectedEdges.removeClass('dimmed').addClass('culprit-incoming-edge');
         connectedNeighbors.removeClass('dimmed').addClass('highlighted-node');

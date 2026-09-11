@@ -1,11 +1,9 @@
 import React from 'react';
 import { 
   X, 
-  ShieldCheck, 
   FileText, 
   HelpCircle, 
   Database,
-  CheckCircle2,
   Percent
 } from 'lucide-react';
 

@@ -3,7 +3,6 @@ import {
   Network, 
   Clock, 
   FileCheck, 
-  Info, 
   Bot, 
   ChevronRight, 
   Award,
@@ -19,7 +18,7 @@ import TimelineView from './components/Timeline/TimelineView';
 import EvidenceTab from './components/Evidence/EvidenceTab';
 import AiAssistant from './components/Assistant/AiAssistant';
 import BsaCertificateModal from './components/Certificate/BsaCertificateModal';
-import { CASE_PROTOTYPE_DATA, CASES_LIST } from './data/casesData';
+import { CASE_PROTOTYPE_DATA } from './data/casesData';
 import './styles/main.css';
 
 export default function App() {

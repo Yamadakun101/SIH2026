@@ -8,8 +8,7 @@ import {
   ShieldCheck,
   FileText,
   CreditCard,
-  MapPin,
-  Video
+  MapPin
 } from 'lucide-react';
 
 export default function OverviewTab({ 

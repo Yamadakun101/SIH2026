@@ -7,13 +7,10 @@ import {
   Filter, 
   MapPin, 
   Clock, 
-  ShieldCheck, 
   CreditCard, 
   PhoneCall, 
   Video, 
-  Camera, 
-  Car,
-  FileText
+  Car
 } from 'lucide-react';
 
 export default function TimelineView({ timelineData, onSelectEntity }) {

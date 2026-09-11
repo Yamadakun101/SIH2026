@@ -2,10 +2,7 @@ import React from 'react';
 import { 
   X, 
   Printer, 
-  ShieldCheck, 
-  Lock, 
-  FileText, 
-  CheckCircle2 
+  ShieldCheck 
 } from 'lucide-react';
 
 export default function BsaCertificateModal({ caseData, onClose }) {
