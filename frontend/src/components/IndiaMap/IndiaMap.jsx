@@ -54,52 +54,48 @@ const COLOR_TIERS = {
   }
 };
 
-// Clean, simple and accurate India state polygons and coordinates
+// Precise coordinates aligned with the official India outline image
 const INDIA_REGIONS = [
   // 🔴 RED - HIGH IMPORTANCE / BIG CASES
   { 
     code: 'DL', 
     name: 'Delhi NCR', 
     capital: 'New Delhi', 
-    cx: 288, 
-    cy: 222, 
+    x: 345, 
+    y: 300, 
     cases: 4, 
     importance: 'HIGH', 
-    dominantCase: 'Kidnapping & Criminal Nexus (DL-2026-0412)',
-    path: 'M 280,215 L 296,215 L 296,230 L 280,230 Z'
+    dominantCase: 'Kidnapping & Criminal Nexus (DL-2026-0412)' 
   },
   { 
     code: 'UP', 
     name: 'Uttar Pradesh', 
     capital: 'Lucknow', 
-    cx: 350, 
-    cy: 265, 
+    x: 460, 
+    y: 355, 
     cases: 6, 
     importance: 'HIGH', 
-    dominantCase: 'Inter-State Arms Supply Syndicate',
-    path: 'M 290,210 L 410,240 L 415,300 L 340,320 L 285,270 Z'
+    dominantCase: 'Inter-State Arms Supply Syndicate' 
   },
   { 
     code: 'MH', 
     name: 'Maharashtra', 
     capital: 'Mumbai', 
-    cx: 255, 
-    cy: 455, 
+    x: 290, 
+    y: 590, 
     cases: 7, 
     importance: 'HIGH', 
-    dominantCase: 'Organized Hawala & Money Laundering',
-    path: 'M 195,410 L 310,410 L 330,490 L 220,500 L 190,450 Z'
+    dominantCase: 'Organized Hawala & Money Laundering' 
   },
   { 
     code: 'PB', 
     name: 'Punjab', 
     capital: 'Chandigarh', 
-    cx: 242, 
-    cy: 175, 
+    x: 280, 
+    y: 240, 
     cases: 3, 
     importance: 'HIGH', 
-    dominantCase: 'Cross-Border Drone Contraband Network',
-    path: 'M 220,150 L 265,165 L 255,200 L 220,190 Z'
+    dominantCase: 'Cross-Border Drone Contraband Network' 
   },
 
   // 🟡 YELLOW - MEDIUM IMPORTANCE
@@ -107,78 +103,71 @@ const INDIA_REGIONS = [
     code: 'RJ', 
     name: 'Rajasthan', 
     capital: 'Jaipur', 
-    cx: 195, 
-    cy: 270, 
+    x: 220, 
+    y: 365, 
     cases: 4, 
     importance: 'MEDIUM', 
-    dominantCase: 'Recruitment & Examination Fraud',
-    path: 'M 160,205 L 245,230 L 250,300 L 195,335 L 140,270 Z'
+    dominantCase: 'Recruitment & Examination Fraud' 
   },
   { 
     code: 'HR', 
     name: 'Haryana', 
     capital: 'Chandigarh', 
-    cx: 270, 
-    cy: 220, 
+    x: 320, 
+    y: 290, 
     cases: 3, 
     importance: 'MEDIUM', 
-    dominantCase: 'Vehicle Re-Registration Racket',
-    path: 'M 255,195 L 295,205 L 285,250 L 245,230 Z'
+    dominantCase: 'Vehicle Re-Registration Racket' 
   },
   { 
     code: 'WB', 
     name: 'West Bengal', 
     capital: 'Kolkata', 
-    cx: 485, 
-    cy: 315, 
+    x: 660, 
+    y: 465, 
     cases: 5, 
     importance: 'MEDIUM', 
-    dominantCase: 'Counterfeit Currency Circulation',
-    path: 'M 480,260 L 515,260 L 500,375 L 460,370 Z'
+    dominantCase: 'Counterfeit Currency Circulation' 
   },
   { 
     code: 'BR', 
     name: 'Bihar', 
     capital: 'Patna', 
-    cx: 445, 
-    cy: 280, 
+    x: 600, 
+    y: 395, 
     cases: 3, 
     importance: 'MEDIUM', 
-    dominantCase: 'Synthetic SIM Cloning Ring',
-    path: 'M 410,240 L 485,260 L 480,315 L 415,300 Z'
+    dominantCase: 'Synthetic SIM Cloning Ring' 
   },
   { 
     code: 'MP', 
     name: 'Madhya Pradesh', 
     capital: 'Bhopal', 
-    cx: 290, 
-    cy: 360, 
+    x: 380, 
+    y: 480, 
     cases: 4, 
     importance: 'MEDIUM', 
-    dominantCase: 'Mining Heavy Equipment Scam',
-    path: 'M 220,320 L 350,320 L 360,395 L 240,410 Z'
+    dominantCase: 'Mining Heavy Equipment Scam' 
   },
   { 
     code: 'TG', 
     name: 'Telangana', 
     capital: 'Hyderabad', 
-    cx: 325, 
-    cy: 480, 
+    x: 420, 
+    y: 640, 
     cases: 3, 
     importance: 'MEDIUM', 
-    dominantCase: 'Crypto Investment Layering',
-    path: 'M 290,445 L 365,450 L 345,515 L 290,490 Z'
+    dominantCase: 'Crypto Investment Layering' 
   },
   { 
     code: 'AS', 
-    name: 'Assam & North East', 
+    name: 'Assam', 
     capital: 'Dispur', 
-    cx: 575, 
-    cy: 265, 
+    x: 820, 
+    y: 375, 
     cases: 3, 
     importance: 'MEDIUM', 
-    dominantCase: 'Wildlife Transit Network',
-    path: 'M 525,250 L 610,230 L 620,290 L 535,300 Z'
+    dominantCase: 'Wildlife Transit Network' 
   },
 
   // 🟢 GREEN - LOW IMPORTANCE / MINOR CASES / ROUTINE
@@ -186,111 +175,171 @@ const INDIA_REGIONS = [
     code: 'GJ', 
     name: 'Gujarat', 
     capital: 'Gandhinagar', 
-    cx: 160, 
-    cy: 370, 
+    x: 145, 
+    y: 500, 
     cases: 2, 
     importance: 'LOW', 
-    dominantCase: 'Port Cargo Weight Discrepancy',
-    path: 'M 120,320 L 195,335 L 210,400 L 155,420 L 120,370 Z'
+    dominantCase: 'Port Cargo Weight Discrepancy' 
   },
   { 
     code: 'OR', 
     name: 'Odisha', 
     capital: 'Bhubaneswar', 
-    cx: 415, 
-    cy: 420, 
+    x: 575, 
+    y: 580, 
     cases: 3, 
     importance: 'LOW', 
-    dominantCase: 'Commercial Trademark Dispute',
-    path: 'M 390,370 L 465,370 L 430,470 L 370,440 Z'
+    dominantCase: 'Commercial Trademark Dispute' 
   },
   { 
     code: 'CT', 
     name: 'Chhattisgarh', 
     capital: 'Raipur', 
-    cx: 360, 
-    cy: 385, 
+    x: 495, 
+    y: 560, 
     cases: 2, 
     importance: 'LOW', 
-    dominantCase: 'Highway Checkpost Log Audit',
-    path: 'M 350,330 L 395,360 L 370,440 L 330,410 Z'
+    dominantCase: 'Highway Checkpost Log Audit' 
   },
   { 
     code: 'JH', 
     name: 'Jharkhand', 
     capital: 'Ranchi', 
-    cx: 440, 
-    cy: 335, 
+    x: 590, 
+    y: 470, 
     cases: 2, 
     importance: 'LOW', 
-    dominantCase: 'Industrial Equipment Verification',
-    path: 'M 415,300 L 480,315 L 460,370 L 400,350 Z'
+    dominantCase: 'Industrial Equipment Verification' 
   },
   { 
     code: 'AP', 
     name: 'Andhra Pradesh', 
     capital: 'Amaravati', 
-    cx: 355, 
-    cy: 535, 
+    x: 450, 
+    y: 740, 
     cases: 3, 
     importance: 'LOW', 
-    dominantCase: 'Retail Counterfeit Brand Alert',
-    path: 'M 345,500 L 400,470 L 360,600 L 315,570 Z'
+    dominantCase: 'Retail Counterfeit Brand Alert' 
   },
   { 
     code: 'KL', 
     name: 'Kerala', 
     capital: 'Thiruvananthapuram', 
-    cx: 258, 
-    cy: 640, 
+    x: 310, 
+    y: 885, 
     cases: 2, 
     importance: 'LOW', 
-    dominantCase: 'Local Stamp Paper Forgery',
-    path: 'M 240,600 L 270,600 L 275,680 L 250,680 Z'
+    dominantCase: 'Local Stamp Paper Forgery' 
   },
   { 
     code: 'HP', 
     name: 'Himachal Pradesh', 
     capital: 'Shimla', 
-    cx: 285, 
-    cy: 150, 
+    x: 360, 
+    y: 220, 
     cases: 1, 
     importance: 'LOW', 
-    dominantCase: 'Tourist ID Verification Log',
-    path: 'M 260,135 L 305,140 L 300,175 L 265,165 Z'
+    dominantCase: 'Tourist ID Verification Log' 
   },
   { 
     code: 'UT', 
     name: 'Uttarakhand', 
     capital: 'Dehradun', 
-    cx: 320, 
-    cy: 200, 
+    x: 410, 
+    y: 255, 
     cases: 2, 
     importance: 'LOW', 
-    dominantCase: 'Toll Barrier Evasion Record',
-    path: 'M 300,175 L 340,185 L 325,225 L 295,205 Z'
+    dominantCase: 'Toll Barrier Evasion Record' 
   },
   { 
     code: 'JK', 
     name: 'Jammu & Kashmir / Ladakh', 
     capital: 'Srinagar', 
-    cx: 275, 
-    cy: 95, 
+    x: 310, 
+    y: 115, 
     cases: 2, 
     importance: 'LOW', 
-    dominantCase: 'Routine Entry Checkpoint Register',
-    path: 'M 230,70 L 270,50 L 320,60 L 335,110 L 305,140 L 260,135 L 235,110 Z'
+    dominantCase: 'Routine Entry Checkpoint Register' 
   },
   { 
     code: 'GA', 
     name: 'Goa', 
     capital: 'Panaji', 
-    cx: 220, 
-    cy: 522, 
+    x: 225, 
+    y: 735, 
     cases: 1, 
     importance: 'LOW', 
-    dominantCase: 'Commercial Establishment Infraction',
-    path: 'M 215,515 L 230,515 L 228,530 L 213,530 Z'
+    dominantCase: 'Commercial Establishment Infraction' 
+  },
+  { 
+    code: 'SK', 
+    name: 'Sikkim', 
+    capital: 'Gangtok', 
+    x: 675, 
+    y: 345, 
+    cases: 1, 
+    importance: 'LOW', 
+    dominantCase: 'Border Transit Goods Inspection' 
+  },
+  { 
+    code: 'AR', 
+    name: 'Arunachal Pradesh', 
+    capital: 'Itanagar', 
+    x: 875, 
+    y: 305, 
+    cases: 1, 
+    importance: 'LOW', 
+    dominantCase: 'Regional Patrol Register' 
+  },
+  { 
+    code: 'ML', 
+    name: 'Meghalaya', 
+    capital: 'Shillong', 
+    x: 775, 
+    y: 415, 
+    cases: 1, 
+    importance: 'LOW', 
+    dominantCase: 'Timber Movement Permit Check' 
+  },
+  { 
+    code: 'NL', 
+    name: 'Nagaland', 
+    capital: 'Kohima', 
+    x: 910, 
+    y: 380, 
+    cases: 1, 
+    importance: 'LOW', 
+    dominantCase: 'Jurisdictional Boundary Log' 
+  },
+  { 
+    code: 'MN', 
+    name: 'Manipur', 
+    capital: 'Imphal', 
+    x: 890, 
+    y: 440, 
+    cases: 1, 
+    importance: 'LOW', 
+    dominantCase: 'Local Movement Permit Audit' 
+  },
+  { 
+    code: 'TR', 
+    name: 'Tripura', 
+    capital: 'Agartala', 
+    x: 795, 
+    y: 465, 
+    cases: 1, 
+    importance: 'LOW', 
+    dominantCase: 'Border Fencing Maintenance Log' 
+  },
+  { 
+    code: 'MZ', 
+    name: 'Mizoram', 
+    capital: 'Aizawl', 
+    x: 840, 
+    y: 480, 
+    cases: 1, 
+    importance: 'LOW', 
+    dominantCase: 'Routine Verification Dossier' 
   },
 
   // 🔵 BLUE - CLOSED CASES / RESOLVED / CHARGESHEETED
@@ -298,23 +347,21 @@ const INDIA_REGIONS = [
     code: 'KA', 
     name: 'Karnataka', 
     capital: 'Bengaluru', 
-    cx: 260, 
-    cy: 550, 
+    x: 310, 
+    y: 740, 
     cases: 3, 
     importance: 'CLOSED', 
-    dominantCase: 'SIM Box Gateway (Chargesheet Filed)',
-    path: 'M 220,495 L 290,500 L 295,600 L 230,590 Z'
+    dominantCase: 'SIM Box Gateway (Chargesheet Filed)' 
   },
   { 
     code: 'TN', 
     name: 'Tamil Nadu', 
     capital: 'Chennai', 
-    cx: 295, 
-    cy: 645, 
+    x: 385, 
+    y: 870, 
     cases: 4, 
     importance: 'CLOSED', 
-    dominantCase: 'Spurious Pharma Network (Convicted)',
-    path: 'M 270,600 L 330,590 L 305,690 L 265,685 Z'
+    dominantCase: 'Spurious Pharma Network (Convicted)' 
   }
 ];
 
@@ -349,7 +396,7 @@ export default function IndiaMap({ onSelectCase }) {
           </div>
           <h2 className="map-sidebar-title">National Investigation Map</h2>
           <p className="map-sidebar-desc">
-            Jurisdictional cases categorized by severity, priority tier, and closure status.
+            Official jurisdictional grid categorized by priority level and closure status.
           </p>
         </div>
 
@@ -469,12 +516,13 @@ export default function IndiaMap({ onSelectCase }) {
       <div 
         className="map-canvas-area"
         style={{ 
-          background: '#f8fafc',
+          background: '#ffffff',
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
           justifyContent: 'center',
-          position: 'relative'
+          position: 'relative',
+          padding: '1rem'
         }}
       >
         {/* Top Filter Chips Bar */}
@@ -513,172 +561,150 @@ export default function IndiaMap({ onSelectCase }) {
           </div>
         </div>
 
-        {/* Clean, Flat Simple Map Container */}
+        {/* Clean, Exact India Map Container (100% Matching Diagram) */}
         <div 
           style={{
-            width: '640px',
-            height: '700px',
+            width: '680px',
+            height: '760px',
             position: 'relative',
             display: 'flex',
             alignItems: 'center',
-            justifyContent: 'center'
+            justifyContent: 'center',
+            marginTop: '2rem'
           }}
         >
-          <svg
-            viewBox="0 0 700 720"
+          {/* Base Exact Outline Image Matching User Diagram */}
+          <img 
+            src="/india_map.png"
+            alt="Official Map of India"
             style={{
               width: '100%',
               height: '100%',
-              filter: 'drop-shadow(0 10px 25px rgba(15, 23, 42, 0.08))'
+              objectFit: 'contain',
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              pointerEvents: 'none',
+              filter: 'contrast(1.15)'
+            }}
+          />
+
+          {/* Interactive SVG Hotspots Overlay Layer */}
+          <svg
+            viewBox="0 0 1000 1000"
+            style={{
+              width: '100%',
+              height: '100%',
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              zIndex: 10
             }}
           >
-            <defs>
-              <filter id="simpleMapShadow" x="-5%" y="-5%" width="115%" height="115%">
-                <feDropShadow dx="0" dy="4" stdDeviation="6" floodColor="#0f172a" floodOpacity="0.08" />
-              </filter>
-            </defs>
+            {INDIA_REGIONS.map((state) => {
+              const isSelected = selectedState?.code === state.code;
+              const isHovered = hoveredState?.code === state.code;
+              const tier = COLOR_TIERS[state.importance];
+              const isDimmed = activeFilter !== 'ALL' && state.importance !== activeFilter;
 
-            {/* Base Map State Polygons */}
-            <g id="mapBaseGeometry" filter="url(#simpleMapShadow)">
-              {INDIA_REGIONS.map((state) => {
-                const isSelected = selectedState?.code === state.code;
-                const isHovered = hoveredState?.code === state.code;
-                const tier = COLOR_TIERS[state.importance];
-                const isDimmed = activeFilter !== 'ALL' && state.importance !== activeFilter;
-
-                let fill = '#ffffff';
-                if (isSelected) fill = tier.bgLight;
-                else if (isHovered) fill = '#f8fafc';
-
-                return (
-                  <path
-                    key={state.code}
-                    d={state.path}
-                    fill={fill}
-                    stroke={isSelected ? tier.color : isHovered ? '#0f172a' : '#94a3b8'}
-                    strokeWidth={isSelected ? 2.5 : 1.5}
-                    strokeLinejoin="round"
-                    onClick={() => setSelectedState(state)}
-                    onMouseEnter={() => setHoveredState(state)}
-                    onMouseLeave={() => setHoveredState(null)}
-                    style={{
-                      cursor: 'pointer',
-                      opacity: isDimmed ? 0.25 : 1,
-                      transition: 'all 0.15s ease'
-                    }}
-                  >
-                    <title>{state.name} ({tier.label})</title>
-                  </path>
-                );
-              })}
-            </g>
-
-            {/* Color Coordinated Hotspot Pins & State Badges */}
-            <g id="mapHotspots">
-              {INDIA_REGIONS.map((state) => {
-                const isSelected = selectedState?.code === state.code;
-                const isHovered = hoveredState?.code === state.code;
-                const tier = COLOR_TIERS[state.importance];
-                const isDimmed = activeFilter !== 'ALL' && state.importance !== activeFilter;
-
-                return (
-                  <g 
-                    key={`pin-${state.code}`}
-                    onClick={() => setSelectedState(state)}
-                    onMouseEnter={() => setHoveredState(state)}
-                    onMouseLeave={() => setHoveredState(null)}
-                    style={{ 
-                      cursor: 'pointer',
-                      opacity: isDimmed ? 0.25 : 1,
-                      transition: 'opacity 0.2s ease'
-                    }}
-                  >
-                    {/* Pulsing Beacon for High Importance */}
-                    {state.importance === 'HIGH' && (
-                      <circle
-                        cx={state.cx}
-                        cy={state.cy}
-                        r="12"
-                        fill="none"
-                        stroke={tier.color}
-                        strokeWidth="1.5"
-                        opacity="0.6"
-                      >
-                        <animate 
-                          attributeName="r" 
-                          values="6;16;6" 
-                          dur="2.2s" 
-                          repeatCount="indefinite" 
-                        />
-                        <animate 
-                          attributeName="opacity" 
-                          values="0.8;0.1;0.8" 
-                          dur="2.2s" 
-                          repeatCount="indefinite" 
-                        />
-                      </circle>
-                    )}
-
-                    {/* Outer Glow Halo on Hover / Select */}
-                    {(isSelected || isHovered) && (
-                      <circle
-                        cx={state.cx}
-                        cy={state.cy}
-                        r={14}
-                        fill={tier.color}
-                        opacity={0.25}
-                      />
-                    )}
-
-                    {/* Core State Pin Dot with Color Coordination */}
+              return (
+                <g 
+                  key={`node-${state.code}`}
+                  onClick={() => setSelectedState(state)}
+                  onMouseEnter={() => setHoveredState(state)}
+                  onMouseLeave={() => setHoveredState(null)}
+                  style={{ 
+                    cursor: 'pointer',
+                    opacity: isDimmed ? 0.2 : 1,
+                    transition: 'opacity 0.2s ease, transform 0.15s ease'
+                  }}
+                >
+                  {/* Radiating Beacon for High Importance */}
+                  {state.importance === 'HIGH' && (
                     <circle
-                      cx={state.cx}
-                      cy={state.cy}
-                      r={isSelected ? 6 : state.code === 'DL' ? 5.5 : 4.5}
+                      cx={state.x}
+                      cy={state.y}
+                      r="16"
+                      fill="none"
+                      stroke={tier.color}
+                      strokeWidth="2"
+                      opacity="0.65"
+                    >
+                      <animate 
+                        attributeName="r" 
+                        values="8;22;8" 
+                        dur="2.2s" 
+                        repeatCount="indefinite" 
+                      />
+                      <animate 
+                        attributeName="opacity" 
+                        values="0.85;0.1;0.85" 
+                        dur="2.2s" 
+                        repeatCount="indefinite" 
+                      />
+                    </circle>
+                  )}
+
+                  {/* Outer Glow Halo on Hover / Selection */}
+                  {(isSelected || isHovered) && (
+                    <circle
+                      cx={state.x}
+                      cy={state.y}
+                      r={20}
                       fill={tier.color}
-                      stroke="#ffffff"
-                      strokeWidth="1.8"
+                      opacity={0.3}
+                    />
+                  )}
+
+                  {/* Main State Dot Pin */}
+                  <circle
+                    cx={state.x}
+                    cy={state.y}
+                    r={isSelected ? 7.5 : state.code === 'DL' ? 7 : 5.5}
+                    fill={tier.color}
+                    stroke="#ffffff"
+                    strokeWidth="2.2"
+                    filter="drop-shadow(0 2px 4px rgba(0,0,0,0.2))"
+                  />
+
+                  {/* State Name & Case Tag Pill */}
+                  <g transform={`translate(${state.x + 10}, ${state.y - 12})`}>
+                    <rect
+                      x="0"
+                      y="0"
+                      width={state.name.length * 7.5 + 24}
+                      height="22"
+                      rx="4"
+                      fill={isSelected ? '#0f172a' : '#ffffff'}
+                      stroke={isSelected ? '#0f172a' : tier.border}
+                      strokeWidth="1.5"
+                      filter="drop-shadow(0 2px 6px rgba(0,0,0,0.12))"
                     />
 
-                    {/* State Name Callout Badge */}
-                    <g transform={`translate(${state.cx + 8}, ${state.cy - 9})`}>
-                      <rect
-                        x="0"
-                        y="0"
-                        width={state.name.length * 6.2 + 20}
-                        height="18"
-                        rx="3"
-                        fill={isSelected ? '#0f172a' : '#ffffff'}
-                        stroke={isSelected ? '#0f172a' : tier.border}
-                        strokeWidth="1.2"
-                        filter="drop-shadow(0 1px 3px rgba(0,0,0,0.08))"
-                      />
+                    {/* Color Stripe on Left Edge of Tag */}
+                    <rect
+                      x="0"
+                      y="0"
+                      width="4.5"
+                      height="22"
+                      rx="2"
+                      fill={tier.color}
+                    />
 
-                      {/* Color Stripe on Left Edge */}
-                      <rect
-                        x="0"
-                        y="0"
-                        width="3.5"
-                        height="18"
-                        rx="1.5"
-                        fill={tier.color}
-                      />
-
-                      <text
-                        x="8"
-                        y="12.5"
-                        fontSize="8.5"
-                        fontWeight="700"
-                        fill={isSelected ? '#ffffff' : '#0f172a'}
-                        fontFamily="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"
-                      >
-                        {state.name} ({state.cases})
-                      </text>
-                    </g>
+                    <text
+                      x="10"
+                      y="14.5"
+                      fontSize="10"
+                      fontWeight="800"
+                      fill={isSelected ? '#ffffff' : '#0f172a'}
+                      fontFamily="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"
+                    >
+                      {state.name} ({state.cases})
+                    </text>
                   </g>
-                );
-              })}
-            </g>
+                </g>
+              );
+            })}
           </svg>
         </div>
 
