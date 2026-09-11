@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CRIMENET AI — Criminal Network Analysis System | SIH 2026 Prototype</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
+<body>
+  <div id="app" class="app-shell">
+
+    <!-- Top Global Header -->
+    <header class="app-header">
+      <div class="header-left">
+        <div class="brand-badge">
+          <svg class="brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+          </svg>
+          <div class="brand-titles">
+            <span class="brand-name">CRIMENET-AI</span>
+            <span class="brand-tag">SIH 2026 • PS #26189 PROTOTYPE</span>
+          </div>
+        </div>
+
+        <nav class="breadcrumb-nav" id="breadcrumbNav">
+          <button class="breadcrumb-item active" id="navHomeBtn" onclick="app.showMapView()">
+            National Case Map
+          </button>
+          <span class="breadcrumb-separator" id="breadcrumbSep1" style="display:none;">/</span>
+          <button class="breadcrumb-item" id="navStateBtn" style="display:none;" onclick="app.showStateCases()"></button>
+          <span class="breadcrumb-separator" id="breadcrumbSep2" style="display:none;">/</span>
+          <button class="breadcrumb-item" id="navCaseBtn" style="display:none;"></button>
+        </nav>
+      </div>
+
+      <div class="header-right">
+        <div class="system-status-pill">
+          <span class="status-dot pulse"></span>
+          <span>LOCAL DEMO MODE (SYNTHETIC DATA)</span>
+        </div>
+        <div class="officer-profile">
+          <div class="avatar-chip">IV</div>
+          <div class="officer-info">
+            <span class="officer-name">Insp. A. Verma</span>
+            <span class="officer-role">Investigating Officer</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Container Body -->
+    <main class="app-main">
+      <!-- VIEW 1: INDIA MAP & NATIONAL OVERVIEW -->
+      <section id="mapView" class="view-panel active">
+        <div class="map-view-layout">
+          <div class="map-container-card">
+            <div class="card-header">
+              <div>
+                <h1 class="card-title">National Criminal Intelligence Map</h1>
+                <p class="card-subtitle">Select any highlighted state to inspect active investigations and regional nexus clusters</p>
+              </div>
+            </div>
+            <div class="map-canvas-wrapper" id="indiaMapContainer"></div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="js/data.js"></script>
+  <script src="js/map.js"></script>
+  <script src="js/graph.js"></script>
+  <script src="js/timeline.js"></script>
+  <script src="js/assistant.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

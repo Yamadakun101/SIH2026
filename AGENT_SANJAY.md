@@ -66,9 +66,20 @@ SIH2026/
 
 ---
 
-## 4. Immediate Phase 1 Directives
+## 4. Phase 1 Directives & Current Status
 
-- [x] Establish repository baseline and shared team documentation.
-- [ ] Create Python prototype / standalone JSON mock graph for canonical case `DL-2026-0412`.
-- [ ] Validate mock graph schema with Shaswat's React Cytoscape.js component.
-- [ ] Implement local evidence hash-chain verification logic for the frontend inspector.
+- [x] Establish repository baseline and shared team documentation (`ARCHITECTURE.md`, `API_CONTRACT.md`, `DATA_SCHEMA.md`).
+- [x] Create Python prototype & standalone JSON mock graph for canonical case `DL-2026-0412` (`data/dl-2026-0412.json`).
+- [x] Implement core algorithms (`ai/`, `graph/`, `blockchain/`) with 100% test coverage (`tests/`).
+- [x] Implement FastAPI REST API backend (`backend/app/main.py`) strictly conforming to `API_CONTRACT.md`.
+- [x] Implement local evidence hash-chain verification logic and BSA 2023 Section 63 certificate generator.
+- [x] Create end-to-end runnable CLI pipeline demonstration (`demo_pipeline.py`).
+
+---
+
+## 5. Phase 2 Next Milestones
+
+- [ ] Support live database connector fallbacks (PostgreSQL & Neo4j) alongside JSON fixtures.
+- [ ] Connect FastAPI backend to Shaswat's React + Vite Cytoscape frontend on port 8000.
+- [ ] Implement batch ingestion worker for processing multiple FIR / CDR / ANPR raw uploads.
+- [ ] Conduct multi-case stress testing with additional synthetic interstate crime cases.

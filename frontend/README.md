@@ -1,16 +1,37 @@
-# React + Vite
+# CRIMENET-AI — Criminal Network Analysis System
+## SIH 2026 Problem Statement PS #26189 — Local Interactive Prototype
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+A lightweight, clean, light-themed investigator dashboard for multi-modal criminal intelligence, entity resolution, and network graph analysis.
 
-Currently, two official plugins are available:
+> **Note:** All data used in this prototype is strictly synthetic and fabricated for demonstration purposes.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+### Core Investigator Workflow
+```
+National India Map
+   │
+   ▼ Select State (e.g. Delhi NCR)
+Regional Case List
+   │
+   ▼ Select Case (DL-2026-0412)
+Case Intelligence Workspace
+   ├── Interactive D3 / Cytoscape Entity Network Graph (Drag, Zoom, Filter, Click)
+   ├── Entity Inspection Drawer (Stored details, match %, why connected, sources, AI explanation)
+   ├── Chronological Timeline (Multi-source telecom, CCTV, FastTag, and banking events)
+   ├── Evidence Provenance Log (BSA 2023 Section 63 Merkle Audit Trail)
+   └── Case-Aware AI Reasoning Assistant (Interactive Q&A on synthetic knowledge graph)
+```
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the Oxlint configuration
+### How to Run Locally
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+You can run this prototype using Vite or any local HTTP server:
+
+```bash
+cd frontend
+npm install
+npm run dev
+```
+Then open [http://localhost:5173](http://localhost:5173) in your browser.
