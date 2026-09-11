@@ -1,0 +1,281 @@
+{
+  "case_metadata": {
+    "case_id": "DL-2026-0412",
+    "title": "Missing Woman — Suspected Interstate Network",
+    "state_code": "DL",
+    "state_name": "Delhi",
+    "incident_date": "2026-09-02T22:30:00Z",
+    "lead_agency": "Special Cell / Anti-Trafficking Squad, Delhi Police",
+    "fir_number": "FIR-412/2026/PS-KashmereGate",
+    "status": "ACTIVE_INVESTIGATION",
+    "priority": "CRITICAL",
+    "summary": "Victim disappeared near ISBT Kashmere Gate on 02-Sep. Cell tower triangulation and ANPR camera feeds suggest coordinated transit across the Singhu Border via burner phone coordination.",
+    "bsa_section_63_verified": true,
+    "merkle_root": "8f4e2c1b9a8d7e6f5c4b3a210987654321fedcba0987654321abcdef01234567"
+  },
+  "graph": {
+    "nodes": [
+      {
+        "id": "person-priya",
+        "label": "Priya Sharma",
+        "type": "PERSON",
+        "sub_role": "SUBJECT_OF_SEARCH",
+        "risk_level": "HIGH",
+        "centrality_score": 0.45,
+        "evidence_count": 14,
+        "details": {
+          "age": 22,
+          "last_known_location": "ISBT Kashmere Gate, Delhi",
+          "reported_missing_at": "2026-09-03T08:00:00Z"
+        }
+      },
+      {
+        "id": "person-rakesh",
+        "label": "Rakesh Kumar",
+        "type": "PERSON",
+        "sub_role": "POSSIBLE_CENTRAL_NETWORK_ENTITY",
+        "risk_level": "CRITICAL",
+        "centrality_score": 0.94,
+        "evidence_count": 38,
+        "details": {
+          "aliases": ["Raka", "RK"],
+          "known_hubs": ["Majnu Ka Tilla", "Ambala Transit Point"],
+          "investigative_notes": "Associated with multiple unverified SIM registrations and interstate taxi movements."
+        }
+      },
+      {
+        "id": "person-vikram",
+        "label": "Vikram Singh",
+        "type": "PERSON",
+        "sub_role": "ASSOCIATE_NODE",
+        "risk_level": "MEDIUM",
+        "centrality_score": 0.62,
+        "evidence_count": 16,
+        "details": {
+          "role": "Driver / Logistics Operator",
+          "license": "DL-14201900381"
+        }
+      },
+      {
+        "id": "phone-priya",
+        "label": "+91 98112 00341",
+        "type": "PHONE",
+        "sub_role": "VICTIM_HANDSET",
+        "centrality_score": 0.41,
+        "evidence_count": 12,
+        "details": {
+          "imei": "864201049281720",
+          "carrier": "Airtel Delhi",
+          "status": "POWERED_OFF"
+        }
+      },
+      {
+        "id": "phone-burner-rakesh",
+        "label": "+91 98710 44219",
+        "type": "PHONE",
+        "sub_role": "BURNER_SIM",
+        "centrality_score": 0.88,
+        "evidence_count": 26,
+        "details": {
+          "imei": "358912091823901",
+          "carrier": "Vi Delhi",
+          "status": "SUSPICIOUS_ACTIVITY"
+        }
+      },
+      {
+        "id": "phone-vikram",
+        "label": "+91 97115 88201",
+        "type": "PHONE",
+        "sub_role": "ASSOCIATE_PHONE",
+        "centrality_score": 0.59,
+        "evidence_count": 10,
+        "details": {
+          "carrier": "Jio Delhi",
+          "status": "ACTIVE"
+        }
+      },
+      {
+        "id": "vehicle-dl01-9921",
+        "label": "DL 01 AB 9921",
+        "type": "VEHICLE",
+        "sub_role": "SIGHTED_CONVEYANCE",
+        "centrality_score": 0.65,
+        "evidence_count": 8,
+        "details": {
+          "make_model": "White Swift Dzire (Commercial)",
+          "chassis": "MA3EKB01S0091283",
+          "fastag_id": "FASTAG-TX-8812"
+        }
+      },
+      {
+        "id": "loc-kashmere-gate",
+        "label": "ISBT Kashmere Gate",
+        "type": "LOCATION",
+        "sub_role": "INCIDENT_GEO_HUB",
+        "centrality_score": 0.72,
+        "evidence_count": 20,
+        "details": {
+          "lat": 28.6672,
+          "lng": 77.2285,
+          "cell_tower_id": "TOW-DEL-KASHMERE-482"
+        }
+      },
+      {
+        "id": "loc-singhu-border",
+        "label": "Singhu Border Toll Plaza",
+        "type": "LOCATION",
+        "sub_role": "TRANSIT_POINT",
+        "centrality_score": 0.58,
+        "evidence_count": 6,
+        "details": {
+          "lat": 28.8784,
+          "lng": 77.1292,
+          "anpr_camera": "ANPR-LANE-04"
+        }
+      },
+      {
+        "id": "bank-mule-01",
+        "label": "HDFC A/C ••4091",
+        "type": "BANK_ACCOUNT",
+        "sub_role": "SUSPECTED_MULE_ACCOUNT",
+        "centrality_score": 0.76,
+        "evidence_count": 11,
+        "details": {
+          "account_holder": "R.K. Enterprises (Unregistered)",
+          "ifsc": "HDFC0001204",
+          "upi_vpa": "rkenterprises@okhdfc"
+        }
+      }
+    ],
+    "edges": [
+      {
+        "id": "rel-01",
+        "source": "person-priya",
+        "target": "phone-priya",
+        "label": "REGISTERED_OWNER",
+        "type": "SUBSCRIBER_OF",
+        "confidence": 0.99,
+        "evidence_source": "TELECOM_KYC"
+      },
+      {
+        "id": "rel-02",
+        "source": "person-rakesh",
+        "target": "phone-burner-rakesh",
+        "label": "POSSIBLE_USER",
+        "type": "POSSESSION_INFERRED",
+        "confidence": 0.92,
+        "evidence_source": "CDR_AND_HANDSET_IMEI"
+      },
+      {
+        "id": "rel-03",
+        "source": "phone-burner-rakesh",
+        "target": "phone-priya",
+        "label": "14 CALLS (4h window)",
+        "type": "CALLED",
+        "confidence": 0.96,
+        "evidence_source": "CDR_TOWER_DUMP",
+        "metadata": { "call_count": 14, "total_duration_seconds": 680 }
+      },
+      {
+        "id": "rel-04",
+        "source": "phone-priya",
+        "target": "loc-kashmere-gate",
+        "label": "LAST PING 21:45",
+        "type": "CO_LOCATED",
+        "confidence": 0.95,
+        "evidence_source": "CELL_TOWER_TRIANGULATION"
+      },
+      {
+        "id": "rel-05",
+        "source": "phone-burner-rakesh",
+        "target": "loc-kashmere-gate",
+        "label": "CO-LOCATED 21:30–22:00",
+        "type": "CO_LOCATED",
+        "confidence": 0.94,
+        "evidence_source": "CELL_TOWER_TRIANGULATION"
+      },
+      {
+        "id": "rel-06",
+        "source": "person-rakesh",
+        "target": "person-vikram",
+        "label": "DIRECT COORDINATION",
+        "type": "ASSOCIATE_OF",
+        "confidence": 0.89,
+        "evidence_source": "WHATSAPP_FORENSIC_TRACES"
+      },
+      {
+        "id": "rel-07",
+        "source": "person-vikram",
+        "target": "vehicle-dl01-9921",
+        "label": "REGISTERED DRIVER",
+        "type": "DRIVES",
+        "confidence": 0.98,
+        "evidence_source": "VAHAN_REGISTRY"
+      },
+      {
+        "id": "rel-08",
+        "source": "vehicle-dl01-9921",
+        "target": "loc-singhu-border",
+        "label": "ANPR SIGHTING 22:15",
+        "type": "TRANSITED_THROUGH",
+        "confidence": 0.97,
+        "evidence_source": "ANPR_TOLL_FEED"
+      },
+      {
+        "id": "rel-09",
+        "source": "person-rakesh",
+        "target": "bank-mule-01",
+        "label": "BENEFICIARY",
+        "type": "ACCOUNT_CONTROLLER",
+        "confidence": 0.91,
+        "evidence_source": "BANK_STATEMENT_UPI"
+      }
+    ]
+  },
+  "timeline": [
+    {
+      "event_id": "evt-01",
+      "timestamp": "2026-09-02T18:30:00Z",
+      "title": "First Contact Initiated",
+      "category": "TELECOM",
+      "source_record_id": "CDR-DEL-0902-1",
+      "location": "Laxmi Nagar, Delhi",
+      "involved_entities": ["phone-burner-rakesh", "phone-priya"],
+      "description": "Incoming call received on Priya's device from burner SIM.",
+      "confidence": 0.96
+    },
+    {
+      "event_id": "evt-02",
+      "timestamp": "2026-09-02T21:45:00Z",
+      "title": "Last Cellular Signal Recorded",
+      "category": "TELECOM",
+      "source_record_id": "CDR-DEL-0902-88",
+      "location": "ISBT Kashmere Gate",
+      "involved_entities": ["phone-priya", "loc-kashmere-gate"],
+      "description": "Final cellular ping before device was abruptly switched off.",
+      "confidence": 0.95
+    },
+    {
+      "event_id": "evt-03",
+      "timestamp": "2026-09-02T22:05:00Z",
+      "title": "Rapid Cash Withdrawal & UPI Transfer",
+      "category": "BANKING",
+      "source_record_id": "BANK-TX-4401",
+      "location": "Civil Lines ATM, Delhi",
+      "involved_entities": ["bank-mule-01", "person-rakesh"],
+      "description": "₹45,000 cash withdrawal immediately following rapid UPI transfers.",
+      "confidence": 0.91
+    },
+    {
+      "event_id": "evt-04",
+      "timestamp": "2026-09-02T22:15:00Z",
+      "title": "ANPR Vehicle Sighting at Exit Corridor",
+      "category": "CCTV_ANPR",
+      "source_record_id": "ANPR-TOLL-SINGHU-04",
+      "location": "Singhu Border Toll Plaza",
+      "involved_entities": ["vehicle-dl01-9921", "person-vikram"],
+      "description": "Vehicle DL 01 AB 9921 recorded exiting Delhi state boundary at high speed.",
+      "confidence": 0.97
+    }
+  ]
+}
