@@ -214,7 +214,12 @@ class CrimeGraph:
         graph = cls(case_id=case_id)
 
         raw_graph = data.get("graph", {})
-        for n_data in raw_graph.get("nodes", []):
+        elements = raw_graph.get("elements", {})
+        raw_nodes = elements.get("nodes", raw_graph.get("nodes", []))
+        raw_edges = elements.get("edges", raw_graph.get("edges", []))
+
+        for item in raw_nodes:
+            n_data = item.get("data", item)
             node = GraphNode(
                 node_id=n_data["id"],
                 label=n_data["label"],
@@ -227,7 +232,8 @@ class CrimeGraph:
             )
             graph.add_node(node)
 
-        for e_data in raw_graph.get("edges", []):
+        for item in raw_edges:
+            e_data = item.get("data", item)
             edge = GraphEdge(
                 edge_id=e_data["id"],
                 source=e_data["source"],

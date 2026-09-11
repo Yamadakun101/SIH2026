@@ -164,10 +164,10 @@ class CentralityAnalytics:
             # Weighted composite score emphasizing Betweenness (facilitator hub) and PageRank
             composite = round((0.40 * b) + (0.30 * p) + (0.20 * d) + (0.10 * c), 3)
 
-            is_high_centrality = composite >= 0.60
+            is_high_centrality = composite >= 0.40
             investigative_label = (
                 "Possible Central Network Entity" if is_high_centrality
-                else "Key Peripheral / Associate Node" if composite >= 0.35
+                else "Key Peripheral / Associate Node" if composite >= 0.25
                 else "Incidental / Search Subject Node"
             )
 
