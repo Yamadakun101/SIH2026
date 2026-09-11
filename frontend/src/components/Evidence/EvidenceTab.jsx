@@ -102,60 +102,62 @@ export default function EvidenceTab({ caseData, onOpenCertificate }) {
           </span>
         </div>
 
-        <table className="ledger-table">
-          <thead>
-            <tr>
-              <th>BLOCK #</th>
-              <th>RECORD ID</th>
-              <th>EVIDENCE CLASSIFICATION</th>
-              <th>TIMESTAMP (IST)</th>
-              <th>SHA-256 HASH STAMP</th>
-              <th>MATCH PERCENTAGE & ON-CHAIN PROOF</th>
-            </tr>
-          </thead>
-          <tbody>
-            {ledger.map((item) => (
-              <tr key={item.block}>
-                <td style={{ fontWeight: 800, color: 'var(--gov-navy)' }}>
-                  #{item.block}
-                </td>
-                <td style={{ fontWeight: 700, color: 'var(--text-primary)' }}>
-                  {item.record_id}
-                </td>
-                <td>
-                  <span className="gov-badge-subtle">
-                    {item.type}
-                  </span>
-                </td>
-                <td style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>
-                  {item.timestamp}
-                </td>
-                <td style={{ fontFamily: 'monospace', fontSize: '0.7rem', color: 'var(--text-secondary)' }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
-                    <span>{item.sha256.substring(0, 16)}...{item.sha256.substring(item.sha256.length - 8)}</span>
-                    <button 
-                      onClick={() => handleCopyHash(item.sha256, `table-${item.block}`)}
-                      title="Copy SHA-256 Hash"
-                      style={{ background: 'transparent', border: 'none', cursor: 'pointer', color: 'var(--text-muted)', padding: '0.1rem' }}
-                    >
-                      {copiedHash === `table-${item.block}` ? <Check size={12} color="#16a34a" /> : <Copy size={12} />}
-                    </button>
-                  </div>
-                </td>
-                <td>
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: '0.2rem' }}>
-                    <span className="gov-badge-match" style={{ width: 'fit-content' }}>
-                      {item.match_pct}% Match
-                    </span>
-                    <span style={{ fontSize: '0.65rem', color: '#16a34a', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '0.2rem' }}>
-                      <CheckCircle2 size={10} /> Block #{item.block} • Signed & Verified
-                    </span>
-                  </div>
-                </td>
+        <div style={{ overflowX: 'auto', width: '100%' }}>
+          <table className="ledger-table">
+            <thead>
+              <tr>
+                <th>BLOCK #</th>
+                <th>RECORD ID</th>
+                <th>EVIDENCE CLASSIFICATION</th>
+                <th>TIMESTAMP (IST)</th>
+                <th>SHA-256 HASH STAMP</th>
+                <th>MATCH PERCENTAGE & ON-CHAIN PROOF</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {ledger.map((item) => (
+                <tr key={item.block}>
+                  <td style={{ fontWeight: 800, color: 'var(--gov-navy)' }}>
+                    #{item.block}
+                  </td>
+                  <td style={{ fontWeight: 700, color: 'var(--text-primary)' }}>
+                    {item.record_id}
+                  </td>
+                  <td>
+                    <span className="gov-badge-subtle">
+                      {item.type}
+                    </span>
+                  </td>
+                  <td style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>
+                    {item.timestamp}
+                  </td>
+                  <td style={{ fontFamily: 'monospace', fontSize: '0.7rem', color: 'var(--text-secondary)' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
+                      <span>{item.sha256.substring(0, 16)}...{item.sha256.substring(item.sha256.length - 8)}</span>
+                      <button 
+                        onClick={() => handleCopyHash(item.sha256, `table-${item.block}`)}
+                        title="Copy SHA-256 Hash"
+                        style={{ background: 'transparent', border: 'none', cursor: 'pointer', color: 'var(--text-muted)', padding: '0.1rem' }}
+                      >
+                        {copiedHash === `table-${item.block}` ? <Check size={12} color="#16a34a" /> : <Copy size={12} />}
+                      </button>
+                    </div>
+                  </td>
+                  <td>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '0.2rem' }}>
+                      <span className="gov-badge-match" style={{ width: 'fit-content' }}>
+                        {item.match_pct}% Match
+                      </span>
+                      <span style={{ fontSize: '0.65rem', color: '#16a34a', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '0.2rem' }}>
+                        <CheckCircle2 size={10} /> Block #{item.block} • Signed & Verified
+                      </span>
+                    </div>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
 
       {/* 2. Live Blockchain Logs of Recent Activities & Dataset Changes (Right below Evidence Match %) */}
