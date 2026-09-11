@@ -324,7 +324,7 @@ export default function IndiaMap({ onSelectCase }) {
             position: 'relative'
           }}
         >
-          {/* Authentic Normal Vector Outline of India */}
+          {/* Authentic Vector Map of India */}
           <svg
             viewBox="0 0 900 960"
             style={{
@@ -333,67 +333,94 @@ export default function IndiaMap({ onSelectCase }) {
               filter: 'drop-shadow(0 16px 32px rgba(15, 23, 42, 0.12))'
             }}
           >
-            {/* SVG Filter for Glowing Beacons */}
+            {/* SVG Definitions for Glows and Gradients */}
             <defs>
-              <filter id="beacon-glow-red" x="-50%" y="-50%" width="200%" height="200%">
-                <feGaussianBlur stdDeviation="4" result="blur" />
-                <feMerge>
-                  <feMergeNode in="blur" />
-                  <feMergeNode in="SourceGraphic" />
-                </feMerge>
+              <linearGradient id="indiaMapGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#ffffff" />
+                <stop offset="100%" stopColor="#f1f5f9" />
+              </linearGradient>
+              <filter id="mapElevationShadow" x="-10%" y="-10%" width="120%" height="120%">
+                <feDropShadow dx="0" dy="8" stdDeviation="12" floodColor="#0f172a" floodOpacity="0.1" />
               </filter>
             </defs>
 
-            {/* Natural Geographic Map Outline of India */}
+            {/* Main Authentic India Geographic Silhouette */}
             <path
-              d="M 270,30 
-                 C 290,15 340,25 365,45 
-                 C 390,65 375,100 360,115 
-                 C 380,125 415,150 420,185 
-                 C 455,190 530,225 580,255 
-                 C 620,250 635,275 625,290 
-                 C 645,290 670,270 730,245 
-                 C 790,220 840,250 835,295 
-                 C 830,335 790,375 805,435 
-                 C 790,470 760,470 740,430 
-                 C 730,390 690,420 670,440 
-                 C 640,450 635,410 610,380 
-                 C 590,360 570,370 560,420 
-                 C 580,450 600,500 580,545 
-                 C 540,570 480,570 455,610 
-                 C 440,660 415,745 370,830 
-                 C 345,880 300,900 290,870 
-                 C 275,820 280,760 260,700 
-                 C 230,660 200,600 215,530 
-                 C 195,490 145,465 110,470 
-                 C 70,445 75,370 120,345 
-                 C 140,330 185,350 205,320 
-                 C 175,280 150,230 185,190 
-                 C 220,165 240,180 255,140 
-                 C 240,110 240,65 270,30 Z"
-              fill="#ffffff"
+              id="india-national-boundary"
+              d="M 295,40 
+                 C 278,55 252,80 238,108 
+                 C 228,130 242,152 236,172 
+                 C 226,192 208,212 192,242 
+                 C 172,275 152,300 128,328 
+                 C 102,342 78,358 84,374 
+                 C 94,386 124,378 140,368 
+                 C 128,390 98,406 108,426 
+                 C 118,446 148,440 164,418 
+                 C 174,438 180,470 190,502 
+                 C 204,552 216,612 226,662 
+                 C 236,712 246,762 256,802 
+                 C 266,838 280,876 295,888 
+                 C 306,882 326,846 342,810 
+                 C 362,764 378,714 392,658 
+                 C 412,608 436,568 462,528 
+                 C 488,492 518,462 544,436 
+                 C 564,416 578,432 594,436 
+                 C 604,420 588,390 578,366 
+                 C 568,336 572,316 598,296 
+                 C 612,286 622,262 616,252 
+                 C 632,262 656,272 678,272 
+                 C 708,256 742,226 788,220 
+                 C 828,216 858,242 852,268 
+                 C 842,298 818,328 812,362 
+                 C 806,392 782,438 772,452 
+                 C 756,442 742,416 736,392 
+                 C 716,402 702,382 692,356 
+                 C 662,362 636,336 622,312 
+                 C 592,306 572,292 546,282 
+                 C 506,262 462,232 412,196 
+                 C 386,172 366,142 366,112 
+                 C 376,86 356,62 332,46 
+                 C 314,36 302,36 295,40 Z"
+              fill="url(#indiaMapGrad)"
               stroke="#0f172a"
-              strokeWidth="2.5"
+              strokeWidth="2.8"
               strokeLinejoin="round"
+              filter="url(#mapElevationShadow)"
             />
 
-            {/* Internal State Boundaries Contours */}
-            <path
-              d="M 255,140 Q 300,160 360,115
-                 M 285,185 Q 360,200 420,185
-                 M 205,320 Q 330,340 450,290
-                 M 120,345 Q 260,375 365,395
-                 M 205,320 Q 300,430 475,455
-                 M 450,290 Q 560,320 610,380
-                 M 215,530 Q 360,540 455,610
-                 M 260,700 Q 350,680 440,660
-                 M 275,820 Q 345,800 370,830
-                 M 610,380 Q 700,320 805,435"
-              fill="none"
-              stroke="#94a3b8"
-              strokeWidth="1.2"
-              strokeDasharray="3 3"
-            />
+            {/* Regional State Boundaries & Contours */}
+            <g stroke="#94a3b8" strokeWidth="1.2" strokeDasharray="3 3" fill="none">
+              {/* Northern Boundaries (J&K, Punjab, Haryana, HP, Uttarakhand) */}
+              <path d="M 238,108 Q 300,120 366,112" />
+              <path d="M 236,172 Q 300,165 366,142" />
+              <path d="M 192,242 Q 280,225 345,245" />
+              <path d="M 295,230 Q 325,245 365,190" />
+              
+              {/* Western Boundaries (Rajasthan, Gujarat) */}
+              <path d="M 192,242 Q 260,280 350,290" />
+              <path d="M 128,328 Q 230,340 350,390" />
+              <path d="M 164,418 Q 220,400 270,450" />
+
+              {/* Central & Eastern Boundaries (UP, Bihar, MP, Bengal, Odisha) */}
+              <path d="M 345,245 Q 430,240 546,282" />
+              <path d="M 350,290 Q 440,320 544,320" />
+              <path d="M 350,390 Q 430,380 544,436" />
+              <path d="M 462,380 Q 510,420 578,366" />
+              <path d="M 350,390 Q 430,470 510,480" />
+
+              {/* Deccan & Southern Boundaries (MH, Telangana, Karnataka, AP, TN, Kerala) */}
+              <path d="M 190,502 Q 280,480 430,480" />
+              <path d="M 226,662 Q 300,560 412,608" />
+              <path d="M 226,662 Q 310,660 392,658" />
+              <path d="M 256,802 Q 310,770 362,764" />
+              <path d="M 256,802 Q 295,840 295,888" />
+
+              {/* North-East Region (Assam, Arunachal, Meghalaya, Tripura, Mizoram) */}
+              <path d="M 616,252 Q 680,290 788,220" />
+              <path d="M 678,272 Q 720,330 812,362" />
+              <path d="M 692,356 Q 740,370 772,452" />
+              <path d="M 622,312 Q 670,330 736,392" />
+            </g>
 
             {/* State Markers & Callout Pills with Color Coordination */}
             {INDIA_REGIONS.map((state) => {
