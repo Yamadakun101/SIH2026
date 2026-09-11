@@ -41,8 +41,10 @@ app.add_middleware(
 app.include_router(api_router)
 
 
-@app.get("/", tags=["System"])
-def root():
+from fastapi.staticfiles import StaticFiles
+
+@app.get("/api", tags=["System"])
+def api_info():
     return {
         "system": "KavachNet Intelligence Engine",
         "version": "1.0.0",
@@ -63,6 +65,12 @@ def health_check():
             "bsa_section_63_hash_chain"
         ]
     }
+
+
+# Mount Static Frontend
+frontend_dir = ROOT_DIR / "frontend"
+if frontend_dir.exists():
+    app.mount("/", StaticFiles(directory=str(frontend_dir), html=True), name="frontend")
 
 
 if __name__ == "__main__":
