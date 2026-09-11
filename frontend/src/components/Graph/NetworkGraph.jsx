@@ -9,10 +9,71 @@ import {
   Search, 
   Filter,
   Layers,
-  Sparkles
+  Crosshair,
+  ShieldAlert
 } from 'lucide-react';
 
 cytoscape.use(fcose);
+
+// Crisp SVG Vector Icons converted to Data URIs for Cytoscape node backgrounds
+const createSvgIcon = (svgContent, bgColor = '#ffffff', strokeColor = '#0f172a') => {
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" width="40" height="40">
+    <circle cx="20" cy="20" r="18" fill="${bgColor}" stroke="${strokeColor}" stroke-width="2"/>
+    <g transform="translate(10, 10)" stroke="${strokeColor}" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      ${svgContent}
+    </g>
+  </svg>`;
+  return `data:image/svg+xml;utf8,${encodeURIComponent(svg)}`;
+};
+
+// Category SVG paths
+const ICONS = {
+  PERSON: createSvgIcon(
+    '<path d="M10 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM3 18a7 7 0 0 1 14 0H3z"/>',
+    '#ede9fe',
+    '#6b21a8'
+  ),
+  PERSON_CENTRAL: createSvgIcon(
+    '<path d="M10 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM3 18a7 7 0 0 1 14 0H3z"/><circle cx="10" cy="10" r="9" stroke="#dc2626" stroke-width="1.5" stroke-dasharray="2 2"/>',
+    '#fef2f2',
+    '#b91c1c'
+  ),
+  PHONE: createSvgIcon(
+    '<rect x="4" y="2" width="12" height="16" rx="2"/><line x1="9" y1="15" x2="11" y2="15"/><line x1="8" y1="5" x2="12" y2="5"/>',
+    '#dcfce7',
+    '#15803d'
+  ),
+  VEHICLE: createSvgIcon(
+    '<path d="M4 11h12l-2-6H6L4 11zM3 11v5h2v-2h10v2h2v-5H3z"/><circle cx="6.5" cy="13.5" r="1.5"/><circle cx="13.5" cy="13.5" r="1.5"/>',
+    '#fef3c7',
+    '#b45309'
+  ),
+  BANK_ACCOUNT: createSvgIcon(
+    '<path d="M2 7l8-4 8 4v2H2V7zM4 9v6M8 9v6M12 9v6M16 9v6M2 17h16v2H2v-2z"/>',
+    '#f3e8ff',
+    '#7e22ce'
+  ),
+  TRANSACTION: createSvgIcon(
+    '<rect x="2" y="4" width="16" height="12" rx="2"/><line x1="2" y1="8" x2="18" y2="8"/><line x1="5" y1="13" x2="9" y2="13"/>',
+    '#e0f2fe',
+    '#0369a1'
+  ),
+  LOCATION: createSvgIcon(
+    '<path d="M10 2a6 6 0 0 0-6 6c0 4.5 6 10 6 10s6-5.5 6-10a6 6 0 0 0-6-6z"/><circle cx="10" cy="8" r="2"/>',
+    '#ffe4e6',
+    '#be123c'
+  ),
+  CCTV_EVENT: createSvgIcon(
+    '<path d="M14 6l4-2v12l-4-2M2 6h12v8H2z"/><circle cx="7" cy="10" r="2"/>',
+    '#f1f5f9',
+    '#334155'
+  ),
+  FIR_CASE: createSvgIcon(
+    '<path d="M4 2h8l4 4v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z"/><polyline points="12 2 12 6 16 6"/><line x1="6" y1="10" x2="14" y2="10"/><line x1="6" y1="14" x2="11" y2="14"/>',
+    '#ffedd5',
+    '#c2410c'
+  )
+};
 
 export default function NetworkGraph({ 
   graphData, 
@@ -24,11 +85,12 @@ export default function NetworkGraph({
   const cyRef = useRef(null);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedFilter, setSelectedFilter] = useState('ALL');
+  const [focusedEntityName, setFocusedEntityName] = useState(null);
 
   useEffect(() => {
     if (!containerRef.current || !graphData) return;
 
-    // Layout positions matching the spatial layout of Image 1
+    // Topology layout matching Image 1
     const initialPositions = {
       'fir-104-maurice': { x: 100, y: 80 },
       'person-pooja': { x: 200, y: 150 },
@@ -52,47 +114,16 @@ export default function NetworkGraph({
       'phone-associate-contact': { x: 690, y: 940 }
     };
 
-    // Color definitions matching Image 1
     const cyNodes = graphData.nodes.map((node) => {
-      let nodeColor = '#e2e8f0';
-      let borderColor = '#94a3b8';
-      let borderWidth = 2;
-      let size = 38;
+      let iconUrl = ICONS[node.type] || ICONS.PERSON;
+      let size = 42;
 
       if (node.id === 'person-rakesh') {
-        nodeColor = '#e0e7ff';
-        borderColor = '#4338ca';
-        borderWidth = 3.5;
-        size = 46;
+        iconUrl = ICONS.PERSON_CENTRAL;
+        size = 52;
       } else if (node.id === 'fir-78-civil-lines') {
-        nodeColor = '#ffedd5';
-        borderColor = '#0f172a';
-        borderWidth = 3.5;
-        size = 44;
-      } else if (node.type === 'PERSON') {
-        nodeColor = '#ede9fe';
-        borderColor = '#7c3aed';
-      } else if (node.type === 'LOCATION') {
-        nodeColor = '#ffe4e6';
-        borderColor = '#e11d48';
-      } else if (node.type === 'VEHICLE') {
-        nodeColor = '#fef3c7';
-        borderColor = '#d97706';
-      } else if (node.type === 'BANK_ACCOUNT') {
-        nodeColor = '#f3e8ff';
-        borderColor = '#9333ea';
-      } else if (node.type === 'TRANSACTION') {
-        nodeColor = '#e0f2fe';
-        borderColor = '#0284c7';
-      } else if (node.type === 'PHONE') {
-        nodeColor = '#dcfce7';
-        borderColor = '#16a34a';
-      } else if (node.type === 'CCTV_EVENT') {
-        nodeColor = '#f1f5f9';
-        borderColor = '#475569';
-      } else if (node.type === 'FIR_CASE') {
-        nodeColor = '#ffedd5';
-        borderColor = '#ea580c';
+        iconUrl = ICONS.FIR_CASE;
+        size = 46;
       }
 
       const formattedLabel = `${node.label}\n${node.sub_type}`;
@@ -103,9 +134,7 @@ export default function NetworkGraph({
           label: formattedLabel,
           type: node.type,
           match_pct: node.match_pct,
-          color: nodeColor,
-          borderColor: borderColor,
-          borderWidth: borderWidth,
+          iconUrl: iconUrl,
           size: size,
           original: node
         },
@@ -136,49 +165,41 @@ export default function NetworkGraph({
             'label': 'data(label)',
             'width': 'data(size)',
             'height': 'data(size)',
-            'background-color': 'data(color)',
-            'border-width': 'data(borderWidth)',
-            'border-color': 'data(borderColor)',
-            'color': '#1e293b',
+            'background-image': 'data(iconUrl)',
+            'background-fit': 'cover',
+            'background-clip': 'node',
+            'border-width': 2,
+            'border-color': '#0f172a',
+            'color': '#0f172a',
             'font-size': '9.5px',
             'font-weight': '600',
             'font-family': '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
             'text-valign': 'bottom',
             'text-margin-y': 7,
             'text-wrap': 'wrap',
-            'text-max-width': '120px',
+            'text-max-width': '125px',
             'text-background-color': '#ffffff',
             'text-background-opacity': 0.95,
             'text-background-padding': '3px',
             'text-background-shape': 'roundrectangle',
             'text-border-width': 1,
             'text-border-color': '#e2e8f0',
-            'shadow-blur': 8,
-            'shadow-color': 'rgba(15, 23, 42, 0.08)',
+            'shadow-blur': 10,
+            'shadow-color': 'rgba(15, 23, 42, 0.1)',
             'shadow-opacity': 0.8
-          }
-        },
-        {
-          selector: 'node:selected',
-          style: {
-            'border-width': 4,
-            'border-color': '#1e3a8a',
-            'shadow-blur': 16,
-            'shadow-color': 'rgba(30, 58, 138, 0.35)',
-            'shadow-opacity': 1
           }
         },
         {
           selector: 'edge',
           style: {
-            'width': 1.6,
+            'width': 1.8,
             'line-color': '#94a3b8',
             'target-arrow-color': '#94a3b8',
             'target-arrow-shape': 'triangle',
-            'arrow-scale': 0.9,
+            'arrow-scale': 1.0,
             'curve-style': 'bezier',
             'label': 'data(label)',
-            'font-size': '7.5px',
+            'font-size': '8px',
             'font-weight': '600',
             'color': '#475569',
             'text-background-color': '#ffffff',
@@ -190,30 +211,55 @@ export default function NetworkGraph({
             'text-rotation': 'autorotate'
           }
         },
+        // Active clicked node & its direct connection paths
         {
-          selector: 'edge:selected',
+          selector: '.highlighted-node',
           style: {
-            'width': 2.8,
-            'line-color': '#1e3a8a',
-            'target-arrow-color': '#1e3a8a',
-            'color': '#1e3a8a',
-            'font-weight': '700'
+            'border-width': 4.5,
+            'border-color': '#1e3a8a',
+            'shadow-blur': 24,
+            'shadow-color': 'rgba(30, 58, 138, 0.45)',
+            'shadow-opacity': 1
           }
         },
         {
-          selector: '.highlighted',
+          selector: '.highlighted-edge',
           style: {
-            'border-width': 4.5,
-            'border-color': '#dc2626',
-            'shadow-blur': 22,
-            'shadow-color': 'rgba(220, 38, 38, 0.5)',
+            'width': 3.5,
+            'line-color': '#1e3a8a',
+            'target-arrow-color': '#1e3a8a',
+            'color': '#1e3a8a',
+            'font-weight': '700',
+            'z-index': 100
+          }
+        },
+        // Central Person (Rakesh Kumar) special incoming evidence highlight
+        {
+          selector: '.culprit-focus-node',
+          style: {
+            'border-width': 5,
+            'border-color': '#b91c1c',
+            'shadow-blur': 28,
+            'shadow-color': 'rgba(185, 28, 28, 0.55)',
             'shadow-opacity': 1
+          }
+        },
+        {
+          selector: '.culprit-incoming-edge',
+          style: {
+            'width': 4,
+            'line-color': '#b91c1c',
+            'target-arrow-color': '#b91c1c',
+            'color': '#b91c1c',
+            'font-weight': '700',
+            'line-style': 'solid',
+            'z-index': 110
           }
         },
         {
           selector: '.dimmed',
           style: {
-            'opacity': 0.22
+            'opacity': 0.18
           }
         }
       ],
@@ -224,19 +270,76 @@ export default function NetworkGraph({
       }
     });
 
+    // Handle Node Click & Directional Arrow Highlighting
     cy.on('tap', 'node', (evt) => {
-      const nodeData = evt.target.data('original');
+      const node = evt.target;
+      const nodeData = node.data('original');
+      setFocusedEntityName(node.data('original').label);
+
+      // Reset all previous highlights
+      cy.elements().removeClass('highlighted-node highlighted-edge culprit-focus-node culprit-incoming-edge dimmed');
+
+      // Check if clicked node is Rakesh Kumar (Main Person of Interest)
+      if (node.id() === 'person-rakesh') {
+        // Dim everything first
+        cy.elements().addClass('dimmed');
+
+        // Highlight Rakesh
+        node.removeClass('dimmed').addClass('culprit-focus-node');
+
+        // Highlight all directly connected edges and nodes
+        const connectedEdges = node.connectedEdges();
+        const connectedNeighbors = node.neighborhood();
+
+        // Also trace incoming paths and nexus evidence
+        const incomingEdges = node.incomers('edge');
+        const outgoingEdges = node.outgoers('edge');
+
+        connectedEdges.removeClass('dimmed').addClass('culprit-incoming-edge');
+        connectedNeighbors.removeClass('dimmed').addClass('highlighted-node');
+
+        // Also highlight 2nd degree financial and call links (Phones & FIR 78/2024)
+        cy.$('#fir-78-civil-lines, #phone-rakesh-primary, #person-vikram, #bank-hdfc').removeClass('dimmed').addClass('highlighted-node');
+        cy.$('#e16, #e17, #e18, #e19, #e21, #e22, #e24').removeClass('dimmed').addClass('culprit-incoming-edge');
+
+      } else {
+        // Any other evidence node clicked:
+        // Dim all non-related elements
+        cy.elements().addClass('dimmed');
+
+        // Highlight the clicked node
+        node.removeClass('dimmed').addClass('highlighted-node');
+
+        // Highlight all incoming & outgoing connecting arrows and their target/source nodes
+        const connectedEdges = node.connectedEdges();
+        const neighborNodes = node.neighborhood('node');
+
+        connectedEdges.removeClass('dimmed').addClass('highlighted-edge');
+        neighborNodes.removeClass('dimmed').addClass('highlighted-node');
+      }
+
       if (onSelectNode) onSelectNode(nodeData);
     });
 
+    // Handle Edge Click
     cy.on('tap', 'edge', (evt) => {
-      const edgeData = evt.target.data('original');
+      const edge = evt.target;
+      const edgeData = edge.data('original');
+      setFocusedEntityName(edge.data('label'));
+
+      cy.elements().addClass('dimmed');
+      edge.removeClass('dimmed').addClass('highlighted-edge');
+      edge.source().removeClass('dimmed').addClass('highlighted-node');
+      edge.target().removeClass('dimmed').addClass('highlighted-node');
+
       if (onSelectEdge) onSelectEdge(edgeData);
     });
 
+    // Background Click -> Reset Highlight
     cy.on('tap', (evt) => {
       if (evt.target === cy) {
-        cy.elements().removeClass('highlighted dimmed');
+        cy.elements().removeClass('highlighted-node highlighted-edge culprit-focus-node culprit-incoming-edge dimmed');
+        setFocusedEntityName(null);
       }
     });
 
@@ -247,7 +350,7 @@ export default function NetworkGraph({
     };
   }, [graphData]);
 
-  // Handle highlights from AI assistant
+  // Handle external highlights from Assistant / Dossier
   useEffect(() => {
     if (!cyRef.current) return;
     const cy = cyRef.current;
@@ -257,16 +360,16 @@ export default function NetworkGraph({
       highlightedEntityIds.forEach((id) => {
         const ele = cy.$(`#${id}`);
         if (ele && ele.length > 0) {
-          ele.removeClass('dimmed').addClass('highlighted');
-          ele.connectedEdges().removeClass('dimmed');
+          ele.removeClass('dimmed').addClass('highlighted-node');
+          ele.connectedEdges().removeClass('dimmed').addClass('highlighted-edge');
         }
       });
     } else {
-      cy.elements().removeClass('dimmed highlighted');
+      cy.elements().removeClass('dimmed highlighted-node highlighted-edge culprit-focus-node culprit-incoming-edge');
     }
   }, [highlightedEntityIds]);
 
-  // Filter nodes
+  // Filter nodes by category
   const handleFilterChange = (category) => {
     setSelectedFilter(category);
     if (!cyRef.current) return;
@@ -295,7 +398,7 @@ export default function NetworkGraph({
     const cy = cyRef.current;
 
     if (!val.trim()) {
-      cy.elements().removeClass('highlighted dimmed');
+      cy.elements().removeClass('highlighted-node highlighted-edge dimmed');
       return;
     }
 
@@ -305,25 +408,15 @@ export default function NetworkGraph({
       return label.includes(val);
     });
 
-    matched.removeClass('dimmed').addClass('highlighted');
-    matched.connectedEdges().removeClass('dimmed');
+    matched.removeClass('dimmed').addClass('highlighted-node');
+    matched.connectedEdges().removeClass('dimmed').addClass('highlighted-edge');
   };
 
-  const handleRunForceLayout = () => {
+  const handleReset = () => {
     if (!cyRef.current) return;
-    cyRef.current.layout({
-      name: 'fcose',
-      quality: 'proof',
-      randomize: false,
-      animate: true,
-      animationDuration: 600,
-      nodeDimensionsIncludeLabels: true,
-      nodeRepulsion: 9500,
-      idealEdgeLength: 150,
-      edgeElasticity: 0.45,
-      fit: true,
-      padding: 40
-    }).run();
+    cyRef.current.elements().removeClass('highlighted-node highlighted-edge culprit-focus-node culprit-incoming-edge dimmed');
+    setFocusedEntityName(null);
+    cyRef.current.fit();
   };
 
   return (
@@ -335,7 +428,7 @@ export default function NetworkGraph({
           <input
             type="text"
             className="graph-search-input"
-            placeholder="Search node, FIR, phone..."
+            placeholder="Search evidence, vehicle, phone..."
             value={searchTerm}
             onChange={handleSearch}
           />
@@ -369,8 +462,8 @@ export default function NetworkGraph({
 
         <button 
           className="graph-tool-btn" 
-          title="Auto Space & Avoid Collisions"
-          onClick={handleRunForceLayout}
+          title="Reset View & Clear Highlights"
+          onClick={handleReset}
         >
           <RotateCcw size={16} />
         </button>
@@ -391,43 +484,71 @@ export default function NetworkGraph({
             background: 'white'
           }}
         >
-          <option value="ALL">All Network Entities ({graphData?.nodes?.length || 0})</option>
+          <option value="ALL">All Categories ({graphData?.nodes?.length || 0})</option>
           <option value="PERSON">Persons</option>
-          <option value="PHONE">Phones</option>
+          <option value="PHONE">Phones & Call Logs</option>
           <option value="VEHICLE">Vehicles</option>
           <option value="LOCATION">Locations</option>
           <option value="BANK_ACCOUNT">Bank Accounts</option>
-          <option value="CCTV_EVENT">CCTV Events</option>
+          <option value="TRANSACTION">Transactions</option>
+          <option value="CCTV_EVENT">CCTV Sightings</option>
           <option value="FIR_CASE">FIR / Cases</option>
         </select>
       </div>
+
+      {/* Focus Indicator Pill */}
+      {focusedEntityName && (
+        <div style={{
+          position: 'absolute',
+          top: '1rem',
+          right: '1.5rem',
+          background: 'var(--gov-navy)',
+          color: 'white',
+          padding: '0.4rem 0.85rem',
+          borderRadius: '9999px',
+          fontSize: '0.78rem',
+          fontWeight: 700,
+          boxShadow: '0 4px 10px rgba(0,0,0,0.15)',
+          zIndex: 10,
+          display: 'flex',
+          alignItems: 'center',
+          gap: '0.4rem'
+        }}>
+          <Crosshair size={14} />
+          <span>Active Focus: {focusedEntityName}</span>
+        </div>
+      )}
 
       {/* Main Canvas */}
       <div className="graph-canvas-wrapper">
         <div id="cy-container" ref={containerRef} />
       </div>
 
-      {/* Graph Legend Overlay */}
+      {/* Graph Legend Overlay with Real Category Icons */}
       <div className="graph-legend-overlay">
         <div className="graph-legend-item">
-          <span className="node-chip" style={{ background: '#ede9fe', border: '1.5px solid #7c3aed' }}></span>
-          <span>Person (e.g. Rakesh 91%, Pooja 100%)</span>
+          <span style={{ display: 'inline-block', width: '12px', height: '12px', borderRadius: '50%', background: '#b91c1c', border: '1.5px solid #ffffff' }}></span>
+          <span>Central Subject (Rakesh)</span>
         </div>
         <div className="graph-legend-item">
-          <span className="node-chip" style={{ background: '#ffe4e6', border: '1.5px solid #e11d48' }}></span>
-          <span>Location (e.g. North Campus 98%)</span>
+          <span style={{ display: 'inline-block', width: '12px', height: '12px', borderRadius: '50%', background: '#6b21a8' }}></span>
+          <span>Person</span>
         </div>
         <div className="graph-legend-item">
-          <span className="node-chip" style={{ background: '#fef3c7', border: '1.5px solid #d97706' }}></span>
-          <span>Vehicle (e.g. DL 01 AX 4492 92%)</span>
+          <span style={{ display: 'inline-block', width: '12px', height: '12px', borderRadius: '50%', background: '#15803d' }}></span>
+          <span>Phone / Call Record</span>
         </div>
         <div className="graph-legend-item">
-          <span className="node-chip" style={{ background: '#f3e8ff', border: '1.5px solid #9333ea' }}></span>
-          <span>Bank Account (e.g. HDFC 96%)</span>
+          <span style={{ display: 'inline-block', width: '12px', height: '12px', borderRadius: '50%', background: '#b45309' }}></span>
+          <span>Vehicle</span>
         </div>
         <div className="graph-legend-item">
-          <span className="node-chip" style={{ background: '#dcfce7', border: '1.5px solid #16a34a' }}></span>
-          <span>Phone (e.g. +91 98765 94%)</span>
+          <span style={{ display: 'inline-block', width: '12px', height: '12px', borderRadius: '50%', background: '#7e22ce' }}></span>
+          <span>Bank Account</span>
+        </div>
+        <div className="graph-legend-item">
+          <span style={{ display: 'inline-block', width: '12px', height: '12px', borderRadius: '50%', background: '#be123c' }}></span>
+          <span>Location Hub</span>
         </div>
       </div>
     </div>
