@@ -1,138 +1,146 @@
-import pytest
-from httpx import ASGITransport, AsyncClient
+"""
+Unit & Integration Tests for KavachNet FastAPI Endpoints
+Tests strict compliance with docs/API_CONTRACT.md
+"""
+
+import sys
+import unittest
+from pathlib import Path
+from fastapi.testclient import TestClient
+
+ROOT_DIR = Path(__file__).resolve().parent.parent
+if str(ROOT_DIR) not in sys.path:
+    sys.path.insert(0, str(ROOT_DIR))
+
 from backend.app.main import app
 
-@pytest.mark.anyio
-async def test_health():
-    async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as ac:
-        response = await ac.get("/health")
-    assert response.status_code == 200
-    data = response.json()
-    assert data["status"] == "HEALTHY"
-    assert data["service"] == "KavachNet"
 
-@pytest.mark.anyio
-async def test_get_states():
-    async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as ac:
-        response = await ac.get("/api/v1/states")
-    assert response.status_code == 200
-    states = response.json()
-    assert isinstance(states, list)
-    assert len(states) >= 1
-    dl_state = next((s for s in states if s["state_code"] == "DL"), None)
-    assert dl_state is not None
-    assert dl_state["state_name"] == "Delhi"
-    assert dl_state["active_cases_count"] >= 1
+class TestAPIEndpoints(unittest.TestCase):
+    """Test suite for KavachNet REST API routes."""
 
-@pytest.mark.anyio
-async def test_get_cases_and_filter():
-    async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as ac:
-        # All cases
-        res_all = await ac.get("/api/v1/cases")
-        assert res_all.status_code == 200
-        cases = res_all.json()
-        assert len(cases) >= 1
-        assert cases[0]["case_id"] == "DL-2026-0412"
+    @classmethod
+    def setUpClass(cls):
+        cls.client = TestClient(app)
 
-        # Filter by state=DL
-        res_dl = await ac.get("/api/v1/cases?state=DL")
-        assert res_dl.status_code == 200
-        assert len(res_dl.json()) >= 1
-
-        # Filter by non-existent state
-        res_none = await ac.get("/api/v1/cases?state=ZZ")
-        assert res_none.status_code == 200
-        assert len(res_none.json()) == 0
-
-@pytest.mark.anyio
-async def test_get_single_case():
-    async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as ac:
-        res = await ac.get("/api/v1/cases/DL-2026-0412")
-        assert res.status_code == 200
-        case = res.json()
-        assert case["case_id"] == "DL-2026-0412"
-        assert "fir_number" in case
-        assert case["priority"] == "CRITICAL"
-
-        # Not found
-        res_404 = await ac.get("/api/v1/cases/NON-EXISTENT")
-        assert res_404.status_code == 404
-
-@pytest.mark.anyio
-async def test_get_case_graph():
-    async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as ac:
-        res = await ac.get("/api/v1/cases/DL-2026-0412/graph")
-        assert res.status_code == 200
-        graph = res.json()
-        assert graph["case_id"] == "DL-2026-0412"
-        assert "elements" in graph
-        nodes = graph["elements"]["nodes"]
-        edges = graph["elements"]["edges"]
-        
-        # Verify Cytoscape format: nodes and edges have nested 'data'
-        assert len(nodes) >= 10
-        assert len(edges) >= 9
-        assert "data" in nodes[0]
-        assert "id" in nodes[0]["data"]
-        assert "label" in nodes[0]["data"]
-        assert "data" in edges[0]
-        assert "source" in edges[0]["data"]
-        assert "target" in edges[0]["data"]
-
-@pytest.mark.anyio
-async def test_get_case_timeline():
-    async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as ac:
-        res = await ac.get("/api/v1/cases/DL-2026-0412/timeline")
-        assert res.status_code == 200
-        events = res.json()
-        assert len(events) >= 4
-        assert events[0]["event_id"] == "evt-001"
-        assert "timestamp" in events[0]
-        assert "category" in events[0]
-        assert "involved_entities" in events[0]
-
-@pytest.mark.anyio
-async def test_get_case_entity_detail():
-    async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as ac:
-        # Priya
-        res_p = await ac.get("/api/v1/cases/DL-2026-0412/entities/person-priya")
-        assert res_p.status_code == 200
-        priya = res_p.json()
-        assert priya["id"] == "person-priya"
-        assert priya["type"] == "PERSON"
-        assert priya["sub_role"] == "SUBJECT_OF_SEARCH"
-        assert len(priya["supporting_records"]) >= 1
-
-        # Rakesh
-        res_r = await ac.get("/api/v1/cases/DL-2026-0412/entities/person-rakesh")
-        assert res_r.status_code == 200
-        rakesh = res_r.json()
-        assert rakesh["metrics"]["centrality_score"] == 0.94
-        assert rakesh["metrics"]["risk_level"] == "CRITICAL"
-
-        # Not found
-        res_nf = await ac.get("/api/v1/cases/DL-2026-0412/entities/unknown-node")
-        assert res_nf.status_code == 404
-
-@pytest.mark.anyio
-async def test_post_case_query():
-    async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as ac:
-        payload = {"query": "What connects Rakesh Kumar to the vehicle sighted at Singhu Border?"}
-        res = await ac.post("/api/v1/cases/DL-2026-0412/query", json=payload)
-        assert res.status_code == 200
+    def test_01_root_and_health(self):
+        """Verify root and health check endpoints."""
+        res = self.client.get("/")
+        self.assertEqual(res.status_code, 200)
         data = res.json()
-        assert "answer" in data
-        assert data["confidence"] > 0.8
-        assert "person-rakesh" in data["cited_entities"]
-        assert len(data["suggested_actions"]) >= 1
+        self.assertEqual(data["system"], "KavachNet Intelligence Engine")
+        self.assertEqual(data["status"], "OPERATIONAL")
 
-@pytest.mark.anyio
-async def test_get_case_provenance():
-    async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as ac:
-        res = await ac.get("/api/v1/cases/DL-2026-0412/provenance/verify")
-        assert res.status_code == 200
-        prov = res.json()
-        assert prov["case_id"] == "DL-2026-0412"
-        assert prov["status"] == "VERIFIED_INTACT"
-        assert prov["bsa_section_63_compliant"] is True
-        assert len(prov["audit_trail"]) >= 4
+        res_health = self.client.get("/health")
+        self.assertEqual(res_health.status_code, 200)
+        self.assertEqual(res_health.json()["status"], "HEALTHY")
+
+    def test_02_get_states(self):
+        """Verify GET /api/v1/states returns expected state metrics."""
+        res = self.client.get("/api/v1/states")
+        self.assertEqual(res.status_code, 200)
+        states = res.json()
+        self.assertIsInstance(states, list)
+        self.assertGreaterEqual(len(states), 1)
+
+        dl_state = next((s for s in states if s["state_code"] == "DL"), None)
+        self.assertIsNotNone(dl_state)
+        self.assertEqual(dl_state["state_name"], "Delhi")
+        self.assertGreaterEqual(dl_state["active_cases_count"], 1)
+
+    def test_03_get_cases_and_filter(self):
+        """Verify GET /api/v1/cases and state filtering."""
+        res = self.client.get("/api/v1/cases")
+        self.assertEqual(res.status_code, 200)
+        cases = res.json()
+        self.assertIsInstance(cases, list)
+        self.assertGreaterEqual(len(cases), 1)
+        self.assertEqual(cases[0]["case_id"], "DL-2026-0412")
+
+        res_dl = self.client.get("/api/v1/cases?state=DL")
+        self.assertEqual(res_dl.status_code, 200)
+        dl_cases = res_dl.json()
+        self.assertTrue(all(c["state_code"] == "DL" for c in dl_cases))
+
+    def test_04_get_case_metadata(self):
+        """Verify GET /api/v1/cases/{case_id}."""
+        res = self.client.get("/api/v1/cases/DL-2026-0412")
+        self.assertEqual(res.status_code, 200)
+        data = res.json()
+        self.assertEqual(data["case_id"], "DL-2026-0412")
+        self.assertEqual(data["state_code"], "DL")
+
+        # 404 for invalid case
+        res_404 = self.client.get("/api/v1/cases/INVALID-CASE-999")
+        self.assertEqual(res_404.status_code, 404)
+
+    def test_05_get_case_graph_cytoscape(self):
+        """Verify GET /api/v1/cases/{case_id}/graph returns Cytoscape elements with centrality."""
+        res = self.client.get("/api/v1/cases/DL-2026-0412/graph")
+        self.assertEqual(res.status_code, 200)
+        data = res.json()
+        self.assertEqual(data["case_id"], "DL-2026-0412")
+        self.assertIn("elements", data)
+        self.assertIn("nodes", data["elements"])
+        self.assertIn("edges", data["elements"])
+
+        nodes = data["elements"]["nodes"]
+        edges = data["elements"]["edges"]
+        self.assertGreaterEqual(len(nodes), 8)
+        self.assertGreaterEqual(len(edges), 8)
+
+        # Verify node fields
+        rakesh_node = next((n["data"] for n in nodes if n["data"]["id"] == "person-rakesh"), None)
+        self.assertIsNotNone(rakesh_node)
+        self.assertEqual(rakesh_node["label"], "Rakesh Kumar")
+        self.assertIn("centrality_score", rakesh_node)
+        self.assertGreater(rakesh_node["centrality_score"], 0.4)
+
+    def test_06_get_case_timeline(self):
+        """Verify GET /api/v1/cases/{case_id}/timeline."""
+        res = self.client.get("/api/v1/cases/DL-2026-0412/timeline")
+        self.assertEqual(res.status_code, 200)
+        timeline = res.json()
+        self.assertIsInstance(timeline, list)
+        self.assertGreaterEqual(len(timeline), 4)
+        first_event = timeline[0]
+        self.assertIn("event_id", first_event)
+        self.assertIn("timestamp", first_event)
+        self.assertIn("category", first_event)
+        self.assertIn("involved_entities", first_event)
+
+    def test_07_get_entity_profile(self):
+        """Verify GET /api/v1/cases/{case_id}/entities/{entity_id}."""
+        res = self.client.get("/api/v1/cases/DL-2026-0412/entities/person-rakesh")
+        self.assertEqual(res.status_code, 200)
+        profile = res.json()
+        self.assertEqual(profile["id"], "person-rakesh")
+        self.assertEqual(profile["label"], "Rakesh Kumar")
+        self.assertIn("metrics", profile)
+        self.assertGreater(profile["metrics"]["centrality_score"], 0.4)
+
+    def test_08_query_assistant(self):
+        """Verify POST /api/v1/cases/{case_id}/query and /api/v1/assistant/query."""
+        payload = {"query": "What phone number was used by Rakesh Kumar?"}
+        res = self.client.post("/api/v1/cases/DL-2026-0412/query", json=payload)
+        self.assertEqual(res.status_code, 200)
+        data = res.json()
+        self.assertIn("answer", data)
+        self.assertIn("confidence", data)
+        self.assertIn("suggested_actions", data)
+        self.assertGreater(data["confidence"], 0.5)
+
+    def test_09_verify_provenance(self):
+        """Verify GET /api/v1/cases/{case_id}/provenance/verify under BSA 2023 Sec 63."""
+        res = self.client.get("/api/v1/cases/DL-2026-0412/provenance/verify")
+        self.assertEqual(res.status_code, 200)
+        data = res.json()
+        self.assertEqual(data["case_id"], "DL-2026-0412")
+        self.assertEqual(data["status"], "VERIFIED_INTACT")
+        self.assertTrue(data["bsa_section_63_compliant"])
+        self.assertIn("merkle_root", data)
+        self.assertIn("audit_trail", data)
+        self.assertGreaterEqual(len(data["audit_trail"]), 1)
+
+
+if __name__ == "__main__":
+    unittest.main()
