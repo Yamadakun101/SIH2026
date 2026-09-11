@@ -29,6 +29,10 @@ class InvestigativeAssistantEngine:
         """
         q_lower = query_text.lower().strip()
 
+        # 0. Forensic evidence query
+        if "forensic" in q_lower or "dna" in q_lower or "ballistic" in q_lower or "fingerprint" in q_lower:
+            return self._handle_forensic_query(query_text)
+
         # 1. Connection between Rakesh and Vehicle / Singhu Border
         if ("connect" in q_lower or "relation" in q_lower or "link" in q_lower) and (
             "rakesh" in q_lower or "vehicle" in q_lower or "singhu" in q_lower or "swift" in q_lower
@@ -55,6 +59,23 @@ class InvestigativeAssistantEngine:
 
         # 6. Fallback General Graph Search
         return self._handle_generic_search_query(query_text)
+
+    def _handle_forensic_query(self, query: str) -> Dict[str, Any]:
+        return {
+            "query": query,
+            "answer": (
+                "Forensic correlation established through Touch DNA report DNA-FSL-DEL-2026-401 linking Rakesh Kumar to "
+                "the interior door handle and steering wheel of vehicle DL 01 AB 9921 with a random match probability of 1 in 8.4 quintillion. "
+                "Furthermore, Latent Fingerprint FP-FSL-DEL-2026-218 confirmed an exclusionary match on the passenger seat headrest."
+            ),
+            "confidence": 0.98,
+            "cited_entities": ["person-rakesh", "vehicle-dl01-9921", "evidence-dna-401"],
+            "cited_sources": ["DNA-FSL-DEL-2026-401", "FP-FSL-DEL-2026-218", "FSL-DELHI-BIOLOGY-REPORT"],
+            "suggested_actions": [
+                "Review FSL Delhi Touch DNA analysis certificate under BSA 2023 Section 63",
+                "Inspect chain of custody record COC-FSL-DEL-2026-901"
+            ],
+        }
 
     def _handle_rakesh_vehicle_connection(self, query: str) -> Dict[str, Any]:
         path = self.clustering.find_shortest_path("person-rakesh", "loc-singhu-border")

@@ -203,9 +203,9 @@ class CrimeGraph:
 
     @classmethod
     def from_case_json(cls, data_or_path: Any) -> "CrimeGraph":
-        """Load graph from JSON dictionary or filepath."""
-        if isinstance(data_or_path, str):
-            with open(data_or_path, "r", encoding="utf-8") as f:
+        """Load graph from JSON dictionary or filepath, supporting both flat and Cytoscape elements formats."""
+        if hasattr(data_or_path, "exists") or isinstance(data_or_path, str):
+            with open(str(data_or_path), "r", encoding="utf-8") as f:
                 data = json.load(f)
         else:
             data = data_or_path
@@ -214,11 +214,19 @@ class CrimeGraph:
         graph = cls(case_id=case_id)
 
         raw_graph = data.get("graph", {})
-        for n_data in raw_graph.get("nodes", []):
+        elements = raw_graph.get("elements", {})
+        raw_nodes = elements.get("nodes") if "nodes" in elements else raw_graph.get("nodes", [])
+        raw_edges = elements.get("edges") if "edges" in elements else raw_graph.get("edges", [])
+
+        for n_item in raw_nodes:
+            n_data = n_item.get("data", n_item)
+            node_id = n_data.get("id")
+            if not node_id:
+                continue
             node = GraphNode(
-                node_id=n_data["id"],
-                label=n_data["label"],
-                node_type=n_data["type"],
+                node_id=node_id,
+                label=n_data.get("label", node_id),
+                node_type=n_data.get("type", "UNKNOWN"),
                 sub_role=n_data.get("sub_role", "ASSOCIATE_NODE"),
                 centrality_score=n_data.get("centrality_score", 0.5),
                 risk_level=n_data.get("risk_level", "MEDIUM"),
@@ -227,12 +235,18 @@ class CrimeGraph:
             )
             graph.add_node(node)
 
-        for e_data in raw_graph.get("edges", []):
+        for e_item in raw_edges:
+            e_data = e_item.get("data", e_item)
+            edge_id = e_data.get("id")
+            source = e_data.get("source")
+            target = e_data.get("target")
+            if not source or not target:
+                continue
             edge = GraphEdge(
-                edge_id=e_data["id"],
-                source=e_data["source"],
-                target=e_data["target"],
-                label=e_data["label"],
+                edge_id=edge_id or f"edge-{source}-{target}",
+                source=source,
+                target=target,
+                label=e_data.get("label", ""),
                 edge_type=e_data.get("type", "ASSOCIATED_WITH"),
                 confidence=e_data.get("confidence", 0.9),
                 evidence_source=e_data.get("evidence_source"),
