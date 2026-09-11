@@ -58,43 +58,43 @@ const COLOR_TIERS = {
 // Standard normal India state coordinates & color-coordinated data
 const INDIA_REGIONS = [
   // 🔴 RED - HIGH IMPORTANCE / BIG CASES
-  { code: 'DL', name: 'Delhi NCR', capital: 'New Delhi', x: 345, y: 245, cases: 4, importance: 'HIGH', dominantCase: 'Kidnapping & Criminal Nexus (DL-2026-0412)' },
-  { code: 'UP', name: 'Uttar Pradesh', capital: 'Lucknow', x: 445, y: 285, cases: 6, importance: 'HIGH', dominantCase: 'Inter-State Arms Supply Syndicate' },
-  { code: 'MH', name: 'Maharashtra', capital: 'Mumbai', x: 275, y: 520, cases: 7, importance: 'HIGH', dominantCase: 'Organized Hawala & Money Laundering' },
-  { code: 'PB', name: 'Punjab', capital: 'Chandigarh', x: 285, y: 185, cases: 3, importance: 'HIGH', dominantCase: 'Cross-Border Drone Contraband Network' },
+  { code: 'DL', name: 'Delhi NCR', capital: 'New Delhi', x: 295, y: 245, cases: 4, importance: 'HIGH', dominantCase: 'Kidnapping & Criminal Nexus (DL-2026-0412)' },
+  { code: 'UP', name: 'Uttar Pradesh', capital: 'Lucknow', x: 395, y: 285, cases: 6, importance: 'HIGH', dominantCase: 'Inter-State Arms Supply Syndicate' },
+  { code: 'MH', name: 'Maharashtra', capital: 'Mumbai', x: 245, y: 510, cases: 7, importance: 'HIGH', dominantCase: 'Organized Hawala & Money Laundering' },
+  { code: 'PB', name: 'Punjab', capital: 'Chandigarh', x: 245, y: 190, cases: 3, importance: 'HIGH', dominantCase: 'Cross-Border Drone Contraband Network' },
 
   // 🟡 YELLOW - MEDIUM IMPORTANCE
-  { code: 'RJ', name: 'Rajasthan', capital: 'Jaipur', x: 235, y: 295, cases: 4, importance: 'MEDIUM', dominantCase: 'Recruitment & Examination Fraud' },
-  { code: 'HR', name: 'Haryana', capital: 'Chandigarh', x: 315, y: 225, cases: 3, importance: 'MEDIUM', dominantCase: 'Vehicle Re-Registration Racket' },
-  { code: 'WB', name: 'West Bengal', capital: 'Kolkata', x: 635, y: 410, cases: 5, importance: 'MEDIUM', dominantCase: 'Counterfeit Currency Circulation' },
-  { code: 'BR', name: 'Bihar', capital: 'Patna', x: 575, y: 320, cases: 3, importance: 'MEDIUM', dominantCase: 'Synthetic SIM Cloning Ring' },
-  { code: 'MP', name: 'Madhya Pradesh', capital: 'Bhopal', x: 365, y: 395, cases: 4, importance: 'MEDIUM', dominantCase: 'Mining Heavy Equipment Scam' },
-  { code: 'TG', name: 'Telangana', capital: 'Hyderabad', x: 385, y: 575, cases: 3, importance: 'MEDIUM', dominantCase: 'Crypto Investment Layering' },
-  { code: 'AS', name: 'Assam', capital: 'Dispur', x: 745, y: 325, cases: 3, importance: 'MEDIUM', dominantCase: 'Wildlife Transit Network' },
+  { code: 'RJ', name: 'Rajasthan', capital: 'Jaipur', x: 195, y: 295, cases: 4, importance: 'MEDIUM', dominantCase: 'Recruitment & Examination Fraud' },
+  { code: 'HR', name: 'Haryana', capital: 'Chandigarh', x: 275, y: 230, cases: 3, importance: 'MEDIUM', dominantCase: 'Vehicle Re-Registration Racket' },
+  { code: 'WB', name: 'West Bengal', capital: 'Kolkata', x: 540, y: 410, cases: 5, importance: 'MEDIUM', dominantCase: 'Counterfeit Currency Circulation' },
+  { code: 'BR', name: 'Bihar', capital: 'Patna', x: 495, y: 325, cases: 3, importance: 'MEDIUM', dominantCase: 'Synthetic SIM Cloning Ring' },
+  { code: 'MP', name: 'Madhya Pradesh', capital: 'Bhopal', x: 325, y: 395, cases: 4, importance: 'MEDIUM', dominantCase: 'Mining Heavy Equipment Scam' },
+  { code: 'TG', name: 'Telangana', capital: 'Hyderabad', x: 345, y: 560, cases: 3, importance: 'MEDIUM', dominantCase: 'Crypto Investment Layering' },
+  { code: 'AS', name: 'Assam', capital: 'Dispur', x: 665, y: 330, cases: 3, importance: 'MEDIUM', dominantCase: 'Wildlife Transit Network' },
 
   // 🟢 GREEN - LOW IMPORTANCE / MINOR CASES / ROUTINE
-  { code: 'GJ', name: 'Gujarat', capital: 'Gandhinagar', x: 165, y: 395, cases: 2, importance: 'LOW', dominantCase: 'Port Cargo Weight Discrepancy' },
-  { code: 'OR', name: 'Odisha', capital: 'Bhubaneswar', x: 555, y: 485, cases: 3, importance: 'LOW', dominantCase: 'Commercial Trademark Dispute' },
-  { code: 'CT', name: 'Chhattisgarh', capital: 'Raipur', x: 475, y: 455, cases: 2, importance: 'LOW', dominantCase: 'Highway Checkpost Log Audit' },
-  { code: 'JH', name: 'Jharkhand', capital: 'Ranchi', x: 565, y: 390, cases: 2, importance: 'LOW', dominantCase: 'Industrial Equipment Verification' },
-  { code: 'AP', name: 'Andhra Pradesh', capital: 'Amaravati', x: 405, y: 655, cases: 3, importance: 'LOW', dominantCase: 'Retail Counterfeit Brand Alert' },
-  { code: 'KL', name: 'Kerala', capital: 'Thiruvananthapuram', x: 285, y: 795, cases: 2, importance: 'LOW', dominantCase: 'Local Stamp Paper Forgery' },
-  { code: 'HP', name: 'Himachal Pradesh', capital: 'Shimla', x: 345, y: 150, cases: 1, importance: 'LOW', dominantCase: 'Tourist ID Verification Log' },
-  { code: 'UT', name: 'Uttarakhand', capital: 'Dehradun', x: 395, y: 195, cases: 2, importance: 'LOW', dominantCase: 'Toll Barrier Evasion Record' },
-  { code: 'JK', name: 'Jammu & Kashmir', capital: 'Srinagar', x: 275, y: 105, cases: 2, importance: 'LOW', dominantCase: 'Routine Entry Checkpoint Register' },
-  { code: 'LA', name: 'Ladakh', capital: 'Leh', x: 360, y: 80, cases: 1, importance: 'LOW', dominantCase: 'High Altitude Station Report' },
-  { code: 'GA', name: 'Goa', capital: 'Panaji', x: 225, y: 645, cases: 1, importance: 'LOW', dominantCase: 'Commercial Establishment Infraction' },
-  { code: 'SK', name: 'Sikkim', capital: 'Gangtok', x: 625, y: 275, cases: 1, importance: 'LOW', dominantCase: 'Border Transit Goods Inspection' },
-  { code: 'AR', name: 'Arunachal Pradesh', capital: 'Itanagar', x: 805, y: 260, cases: 1, importance: 'LOW', dominantCase: 'Regional Patrol Register' },
-  { code: 'ML', name: 'Meghalaya', capital: 'Shillong', x: 725, y: 355, cases: 1, importance: 'LOW', dominantCase: 'Timber Movement Permit Check' },
-  { code: 'NL', name: 'Nagaland', capital: 'Kohima', x: 835, y: 330, cases: 1, importance: 'LOW', dominantCase: 'Jurisdictional Boundary Log' },
-  { code: 'MN', name: 'Manipur', capital: 'Imphal', x: 825, y: 375, cases: 1, importance: 'LOW', dominantCase: 'Local Movement Permit Audit' },
-  { code: 'TR', name: 'Tripura', capital: 'Agartala', x: 735, y: 405, cases: 1, importance: 'LOW', dominantCase: 'Border Fencing Maintenance Log' },
-  { code: 'MZ', name: 'Mizoram', capital: 'Aizawl', x: 805, y: 425, cases: 1, importance: 'LOW', dominantCase: 'Routine Verification Dossier' },
+  { code: 'GJ', name: 'Gujarat', capital: 'Gandhinagar', x: 135, y: 420, cases: 2, importance: 'LOW', dominantCase: 'Port Cargo Weight Discrepancy' },
+  { code: 'OR', name: 'Odisha', capital: 'Bhubaneswar', x: 485, y: 480, cases: 3, importance: 'LOW', dominantCase: 'Commercial Trademark Dispute' },
+  { code: 'CT', name: 'Chhattisgarh', capital: 'Raipur', x: 415, y: 460, cases: 2, importance: 'LOW', dominantCase: 'Highway Checkpost Log Audit' },
+  { code: 'JH', name: 'Jharkhand', capital: 'Ranchi', x: 485, y: 390, cases: 2, importance: 'LOW', dominantCase: 'Industrial Equipment Verification' },
+  { code: 'AP', name: 'Andhra Pradesh', capital: 'Amaravati', x: 360, y: 645, cases: 3, importance: 'LOW', dominantCase: 'Retail Counterfeit Brand Alert' },
+  { code: 'KL', name: 'Kerala', capital: 'Thiruvananthapuram', x: 255, y: 785, cases: 2, importance: 'LOW', dominantCase: 'Local Stamp Paper Forgery' },
+  { code: 'HP', name: 'Himachal Pradesh', capital: 'Shimla', x: 295, y: 155, cases: 1, importance: 'LOW', dominantCase: 'Tourist ID Verification Log' },
+  { code: 'UT', name: 'Uttarakhand', capital: 'Dehradun', x: 345, y: 190, cases: 2, importance: 'LOW', dominantCase: 'Toll Barrier Evasion Record' },
+  { code: 'JK', name: 'Jammu & Kashmir', capital: 'Srinagar', x: 240, y: 115, cases: 2, importance: 'LOW', dominantCase: 'Routine Entry Checkpoint Register' },
+  { code: 'LA', name: 'Ladakh', capital: 'Leh', x: 315, y: 80, cases: 1, importance: 'LOW', dominantCase: 'High Altitude Station Report' },
+  { code: 'GA', name: 'Goa', capital: 'Panaji', x: 200, y: 625, cases: 1, importance: 'LOW', dominantCase: 'Commercial Establishment Infraction' },
+  { code: 'SK', name: 'Sikkim', capital: 'Gangtok', x: 575, y: 275, cases: 1, importance: 'LOW', dominantCase: 'Border Transit Goods Inspection' },
+  { code: 'AR', name: 'Arunachal Pradesh', capital: 'Itanagar', x: 745, y: 260, cases: 1, importance: 'LOW', dominantCase: 'Regional Patrol Register' },
+  { code: 'ML', name: 'Meghalaya', capital: 'Shillong', x: 645, y: 360, cases: 1, importance: 'LOW', dominantCase: 'Timber Movement Permit Check' },
+  { code: 'NL', name: 'Nagaland', capital: 'Kohima', x: 765, y: 330, cases: 1, importance: 'LOW', dominantCase: 'Jurisdictional Boundary Log' },
+  { code: 'MN', name: 'Manipur', capital: 'Imphal', x: 755, y: 375, cases: 1, importance: 'LOW', dominantCase: 'Local Movement Permit Audit' },
+  { code: 'TR', name: 'Tripura', capital: 'Agartala', x: 670, y: 415, cases: 1, importance: 'LOW', dominantCase: 'Border Fencing Maintenance Log' },
+  { code: 'MZ', name: 'Mizoram', capital: 'Aizawl', x: 715, y: 435, cases: 1, importance: 'LOW', dominantCase: 'Routine Verification Dossier' },
 
   // 🔵 BLUE - CLOSED CASES / RESOLVED / CHARGESHEETED
-  { code: 'KA', name: 'Karnataka', capital: 'Bengaluru', x: 295, y: 675, cases: 3, importance: 'CLOSED', dominantCase: 'SIM Box Gateway (Chargesheet Filed)' },
-  { code: 'TN', name: 'Tamil Nadu', capital: 'Chennai', x: 365, y: 775, cases: 4, importance: 'CLOSED', dominantCase: 'Spurious Pharma Network (Convicted)' }
+  { code: 'KA', name: 'Karnataka', capital: 'Bengaluru', x: 255, y: 660, cases: 3, importance: 'CLOSED', dominantCase: 'SIM Box Gateway (Chargesheet Filed)' },
+  { code: 'TN', name: 'Tamil Nadu', capital: 'Chennai', x: 315, y: 765, cases: 4, importance: 'CLOSED', dominantCase: 'Spurious Pharma Network (Convicted)' }
 ];
 
 export default function IndiaMap({ onSelectCase }) {
@@ -344,46 +344,62 @@ export default function IndiaMap({ onSelectCase }) {
               </filter>
             </defs>
 
-            {/* Main Authentic India Geographic Silhouette */}
+            {/* User Uploaded Exact Silhouette of India */}
             <path
               id="india-national-boundary"
-              d="M 295,40 
-                 C 278,55 252,80 238,108 
-                 C 228,130 242,152 236,172 
-                 C 226,192 208,212 192,242 
-                 C 172,275 152,300 128,328 
-                 C 102,342 78,358 84,374 
-                 C 94,386 124,378 140,368 
-                 C 128,390 98,406 108,426 
-                 C 118,446 148,440 164,418 
-                 C 174,438 180,470 190,502 
-                 C 204,552 216,612 226,662 
-                 C 236,712 246,762 256,802 
-                 C 266,838 280,876 295,888 
-                 C 306,882 326,846 342,810 
-                 C 362,764 378,714 392,658 
-                 C 412,608 436,568 462,528 
-                 C 488,492 518,462 544,436 
-                 C 564,416 578,432 594,436 
-                 C 604,420 588,390 578,366 
-                 C 568,336 572,316 598,296 
-                 C 612,286 622,262 616,252 
-                 C 632,262 656,272 678,272 
-                 C 708,256 742,226 788,220 
-                 C 828,216 858,242 852,268 
-                 C 842,298 818,328 812,362 
-                 C 806,392 782,438 772,452 
-                 C 756,442 742,416 736,392 
-                 C 716,402 702,382 692,356 
-                 C 662,362 636,336 622,312 
-                 C 592,306 572,292 546,282 
-                 C 506,262 462,232 412,196 
-                 C 386,172 366,142 366,112 
-                 C 376,86 356,62 332,46 
-                 C 314,36 302,36 295,40 Z"
+              d="M 210,60 
+                 C 220,52 245,45 255,45 
+                 C 268,45 285,55 292,72 
+                 C 298,85 305,95 315,95 
+                 C 328,95 342,85 355,85 
+                 C 368,85 378,92 372,105 
+                 C 365,118 348,135 340,150 
+                 C 335,162 335,180 342,190 
+                 C 348,198 368,220 385,230 
+                 C 405,242 425,255 450,268 
+                 C 480,285 520,310 560,335 
+                 C 572,342 580,330 580,310 
+                 C 580,298 595,298 600,310 
+                 C 602,325 600,345 615,350 
+                 C 635,355 665,350 685,350 
+                 C 705,350 735,320 760,280 
+                 C 778,252 805,265 825,275 
+                 C 835,280 838,295 828,308 
+                 C 818,322 810,332 805,345 
+                 C 798,362 785,395 775,415 
+                 C 768,430 758,455 745,480 
+                 C 738,495 725,492 725,465 
+                 C 725,445 715,440 705,455 
+                 C 695,470 685,465 685,440 
+                 C 685,415 665,405 645,395 
+                 C 625,385 605,402 590,412 
+                 C 580,418 578,435 580,460 
+                 C 582,482 602,492 610,498 
+                 C 595,502 575,518 555,545 
+                 C 530,580 475,640 435,680 
+                 C 405,710 388,745 380,780 
+                 C 375,802 360,820 348,828 
+                 C 335,838 318,858 308,858 
+                 C 298,858 285,842 278,825 
+                 C 265,795 245,745 230,685 
+                 C 215,625 198,565 190,510 
+                 C 185,480 188,460 178,465 
+                 C 168,470 175,515 165,528 
+                 C 152,545 125,540 108,515 
+                 C 92,490 88,455 102,435 
+                 C 115,418 138,422 145,425 
+                 C 132,412 112,408 95,412 
+                 C 82,415 78,398 85,388 
+                 C 95,375 125,365 140,360 
+                 C 132,342 128,325 140,310 
+                 C 152,295 168,298 185,282 
+                 C 205,262 225,232 235,195 
+                 C 242,168 228,142 222,125 
+                 C 215,105 202,88 205,72 
+                 C 206,65 208,62 210,60 Z"
               fill="url(#indiaMapGrad)"
               stroke="#0f172a"
-              strokeWidth="2.8"
+              strokeWidth="3.2"
               strokeLinejoin="round"
               filter="url(#mapElevationShadow)"
             />
