@@ -1,0 +1,44 @@
+{
+  "record_id": "REC-DNA-FSL-DEL-2026-402",
+  "source_type": "FORENSIC",
+  "ingested_at": "2026-09-11T17:54:36.502581+00:00",
+  "ingested_by_badge": "FSL-BIO-042",
+  "raw_content": {
+    "report_id": "DNA-FSL-DEL-2026-402",
+    "category": "DNA_BIOLOGICAL",
+    "evidence_id": "EVID-DNA-002",
+    "case_id": "DL-2026-0412",
+    "laboratory": "Biology Division, Forensic Science Laboratory, Rohini, Delhi",
+    "examination_date": "2026-09-04T16:15:00Z",
+    "evidence_item": "Hair Strand with Intact Follicle \u2014 Vehicle Rear Footwell Carpet",
+    "examiner": "Senior Scientific Officer Dr. Meenakshi Sundaram",
+    "examiner_badge": "FSL-BIO-042",
+    "sample_id": "SMPL-BIO-DEL-402-B",
+    "sample_type": "Hair Follicle with Root Sheath",
+    "biological_material": "Human hair root sheath cellular material",
+    "collection_location": "Vehicle Inspection Bay, PS Kashmere Gate, Delhi",
+    "collection_timestamp": "2026-09-03T11:45:00Z",
+    "collection_method": "Fine forceps recovery into sterile glassine envelope",
+    "dna_profile_id": "PROF-STR-DEL-9913",
+    "str_profile_metadata": {
+      "kit_used": "AmpFlSTR Identifiler Plus",
+      "amelogenin": [
+        "X",
+        "X"
+      ],
+      "loci_count": 16,
+      "concordance_rate": "15/16 loci concordant with reference sample"
+    },
+    "candidate_entity": "person-priya",
+    "comparison_result": "Investigative Lead / Potential Association",
+    "match_confidence": 0.87,
+    "status": "Analyzed / Corroborating Evidence",
+    "chain_of_custody_id": "COC-DEL-2026-002",
+    "investigative_implication": "Strongly corroborates Priya Sharma was transported inside vehicle DL 01 AB 9921."
+  },
+  "provenance": {
+    "sha256_hash": "7d2e59dba78ec110444a4c994363ec47764112d661660a88647df7200370a89a",
+    "block_height": 1,
+    "previous_hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  }
+}

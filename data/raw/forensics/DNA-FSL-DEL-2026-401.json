@@ -1,0 +1,104 @@
+{
+  "record_id": "REC-DNA-FSL-DEL-2026-401",
+  "source_type": "FORENSIC",
+  "ingested_at": "2026-09-11T17:54:36.501874+00:00",
+  "ingested_by_badge": "FSL-BIO-042",
+  "raw_content": {
+    "report_id": "DNA-FSL-DEL-2026-401",
+    "category": "DNA_BIOLOGICAL",
+    "evidence_id": "EVID-DNA-001",
+    "case_id": "DL-2026-0412",
+    "laboratory": "Biology Division, Forensic Science Laboratory, Rohini, Delhi",
+    "examination_date": "2026-09-04T15:30:00Z",
+    "evidence_item": "Passenger Seatbelt Buckle Swab \u2014 Vehicle DL 01 AB 9921",
+    "examiner": "Senior Scientific Officer Dr. Meenakshi Sundaram",
+    "examiner_badge": "FSL-BIO-042",
+    "sample_id": "SMPL-BIO-DEL-401-A",
+    "sample_type": "Touch DNA / Epithelial Swab",
+    "biological_material": "Epithelial cellular material with nuclear DNA",
+    "collection_location": "Forensic Inspection Bay, PS Kashmere Gate, Delhi",
+    "collection_timestamp": "2026-09-03T11:30:00Z",
+    "collection_method": "Sterile cotton swab moistened with 0.9% saline",
+    "dna_profile_id": "PROF-STR-DEL-9912",
+    "str_profile_metadata": {
+      "kit_used": "AmpFlSTR Identifiler Plus PCR Amplification Kit",
+      "loci_profile": {
+        "AMEL": [
+          "X",
+          "Y"
+        ],
+        "D8S1179": [
+          13,
+          15
+        ],
+        "D21S11": [
+          29,
+          30
+        ],
+        "D7S820": [
+          8,
+          11
+        ],
+        "CSF1PO": [
+          10,
+          12
+        ],
+        "D3S1358": [
+          14,
+          16
+        ],
+        "TH01": [
+          6,
+          9
+        ],
+        "D13S317": [
+          11,
+          12
+        ],
+        "D16S539": [
+          9,
+          11
+        ],
+        "D2S1338": [
+          19,
+          23
+        ],
+        "D19S433": [
+          14,
+          15.2
+        ],
+        "vWA": [
+          16,
+          18
+        ],
+        "TPOX": [
+          8,
+          8
+        ],
+        "D18S51": [
+          12,
+          17
+        ],
+        "D5S818": [
+          11,
+          13
+        ],
+        "FGA": [
+          21,
+          24
+        ]
+      }
+    },
+    "candidate_entity": "person-rakesh",
+    "comparison_result": "Consistent Profile / Strong Association",
+    "match_confidence": 0.94,
+    "status": "Analyzed / Verified",
+    "chain_of_custody_id": "COC-DEL-2026-001",
+    "investigative_implication": "Corroborates physical presence of Rakesh Kumar inside conveyance DL 01 AB 9921."
+  },
+  "provenance": {
+    "sha256_hash": "16369cd814f835f70ea50e98361d2fa9615af47ce9c4c497400b1b52d4f4f560",
+    "block_height": 1,
+    "previous_hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  }
+}

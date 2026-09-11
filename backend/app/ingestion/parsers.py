@@ -154,3 +154,52 @@ def parse_cctv(envelope: Dict[str, Any]) -> Tuple[List[Dict[str, Any]], List[Dic
         })
 
     return nodes, edges
+
+def parse_forensic(envelope: Dict[str, Any]) -> Tuple[List[Dict[str, Any]], List[Dict[str, Any]]]:
+    raw = envelope.get("raw_content", {})
+    record_id = envelope.get("record_id", "UNKNOWN-REC")
+    nodes = []
+    edges = []
+
+    evidence_id = raw.get("evidence_id") or raw.get("report_id", "UNKNOWN_EVID")
+    node_id = f"evidence-{evidence_id.lower().replace('_', '-')}"
+    category = raw.get("category", "FORENSIC")
+
+    nodes.append({
+        "id": node_id,
+        "type": "FORENSIC_EVIDENCE",
+        "label": raw.get("evidence_item", evidence_id),
+        "sub_role": f"FORENSIC_{category}",
+        "attributes": {
+            "category": category,
+            "report_id": raw.get("report_id"),
+            "laboratory": raw.get("laboratory"),
+            "comparison_result": raw.get("comparison_result"),
+            "status": raw.get("status")
+        },
+        "metrics": {
+            "centrality_score": 0.65,
+            "risk_level": "HIGH" if raw.get("match_confidence", raw.get("confidence", 0.5)) >= 0.85 else "MEDIUM"
+        },
+        "supporting_records": [record_id]
+    })
+
+    # If linked to a candidate entity, create edge
+    candidate = raw.get("candidate_entity") or raw.get("candidate_vehicle_or_person") or raw.get("associated_entity")
+    if candidate:
+        conf = raw.get("match_confidence") or raw.get("similarity_confidence") or raw.get("confidence") or raw.get("similarity_score") or 0.8
+        edges.append({
+            "id": f"edge-forensic-{node_id}-{candidate}",
+            "source": node_id,
+            "target": candidate,
+            "type": "FORENSIC_ASSOCIATION",
+            "label": f"{raw.get('comparison_result', 'CORROBORATING_FINDING')} [{int(conf * 100)}%]",
+            "confidence": conf,
+            "confidence_explanation": raw.get("investigative_implication", "Forensic laboratory examination and cross-matching analysis."),
+            "interaction_count": 1,
+            "category": "FORENSIC",
+            "source_records": [record_id]
+        })
+
+    return nodes, edges
+

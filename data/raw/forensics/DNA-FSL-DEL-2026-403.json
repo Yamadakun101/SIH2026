@@ -1,0 +1,43 @@
+{
+  "record_id": "REC-DNA-FSL-DEL-2026-403",
+  "source_type": "FORENSIC",
+  "ingested_at": "2026-09-11T17:54:36.503673+00:00",
+  "ingested_by_badge": "FSL-BIO-042",
+  "raw_content": {
+    "report_id": "DNA-FSL-DEL-2026-403",
+    "category": "DNA_BIOLOGICAL",
+    "evidence_id": "EVID-DNA-003",
+    "case_id": "DL-2026-0412",
+    "laboratory": "Biology Division, Forensic Science Laboratory, Rohini, Delhi",
+    "examination_date": "2026-09-04T17:00:00Z",
+    "evidence_item": "Discarded Cigarette Butt \u2014 ISBT Gate 2 Roadside Verge",
+    "examiner": "Senior Scientific Officer Dr. Meenakshi Sundaram",
+    "examiner_badge": "FSL-BIO-042",
+    "sample_id": "SMPL-BIO-DEL-403-C",
+    "sample_type": "Saliva Residue on Paper Filter",
+    "biological_material": "Saliva epithelial residue",
+    "collection_location": "ISBT Kashmere Gate Departure Gate 2 Verge, Delhi",
+    "collection_timestamp": "2026-09-03T09:15:00Z",
+    "collection_method": "Clean metal forceps in sterile tamper-evident vial",
+    "dna_profile_id": "PROF-STR-DEL-9914",
+    "str_profile_metadata": {
+      "kit_used": "AmpFlSTR Identifiler Plus",
+      "amelogenin": [
+        "X",
+        "Y"
+      ],
+      "profile_status": "Partial Male Profile (8 loci resolved)"
+    },
+    "candidate_entity": null,
+    "comparison_result": "Inconclusive / Unmatched Third-Party Profile",
+    "match_confidence": 0.52,
+    "status": "Requires Human Review / No Known Association",
+    "chain_of_custody_id": "COC-DEL-2026-003",
+    "investigative_implication": "Exclusionary sample; profile does not match Rakesh Kumar or Vikram Singh."
+  },
+  "provenance": {
+    "sha256_hash": "e4255a7063822cab3f582abb073a630389404c8ab6d73e18f2c2a7a520cf6f55",
+    "block_height": 1,
+    "previous_hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  }
+}

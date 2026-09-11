@@ -1,0 +1,34 @@
+{
+  "record_id": "REC-BAL-FSL-DEL-2026-083",
+  "source_type": "FORENSIC",
+  "ingested_at": "2026-09-11T17:54:36.516103+00:00",
+  "ingested_by_badge": "FSL-BAL-017",
+  "raw_content": {
+    "report_id": "BAL-FSL-DEL-2026-083",
+    "category": "BALLISTICS_TOOLMARKS",
+    "evidence_id": "EVID-BAL-001",
+    "case_id": "DL-2026-0412",
+    "laboratory": "Ballistics & Toolmarks Division, FSL Rohini, Delhi",
+    "examination_date": "2026-09-04T16:00:00Z",
+    "evidence_item": "Brass Padlock & Shackle Assembly \u2014 Majnu Ka Tilla Transit Lodge Room 204",
+    "examiner": "Senior Scientific Officer K.K. Bansal",
+    "examiner_badge": "FSL-BAL-017",
+    "item_id": "TOOL-PADLOCK-DEL-083-A",
+    "evidence_type": "Toolmark Striation Impression / Forced Entry Scraping",
+    "tool_or_weapon_type": "Flat-Blade Steel Pry Lever / Heavy Screwdriver (tip width 8.5mm)",
+    "markings": "Striated microscopic scrape lines along brass shackle casing edge",
+    "pattern_characteristics": "12 parallel micro-ridges created by hardened carbon steel tool with chipped corner bevel",
+    "recovered_location": "Majnu Ka Tilla Transit Lodge Room 204, Delhi",
+    "candidate_tool": "Steel Multi-Tool Pry Lever recovered from boot of vehicle DL 01 AB 9921",
+    "comparison_result": "Potential Match / Microscopic Striation Concordance",
+    "similarity_confidence": 0.78,
+    "status": "Investigative Lead / Physical Tool Association",
+    "chain_of_custody_id": "COC-DEL-2026-012",
+    "investigative_implication": "Toolmark on lodge padlock matches microscopic defects of multi-tool found in Vikram's taxi boot."
+  },
+  "provenance": {
+    "sha256_hash": "c83de881e19584d4be7e406c34c418b94a7ba75460e5e5f5322969e9dc180f0e",
+    "block_height": 1,
+    "previous_hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  }
+}

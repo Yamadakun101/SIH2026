@@ -1,0 +1,34 @@
+{
+  "record_id": "REC-BAL-FSL-DEL-2026-084",
+  "source_type": "FORENSIC",
+  "ingested_at": "2026-09-11T17:54:36.516874+00:00",
+  "ingested_by_badge": "FSL-BAL-017",
+  "raw_content": {
+    "report_id": "BAL-FSL-DEL-2026-084",
+    "category": "BALLISTICS_TOOLMARKS",
+    "evidence_id": "EVID-BAL-002",
+    "case_id": "DL-2026-0412",
+    "laboratory": "Ballistics & Toolmarks Division, FSL Rohini, Delhi",
+    "examination_date": "2026-09-04T16:30:00Z",
+    "evidence_item": "Vehicle Identification Number (VIN) Stamping Inspection",
+    "examiner": "Senior Scientific Officer K.K. Bansal",
+    "examiner_badge": "FSL-BAL-017",
+    "item_id": "TOOL-CHASSIS-DEL-084-B",
+    "evidence_type": "Chassis Stamping Verification & Serial Number Integrity",
+    "tool_or_weapon_type": "Factory Hydraulic Pin-Stamping Machine",
+    "markings": "Chassis Plate Stamping: MA3EKB01S0091283",
+    "pattern_characteristics": "Factory dot-matrix punch depth and spacing strictly conforms to Maruti Suzuki OEM production standards",
+    "recovered_location": "Engine Firewall, Vehicle DL 01 AB 9921",
+    "candidate_tool": "Maruti Suzuki Manesar Assembly Plant Tooling",
+    "comparison_result": "Genuine Factory Stamping / Zero Secondary Alteration Detected",
+    "similarity_confidence": 0.96,
+    "status": "Verified / Authentic Vehicle Identity",
+    "chain_of_custody_id": "COC-DEL-2026-013",
+    "investigative_implication": "Chassis number is genuine and has not been ground off, re-punched, or cloned."
+  },
+  "provenance": {
+    "sha256_hash": "74266015b1710063b2764481128b8aa5b623952feff0fbc6fb0f8a73fe02dc4c",
+    "block_height": 1,
+    "previous_hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  }
+}

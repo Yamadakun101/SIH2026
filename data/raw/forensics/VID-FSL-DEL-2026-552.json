@@ -1,0 +1,41 @@
+{
+  "record_id": "REC-VID-FSL-DEL-2026-552",
+  "source_type": "FORENSIC",
+  "ingested_at": "2026-09-11T17:54:36.509832+00:00",
+  "ingested_by_badge": "FSL-VID-081",
+  "raw_content": {
+    "report_id": "VID-FSL-DEL-2026-552",
+    "category": "CCTV_VIDEO_FORENSICS",
+    "evidence_id": "EVID-VID-001",
+    "case_id": "DL-2026-0412",
+    "laboratory": "Video Analytics & Digital Audio-Visual Division, FSL Rohini",
+    "examination_date": "2026-09-04T13:30:00Z",
+    "evidence_item": "DVR Video Footage Enhancement \u2014 ISBT Departure Concourse",
+    "examiner": "Senior Scientific Officer S.K. Verma",
+    "examiner_badge": "FSL-VID-081",
+    "cctv_event_id": "VID-EVT-ISBT-GATE2-881",
+    "camera_id": "CAM-ISBT-EXT-09",
+    "timestamp": "2026-09-02T21:42:15Z",
+    "location": "loc-kashmere-gate",
+    "detected_person": "Male adult, estimated height 176cm, medium build, baseball cap",
+    "candidate_entity": "person-rakesh",
+    "person_similarity_score": 0.81,
+    "detected_vehicle": "White compact sedan (Maruti Suzuki Swift Dzire)",
+    "vehicle_similarity_score": 0.89,
+    "partial_plate": "DL 01 AB **21",
+    "clothing_attributes": "Dark grey nylon windcheater, blue denim trousers, dark sports shoes",
+    "movement_direction": "Departing platform concourse toward kerbside bay 4",
+    "entry_exit_info": "Subject observed escorting female subject toward rear passenger door at 21:42:40Z",
+    "frame_reference": "FRM-CAM09-20260902-138402",
+    "analyst_or_system": "Forensic Super-Resolution & Person Re-Identification Pipeline (DeepFace / OpenCV)",
+    "comparison_result": "Investigative Lead / Visual Re-identification Match",
+    "confidence": 0.81,
+    "status": "Corroborating Evidence / Visual Placement",
+    "investigative_implication": "Corroborates joint boarding of vehicle DL 01 AB 9921 at ISBT Kashmere Gate."
+  },
+  "provenance": {
+    "sha256_hash": "a44136b15d8978ba9f445847832885e1ef18e56a21de31fa75fcad5c92c8a753",
+    "block_height": 1,
+    "previous_hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  }
+}

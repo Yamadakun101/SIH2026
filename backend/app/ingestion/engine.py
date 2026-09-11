@@ -2,7 +2,7 @@ import json
 from pathlib import Path
 from typing import Any, Dict, List
 from backend.app.ingestion.envelope import verify_envelope
-from backend.app.ingestion.parsers import parse_fir, parse_cdr, parse_banking, parse_cctv
+from backend.app.ingestion.parsers import parse_fir, parse_cdr, parse_banking, parse_cctv, parse_forensic
 
 class IngestionEngine:
     """
@@ -34,6 +34,8 @@ class IngestionEngine:
             extracted_nodes, extracted_edges = parse_banking(envelope)
         elif source_type == "CCTV_ANPR":
             extracted_nodes, extracted_edges = parse_cctv(envelope)
+        elif source_type == "FORENSIC":
+            extracted_nodes, extracted_edges = parse_forensic(envelope)
         else:
             # Pass through generic
             pass

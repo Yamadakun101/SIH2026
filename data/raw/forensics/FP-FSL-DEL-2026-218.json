@@ -1,0 +1,34 @@
+{
+  "record_id": "REC-FP-FSL-DEL-2026-218",
+  "source_type": "FORENSIC",
+  "ingested_at": "2026-09-11T17:54:36.504946+00:00",
+  "ingested_by_badge": "FPB-EXP-112",
+  "raw_content": {
+    "report_id": "FP-FSL-DEL-2026-218",
+    "category": "FINGERPRINT_LATENT",
+    "evidence_id": "EVID-FP-001",
+    "case_id": "DL-2026-0412",
+    "laboratory": "Fingerprint Bureau, Crime Branch, Delhi Police",
+    "examination_date": "2026-09-04T10:30:00Z",
+    "evidence_item": "Passenger Door Interior Grab Handle \u2014 Vehicle DL 01 AB 9921",
+    "examiner": "Fingerprint Expert Inspector K.S. Rathore",
+    "examiner_badge": "FPB-EXP-112",
+    "fingerprint_id": "FP-LAT-DEL-218-A",
+    "surface_or_object": "Textured plastic interior door pull handle",
+    "collection_location": "Vehicle Inspection Bay, PS Kashmere Gate",
+    "collection_timestamp": "2026-09-03T10:15:00Z",
+    "print_quality": "High (14 unambiguous ridge minutiae points identified)",
+    "print_type": "Latent Right Index Fingerprint (Accidental Whorl-Loop transition)",
+    "candidate_entity": "person-rakesh",
+    "similarity_score": 0.91,
+    "comparison_result": "Strong Association / AFIS Match",
+    "status": "Verified / Match Confirmed",
+    "chain_of_custody_id": "COC-DEL-2026-004",
+    "investigative_implication": "Direct physical contact established between Rakesh Kumar and vehicle cabin."
+  },
+  "provenance": {
+    "sha256_hash": "86320294bf7687df1a2f46a107b68abe25ba653ed188c88555bfa257ffcbe876",
+    "block_height": 1,
+    "previous_hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "record_id": "REC-TRC-FSL-DEL-2026-115",
+  "source_type": "FORENSIC",
+  "ingested_at": "2026-09-11T17:54:36.512452+00:00",
+  "ingested_by_badge": "FSL-PHY-029",
+  "raw_content": {
+    "report_id": "TRC-FSL-DEL-2026-115",
+    "category": "TRACE_EVIDENCE",
+    "evidence_id": "EVID-TRC-002",
+    "case_id": "DL-2026-0412",
+    "laboratory": "Physics Division, FSL Rohini, Delhi",
+    "examination_date": "2026-09-04T15:00:00Z",
+    "evidence_item": "Bumper Paint Smear Transfer \u2014 Vehicle Left Front Bumper Corner",
+    "examiner": "Scientific Officer Sunita Rao",
+    "examiner_badge": "FSL-PHY-029",
+    "trace_type": "Automotive Paint Transfer Smear",
+    "sample_id": "SMPL-PNT-DEL-115-B",
+    "collection_location": "Vehicle Left Front Bumper, PS Kashmere Gate",
+    "collection_timestamp": "2026-09-03T12:15:00Z",
+    "material_characteristics": "Yellow alkyd enamel paint smear over automobile polyurethane clearcoat",
+    "comparison_candidate": "ISBT Kashmere Gate Platform 4 Bollard Paint",
+    "comparison_result": "Consistent Multi-Layer Spectral Match (FTIR / Py-GC-MS)",
+    "similarity_confidence": 0.87,
+    "status": "Corroborating Evidence / Terminal Contact",
+    "chain_of_custody_id": "COC-DEL-2026-008",
+    "investigative_implication": "Vehicle made direct contact with bus terminal bollard barrier during pickup maneuver."
+  },
+  "provenance": {
+    "sha256_hash": "e61b0171f96dba3a565dedf63a2ca9ef9c205d5ab54d481b7c3269741eccb0b5",
+    "block_height": 1,
+    "previous_hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  }
+}

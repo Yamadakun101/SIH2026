@@ -28,6 +28,8 @@ class CaseModel(Base):
     raw_records = relationship("RawEvidenceModel", back_populates="case", cascade="all, delete-orphan")
     timeline_events = relationship("TimelineEventModel", back_populates="case", cascade="all, delete-orphan")
     audit_blocks = relationship("AuditBlockModel", back_populates="case", cascade="all, delete-orphan")
+    forensic_evidence = relationship("ForensicEvidenceModel", back_populates="case", cascade="all, delete-orphan")
+    chain_of_custody = relationship("ChainOfCustodyModel", back_populates="case", cascade="all, delete-orphan")
 
 class RawEvidenceModel(Base):
     __tablename__ = "raw_evidence_records"
@@ -72,3 +74,45 @@ class AuditBlockModel(Base):
     status = Column(String(20), default="VALID")
 
     case = relationship("CaseModel", back_populates="audit_blocks")
+ 
+class ForensicEvidenceModel(Base):
+    __tablename__ = "forensic_evidence"
+
+    evidence_id = Column(String(64), primary_key=True, index=True)
+    case_id = Column(String(64), ForeignKey("cases.case_id"), index=True, nullable=False)
+    category = Column(String(50), index=True, nullable=False)  # DNA_BIOLOGICAL, FINGERPRINT_LATENT, DIGITAL_FORENSICS, etc.
+    report_id = Column(String(64), index=True, nullable=False)
+    laboratory = Column(String(255))
+    analyst = Column(String(255))
+    examination_date = Column(DateTime)
+    candidate_entity = Column(String(64), index=True, nullable=True)
+    comparison_result = Column(String(255), nullable=False)
+    confidence = Column(Float, default=1.0)
+    status = Column(String(50), default="ANALYZED")
+    evidence_metadata = Column(JSON, default=dict)
+    chain_of_custody_id = Column(String(64), nullable=True)
+    sha256_hash = Column(String(64), nullable=False)
+
+    case = relationship("CaseModel", back_populates="forensic_evidence")
+
+class ChainOfCustodyModel(Base):
+    __tablename__ = "chain_of_custody_ledger"
+
+    chain_of_custody_id = Column(String(64), primary_key=True, index=True)
+    evidence_id = Column(String(64), ForeignKey("forensic_evidence.evidence_id"), index=True, nullable=False)
+    case_id = Column(String(64), ForeignKey("cases.case_id"), index=True, nullable=False)
+    collection_officer = Column(String(100), nullable=False)
+    collection_officer_badge = Column(String(50), nullable=False)
+    collection_timestamp = Column(DateTime, nullable=False)
+    collection_location = Column(String(255), nullable=False)
+    transfer_events = Column(JSON, default=list)
+    storage_location = Column(String(255))
+    examination_location = Column(String(255))
+    evidence_status = Column(String(50), default="SEALED")
+    original_hash = Column(String(64), nullable=False)
+    current_hash = Column(String(64), nullable=False)
+    hash_algorithm = Column(String(20), default="SHA-256")
+    integrity_status = Column(String(50), default="INTACT_VERIFIED")
+    bsa_section_63_compliant = Column(Boolean, default=True)
+
+    case = relationship("CaseModel", back_populates="chain_of_custody")

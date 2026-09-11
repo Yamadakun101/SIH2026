@@ -1,0 +1,36 @@
+{
+  "record_id": "REC-IMP-FSL-DEL-2026-607",
+  "source_type": "FORENSIC",
+  "ingested_at": "2026-09-11T17:54:36.514053+00:00",
+  "ingested_by_badge": "FPB-IMP-066",
+  "raw_content": {
+    "report_id": "IMP-FSL-DEL-2026-607",
+    "category": "FOOTWEAR_TIRE_IMPRESSIONS",
+    "evidence_id": "EVID-IMP-001",
+    "case_id": "DL-2026-0412",
+    "laboratory": "Impression Bureau, Crime Branch, Delhi Police",
+    "examination_date": "2026-09-04T11:00:00Z",
+    "evidence_item": "Electrostatic Dust Lifting & Dental Stone Cast \u2014 Tire Impression",
+    "examiner": "Impression Specialist Inspector M.K. Yadav",
+    "examiner_badge": "FPB-IMP-066",
+    "impression_id": "IMP-TIRE-DEL-607-A",
+    "impression_type": "Tire Tread Impression in Soft Alluvial Soil",
+    "scene_location": "Muddy Verge beside ISBT Kashmere Gate Departure Gate 2",
+    "timestamp": "2026-09-03T09:40:00Z",
+    "pattern_characteristics": "4 longitudinal continuous zigzag ribs with lateral sipes and asymmetric variable-pitch tread blocks",
+    "size_dimensions": "Tread footprint width 162mm, rib spacing 28mm",
+    "tread_characteristics": "Bridgestone B290 165/80 R14 radial tire with localized 4mm circular stone retention cut in groove 2",
+    "candidate_vehicle_or_person": "vehicle-dl01-9921",
+    "comparison_result": "Strong Match / Individualizing Tread Defect Present",
+    "similarity_score": 0.89,
+    "confidence": 0.89,
+    "status": "Corroborating Evidence / Scene Vehicle Placement",
+    "chain_of_custody_id": "COC-DEL-2026-010",
+    "investigative_implication": "Physical tire print at scene matches vehicle DL 01 AB 9921 right front wheel with individualizing cut defect."
+  },
+  "provenance": {
+    "sha256_hash": "67c691012c065c5ed0f6830e913fb93fb619664e48761e08fb53188b6679fdd7",
+    "block_height": 1,
+    "previous_hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  }
+}

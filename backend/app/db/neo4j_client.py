@@ -7,10 +7,24 @@ CYPHER_CONSTRAINTS = [
     "CREATE CONSTRAINT IF NOT EXISTS FOR (v:Vehicle) REQUIRE v.id IS UNIQUE;",
     "CREATE CONSTRAINT IF NOT EXISTS FOR (l:Location) REQUIRE l.id IS UNIQUE;",
     "CREATE CONSTRAINT IF NOT EXISTS FOR (b:BankAccount) REQUIRE b.id IS UNIQUE;",
-    "CREATE CONSTRAINT IF NOT EXISTS FOR (o:Organization) REQUIRE o.id IS UNIQUE;"
+    "CREATE CONSTRAINT IF NOT EXISTS FOR (o:Organization) REQUIRE o.id IS UNIQUE;",
+    "CREATE CONSTRAINT IF NOT EXISTS FOR (fe:ForensicEvidence) REQUIRE fe.id IS UNIQUE;"
 ]
 
 # Cypher Insert Templates
+CYPHER_UPSERT_FORENSIC_EVIDENCE = """
+MERGE (fe:ForensicEvidence {id: $id})
+SET fe.label = $label,
+    fe.category = $category,
+    fe.report_id = $report_id,
+    fe.confidence = $confidence,
+    fe.comparison_result = $comparison_result,
+    fe.status = $status,
+    fe.case_id = $case_id,
+    fe.updated_at = datetime()
+RETURN fe;
+"""
+
 CYPHER_UPSERT_PERSON = """
 MERGE (p:Person {id: $id})
 SET p.label = $label,

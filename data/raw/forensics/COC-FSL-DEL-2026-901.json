@@ -1,0 +1,126 @@
+{
+  "record_id": "REC-COC-FSL-DEL-2026-901",
+  "source_type": "FORENSIC",
+  "ingested_at": "2026-09-11T17:54:36.517929+00:00",
+  "ingested_by_badge": "DP-CUS-019",
+  "raw_content": {
+    "report_id": "COC-FSL-DEL-2026-901",
+    "category": "CHAIN_OF_CUSTODY",
+    "evidence_id": "EVID-COC-MASTER-001",
+    "case_id": "DL-2026-0412",
+    "laboratory": "Central Evidence Management & Provenance Division, Delhi Police & FSL Rohini",
+    "examination_date": "2026-09-05T10:00:00Z",
+    "evidence_item": "Master Evidence Custody Ledger & BSA 2023 Section 63 Verification Record",
+    "examiner": "Evidence Custodian Inspector Ramesh Chandra",
+    "examiner_badge": "DP-CUS-019",
+    "chain_of_custody_records": [
+      {
+        "chain_of_custody_id": "COC-DEL-2026-001",
+        "evidence_id": "EVID-DNA-001",
+        "case_id": "DL-2026-0412",
+        "collection_officer": "Sub-Inspector Anand Kumar",
+        "collection_officer_badge": "DP-SI-4921",
+        "collection_timestamp": "2026-09-03T11:30:00Z",
+        "collection_location": "PS Kashmere Gate Forensic Bay",
+        "transfer_events": [
+          {
+            "transfer_index": 1,
+            "transferred_by": "SI Anand Kumar",
+            "transferred_by_badge": "DP-SI-4921",
+            "transferred_to": "Evidence Custodian ASI Balraj Singh",
+            "transferred_to_badge": "DP-MAL-084",
+            "transfer_timestamp": "2026-09-03T13:00:00Z",
+            "purpose": "Secure Sealing in Tamper-Evident Evidence Bag",
+            "custody_status": "SEALED_IN_TRANSIT"
+          },
+          {
+            "transfer_index": 2,
+            "transferred_by": "ASI Balraj Singh",
+            "transferred_by_badge": "DP-MAL-084",
+            "transferred_to": "FSL Rohini Sample Receiving Division (Official Courier HC Vinod)",
+            "transferred_to_badge": "DP-COU-302",
+            "transfer_timestamp": "2026-09-03T15:30:00Z",
+            "purpose": "Transfer to Forensic Laboratory for DNA Extraction",
+            "custody_status": "LAB_RECEIVED"
+          },
+          {
+            "transfer_index": 3,
+            "transferred_by": "FSL Reception Clerk",
+            "transferred_by_badge": "FSL-REC-011",
+            "transferred_to": "Senior Scientific Officer Dr. Meenakshi Sundaram",
+            "transferred_to_badge": "FSL-BIO-042",
+            "transfer_timestamp": "2026-09-04T09:00:00Z",
+            "purpose": "Forensic STR DNA Profiling",
+            "custody_status": "UNDER_EXAMINATION"
+          },
+          {
+            "transfer_index": 4,
+            "transferred_by": "Dr. Meenakshi Sundaram",
+            "transferred_by_badge": "FSL-BIO-042",
+            "transferred_to": "Central Evidence Storage Vault (FSL Malkhana)",
+            "transferred_to_badge": "FSL-MAL-001",
+            "transfer_timestamp": "2026-09-04T18:00:00Z",
+            "purpose": "Cryo-preservation of DNA extract (-20 deg C)",
+            "custody_status": "PRESERVED_IN_VAULT"
+          }
+        ],
+        "storage_location": "Cold Storage Vault Rack B-12, FSL Rohini",
+        "examination_location": "DNA Lab 3, Biology Division, FSL Rohini",
+        "evidence_status": "ANALYZED_AND_SEALED",
+        "original_hash": "a4d8e9c12b7f3a5e8c0d1e2f4a6b8c0e2a4b6d8e0f2a4c6e8b0d2f4a6c8e0b2d",
+        "current_hash": "a4d8e9c12b7f3a5e8c0d1e2f4a6b8c0e2a4b6d8e0f2a4c6e8b0d2f4a6c8e0b2d",
+        "hash_algorithm": "SHA-256",
+        "integrity_status": "INTACT_VERIFIED",
+        "bsa_section_63_compliant": true,
+        "report_id": "DNA-FSL-DEL-2026-401"
+      },
+      {
+        "chain_of_custody_id": "COC-DEL-2026-004",
+        "evidence_id": "EVID-FP-001",
+        "case_id": "DL-2026-0412",
+        "collection_officer": "Sub-Inspector Anand Kumar",
+        "collection_officer_badge": "DP-SI-4921",
+        "collection_timestamp": "2026-09-03T10:15:00Z",
+        "collection_location": "PS Kashmere Gate Forensic Bay",
+        "transfer_events": [
+          {
+            "transfer_index": 1,
+            "transferred_by": "SI Anand Kumar",
+            "transferred_by_badge": "DP-SI-4921",
+            "transferred_to": "Inspector K.S. Rathore",
+            "transferred_to_badge": "FPB-EXP-112",
+            "transfer_timestamp": "2026-09-03T14:00:00Z",
+            "purpose": "Latent Fingerprint Lifting & AFIS Digitization",
+            "custody_status": "HANDED_TO_EXAMINER"
+          },
+          {
+            "transfer_index": 2,
+            "transferred_by": "Inspector K.S. Rathore",
+            "transferred_by_badge": "FPB-EXP-112",
+            "transferred_to": "Crime Branch Evidence Locker",
+            "transferred_to_badge": "DP-MAL-084",
+            "transfer_timestamp": "2026-09-04T17:00:00Z",
+            "purpose": "Permanent Case Archival",
+            "custody_status": "ARCHIVED_SECURE"
+          }
+        ],
+        "storage_location": "Locker #402, Fingerprint Bureau, Crime Branch, Delhi",
+        "examination_location": "AFIS Terminal Room, Crime Branch",
+        "evidence_status": "ANALYZED_AND_SEALED",
+        "original_hash": "c1a9f8b2d4e6a8c0e2f4a6b8c0d2e4f6a8b0c2d4e6f8a0b2c4d6e8f0a2b4c6e8",
+        "current_hash": "c1a9f8b2d4e6a8c0e2f4a6b8c0d2e4f6a8b0c2d4e6f8a0b2c4d6e8f0a2b4c6e8",
+        "hash_algorithm": "SHA-256",
+        "integrity_status": "INTACT_VERIFIED",
+        "bsa_section_63_compliant": true,
+        "report_id": "FP-FSL-DEL-2026-218"
+      }
+    ],
+    "status": "VERIFIED_INTACT_UNDER_BSA_2023",
+    "investigative_implication": "Complete chain of custody unbroken; all seals intact from crime scene to FSL vault."
+  },
+  "provenance": {
+    "sha256_hash": "b2c72e7a25041474bc3c90516da50a903bb0708910e72c2e754ce1f251ffda95",
+    "block_height": 1,
+    "previous_hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  }
+}

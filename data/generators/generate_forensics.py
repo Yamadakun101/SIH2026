@@ -47,6 +47,15 @@ def generate_forensics():
             json.dump(env, f, indent=2)
 
     print(f"[+] Generated {len(reports)} Forensics reports in {FORENSICS_DIR}")
+    
+    # Additive generation of all 8 forensic categories
+    try:
+        from data.generators.generate_forensic_expansion import generate_forensic_expansion
+        expansion_envelopes = generate_forensic_expansion()
+        envelopes.extend(expansion_envelopes)
+    except Exception as e:
+        print(f"[-] Warning: Failed to generate forensic expansion: {e}")
+
     return envelopes
 
 if __name__ == "__main__":

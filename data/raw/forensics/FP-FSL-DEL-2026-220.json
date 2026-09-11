@@ -1,0 +1,34 @@
+{
+  "record_id": "REC-FP-FSL-DEL-2026-220",
+  "source_type": "FORENSIC",
+  "ingested_at": "2026-09-11T17:54:36.506598+00:00",
+  "ingested_by_badge": "FPB-EXP-112",
+  "raw_content": {
+    "report_id": "FP-FSL-DEL-2026-220",
+    "category": "FINGERPRINT_LATENT",
+    "evidence_id": "EVID-FP-003",
+    "case_id": "DL-2026-0412",
+    "laboratory": "Fingerprint Bureau, Crime Branch, Delhi Police",
+    "examination_date": "2026-09-04T12:00:00Z",
+    "evidence_item": "Toll Receipt Paper Stub \u2014 Dashboard Console",
+    "examiner": "Fingerprint Expert Inspector K.S. Rathore",
+    "examiner_badge": "FPB-EXP-112",
+    "fingerprint_id": "FP-LAT-DEL-220-C",
+    "surface_or_object": "Thermal paper toll receipt",
+    "collection_location": "Vehicle Inspection Bay, PS Kashmere Gate",
+    "collection_timestamp": "2026-09-03T10:45:00Z",
+    "print_quality": "Low / Partial Smudge (5 minutiae points)",
+    "print_type": "Indeterminate partial friction ridge impression",
+    "candidate_entity": "person-rakesh",
+    "similarity_score": 0.61,
+    "comparison_result": "Inconclusive / Insufficient Minutiae for Conclusive Attribution",
+    "status": "Inconclusive / Requires Secondary Examination",
+    "chain_of_custody_id": "COC-DEL-2026-006",
+    "investigative_implication": "Partial ridge flow consistent with Rakesh Kumar, but insufficient points for legal certainty."
+  },
+  "provenance": {
+    "sha256_hash": "6a31eceb6525c941ad263140bfb5709da369876108c11ae4f20379bad35a267f",
+    "block_height": 1,
+    "previous_hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  }
+}

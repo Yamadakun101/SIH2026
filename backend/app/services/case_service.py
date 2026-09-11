@@ -10,6 +10,7 @@ from backend.app.models.timeline import TimelineEvent
 from backend.app.models.entity import EntityDetail, EntityMetrics
 from backend.app.models.query import QueryResponse
 from backend.app.models.provenance import ProvenanceResponse, AuditBlock
+from backend.app.models.forensics import CaseForensicsOverview, ChainOfCustodyRecord
 
 
 class CaseService:
@@ -106,11 +107,26 @@ class CaseService:
         return None
 
     def query_case(self, case_id: str, query: str) -> QueryResponse:
-        # Check query templates for pre-canned matching
+        # Check query templates for matching
         query_templates = self.data.get("query_templates", [])
         clean_q = query.strip().lower()
+        
+        # 1. First pass: exact match
         for tpl in query_templates:
-            if tpl.get("query", "").strip().lower() == clean_q or "singhu" in clean_q or "rakesh" in clean_q:
+            if tpl.get("query", "").strip().lower() == clean_q:
+                return QueryResponse(**tpl)
+
+        # 2. Second pass: targeted keyword match
+        for tpl in query_templates:
+            tpl_q = tpl.get("query", "").strip().lower()
+            if "forensic" in clean_q and "forensic" in tpl_q:
+                return QueryResponse(**tpl)
+            if "singhu" in clean_q and "singhu" in tpl_q:
+                return QueryResponse(**tpl)
+
+        # 3. Third pass: fallback to any template matching keywords
+        for tpl in query_templates:
+            if "singhu" in clean_q or "rakesh" in clean_q:
                 return QueryResponse(**tpl)
 
         # Dynamic fallback response conforming to investigative terminology standards
@@ -134,6 +150,53 @@ class CaseService:
         prov_data = self.data.get("provenance", {})
         return ProvenanceResponse(**prov_data)
 
+    def get_forensics(self, case_id: str) -> Optional[CaseForensicsOverview]:
+        meta = self.data.get("case_metadata", {})
+        if meta.get("case_id", "").upper() != case_id.upper():
+            return None
+        forensics_data = self.data.get("forensics")
+        if not forensics_data:
+            return None
+        return CaseForensicsOverview(**forensics_data)
+
+    def get_forensics_by_category(self, case_id: str, category: str) -> Optional[List[Dict[str, Any]]]:
+        forensics = self.get_forensics(case_id)
+        if not forensics:
+            return None
+        norm_cat = category.lower().replace("-", "_")
+        field_map = {
+            "dna": "dna_evidence",
+            "dna_biological": "dna_evidence",
+            "fingerprint": "fingerprint_evidence",
+            "fingerprint_latent": "fingerprint_evidence",
+            "digital": "digital_forensics",
+            "digital_forensics": "digital_forensics",
+            "cctv": "cctv_video_forensics",
+            "cctv_video_forensics": "cctv_video_forensics",
+            "trace": "trace_evidence",
+            "trace_evidence": "trace_evidence",
+            "impression": "impression_evidence",
+            "footwear_tire_impressions": "impression_evidence",
+            "ballistics": "ballistics_toolmarks",
+            "ballistics_toolmarks": "ballistics_toolmarks",
+            "chain_of_custody": "chain_of_custody"
+        }
+        target_field = field_map.get(norm_cat, norm_cat)
+        if hasattr(forensics, target_field):
+            records = getattr(forensics, target_field)
+            return [r.model_dump() for r in records]
+        return None
+
+    def get_chain_of_custody(self, case_id: str, evidence_id: str) -> Optional[ChainOfCustodyRecord]:
+        forensics = self.get_forensics(case_id)
+        if not forensics:
+            return None
+        for coc in forensics.chain_of_custody:
+            if coc.evidence_id.upper() == evidence_id.upper() or coc.chain_of_custody_id.upper() == evidence_id.upper():
+                return coc
+        return None
+
 
 # Global singleton instance for service injection
 case_service = CaseService()
+

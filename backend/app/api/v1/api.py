@@ -9,7 +9,8 @@ from backend.app.api.v1.endpoints import (
     provenance,
     auth,
     external,
-    audit
+    audit,
+    forensics
 )
 
 api_router = APIRouter()
@@ -27,3 +28,6 @@ api_router.include_router(provenance.router, tags=["Evidence Provenance (BSA 202
 api_router.include_router(auth.router, tags=["Authentication & Access Control"])
 api_router.include_router(external.router, tags=["Secure External Data Integration"])
 api_router.include_router(audit.router, tags=["Security Audit & Compliance"])
+
+# Forensic Intelligence & Chain of Custody (BSA 2023)
+api_router.include_router(forensics.router, tags=["Forensic Intelligence & Chain of Custody"])
