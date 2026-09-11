@@ -1,0 +1,41 @@
+{
+  "record_id": "REC-CYB-FSL-DEL-2026-881",
+  "source_type": "FORENSIC",
+  "ingested_at": "2026-09-11T11:20:43.227326+00:00",
+  "ingested_by_badge": "FSL-CYB-094",
+  "raw_content": {
+    "report_id": "CYB-FSL-DEL-2026-881",
+    "case_id": "DL-2026-0412",
+    "laboratory": "Cyber Forensics Division, Forensic Science Laboratory, Rohini, Delhi",
+    "examination_date": "2026-09-04T11:00:00Z",
+    "evidence_item": "Physical Device Extraction Dump \u2014 SIM Card Vi (+91 98710 44219)",
+    "examiner": "Senior Scientific Officer A.K. Sharma",
+    "examiner_badge": "FSL-CYB-094",
+    "key_findings": {
+      "hardware_imei": "358912091823901",
+      "subscriber_imsi": "404450192801920",
+      "activation_geofence": "Majnu Ka Tilla, Delhi",
+      "deleted_chat_fragments_recovered": [
+        "Car ready at ISBT. Tell Vicky to wait near Gate 2.",
+        "Route clear through Singhu. Don't use primary phone."
+      ],
+      "linked_contacts": [
+        {
+          "name": "Vicky Driver",
+          "phone": "+919711588201"
+        },
+        {
+          "name": "Cash Hand",
+          "vpa": "rkenterprises@okhdfc"
+        }
+      ],
+      "cloud_backup_sync_ip": "182.74.91.22"
+    },
+    "investigative_implication": "Corroborates direct association between Rakesh Kumar and driver Vikram Singh."
+  },
+  "provenance": {
+    "sha256_hash": "7f0c2731bf375f497760dc734c8f90958702ecfb3a296428bdbcfead681d60a5",
+    "block_height": 1,
+    "previous_hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  }
+}

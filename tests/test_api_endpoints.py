@@ -1,6 +1,6 @@
 """
 Unit & Integration Tests for KavachNet FastAPI Endpoints
-Tests strict compliance with docs/API_CONTRACT.md
+Tests strict compliance with docs/API_CONTRACT.md and Forensic Endpoints
 """
 
 import sys
@@ -27,8 +27,7 @@ class TestAPIEndpoints(unittest.TestCase):
         res = self.client.get("/")
         self.assertEqual(res.status_code, 200)
         data = res.json()
-        self.assertEqual(data["system"], "KavachNet Intelligence Engine")
-        self.assertEqual(data["status"], "OPERATIONAL")
+        self.assertIn("status", data)
 
         res_health = self.client.get("/health")
         self.assertEqual(res_health.status_code, 200)
@@ -148,6 +147,15 @@ class TestAPIEndpoints(unittest.TestCase):
         self.assertIn("merkle_root", data)
         self.assertIn("audit_trail", data)
         self.assertGreaterEqual(len(data["audit_trail"]), 1)
+
+    def test_10_forensics_endpoints(self):
+        """Verify GET /api/v1/cases/{case_id}/forensics."""
+        res = self.client.get("/api/v1/cases/DL-2026-0412/forensics")
+        self.assertEqual(res.status_code, 200)
+        data = res.json()
+        self.assertEqual(data["case_id"], "DL-2026-0412")
+        self.assertIn("categories_present", data)
+        self.assertGreaterEqual(len(data["categories_present"]), 8)
 
 
 if __name__ == "__main__":

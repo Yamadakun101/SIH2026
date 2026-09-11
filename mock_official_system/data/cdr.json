@@ -1,0 +1,19 @@
+{
+  "CDR:DL-2026-0412": {
+    "source_system": "MOCK_DOT_TELECOM_GATEWAY",
+    "case_id": "DL-2026-0412",
+    "total_records": 3,
+    "records": [
+      {
+        "record_id": "OFFICIAL-CDR-991201",
+        "calling_number": "+919871044219",
+        "called_number": "+919811200341",
+        "call_timestamp": "2026-09-02T21:45:00Z",
+        "duration_sec": 142,
+        "cell_tower_id": "TOW-DEL-KASHMERE-482",
+        "imei": "358912091823901",
+        "carrier": "Vi Delhi (Official Telecom Extract)"
+      }
+    ]
+  }
+}

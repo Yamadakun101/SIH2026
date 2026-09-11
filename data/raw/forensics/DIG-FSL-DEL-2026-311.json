@@ -1,0 +1,43 @@
+{
+  "record_id": "REC-DIG-FSL-DEL-2026-311",
+  "source_type": "FORENSIC",
+  "ingested_at": "2026-09-11T17:54:36.509108+00:00",
+  "ingested_by_badge": "FSL-CYB-048",
+  "raw_content": {
+    "report_id": "DIG-FSL-DEL-2026-311",
+    "category": "DIGITAL_FORENSICS",
+    "evidence_id": "EVID-DIG-003",
+    "case_id": "DL-2026-0412",
+    "laboratory": "Cyber Forensics Division, Forensic Science Laboratory, Rohini, Delhi",
+    "examination_date": "2026-09-04T14:45:00Z",
+    "evidence_item": "Payment App Cache File \u2014 Samsung Galaxy A52",
+    "examiner": "Forensic Scientist Rajesh Chawla",
+    "examiner_badge": "FSL-CYB-048",
+    "device_id": "DEV-SAMSUNG-A52-RAKESH",
+    "artifact_id": "ART-APP-UPI-991",
+    "artifact_type": "Financial Application Local Transaction Ledger",
+    "application_source": "Google Pay SQLite Database (com.google.android.apps.nbu.paisa.user)",
+    "recovered_data_type": "Offline transaction pending record",
+    "timestamp": "2026-09-02T22:02:18Z",
+    "associated_phone": "+919871044219",
+    "associated_entity": "bank-mule-01",
+    "file_metadata": {
+      "txn_ref": "UPI/202609022202/9841",
+      "counterparty_vpa": "rkenterprises@okhdfc",
+      "amount": 45000.0,
+      "status": "COMPLETED_ATM_DISPENSED"
+    },
+    "extraction_method": "Physical Partition Dump",
+    "extraction_date": "2026-09-04T11:30:00Z",
+    "forensic_tool": "Cellebrite UFED Physical Analyzer",
+    "analyst": "Forensic Scientist Rajesh Chawla",
+    "confidence": 0.92,
+    "status": "Financial Corroboration",
+    "investigative_implication": "Directly links physical handset to rapid \u20b945,000 cash withdrawal at Civil Lines ATM."
+  },
+  "provenance": {
+    "sha256_hash": "08f507e3b458ddbae8a7a06a6d86e20a4f6458ec620877670804df1f24fdd958",
+    "block_height": 1,
+    "previous_hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  }
+}

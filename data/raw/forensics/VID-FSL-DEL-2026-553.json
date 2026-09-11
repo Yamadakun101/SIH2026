@@ -1,0 +1,41 @@
+{
+  "record_id": "REC-VID-FSL-DEL-2026-553",
+  "source_type": "FORENSIC",
+  "ingested_at": "2026-09-11T17:54:36.510684+00:00",
+  "ingested_by_badge": "FSL-VID-081",
+  "raw_content": {
+    "report_id": "VID-FSL-DEL-2026-553",
+    "category": "CCTV_VIDEO_FORENSICS",
+    "evidence_id": "EVID-VID-002",
+    "case_id": "DL-2026-0412",
+    "laboratory": "Video Analytics & Digital Audio-Visual Division, FSL Rohini",
+    "examination_date": "2026-09-04T14:00:00Z",
+    "evidence_item": "ANPR High-Speed Camera Feed \u2014 NH-44 Singhu Toll Plaza",
+    "examiner": "Senior Scientific Officer S.K. Verma",
+    "examiner_badge": "FSL-VID-081",
+    "cctv_event_id": "VID-EVT-SINGHU-LANE4-102",
+    "camera_id": "ANPR-LANE-04",
+    "timestamp": "2026-09-02T22:15:32Z",
+    "location": "loc-singhu-border",
+    "detected_vehicle": "Maruti Suzuki Swift Dzire, Commercial White Plate",
+    "vehicle_similarity_score": 0.98,
+    "partial_plate": "DL 01 AB 9921",
+    "detected_person": "Driver profile behind windshield; rear cabin silhouette visible",
+    "candidate_entity": "vehicle-dl01-9921",
+    "person_similarity_score": 0.74,
+    "clothing_attributes": "Light colored collar shirt on driver",
+    "movement_direction": "Northbound proceeding towards Sonipat, Haryana",
+    "entry_exit_info": "Fastag lane boom barrier elevated at 22:15:38Z",
+    "frame_reference": "FRM-ANPR04-20260902-881290",
+    "analyst_or_system": "Toll ANPR Optical Character Reader & Frame Enhancement Suite",
+    "comparison_result": "Confirmed Vehicle Passage / Potential Driver Association",
+    "confidence": 0.94,
+    "status": "Confirmed Passage / Inter-State Transit",
+    "investigative_implication": "Proves vehicle crossed out of Delhi jurisdiction 33 minutes after boarding at ISBT."
+  },
+  "provenance": {
+    "sha256_hash": "9510e29a0a044745b52c72409dd1d2ae9d0167d9d7ba8f252e898cb41951fd2f",
+    "block_height": 1,
+    "previous_hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  }
+}

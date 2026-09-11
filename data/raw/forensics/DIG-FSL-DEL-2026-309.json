@@ -1,0 +1,51 @@
+{
+  "record_id": "REC-DIG-FSL-DEL-2026-309",
+  "source_type": "FORENSIC",
+  "ingested_at": "2026-09-11T17:54:36.507358+00:00",
+  "ingested_by_badge": "FSL-CYB-048",
+  "raw_content": {
+    "report_id": "DIG-FSL-DEL-2026-309",
+    "category": "DIGITAL_FORENSICS",
+    "evidence_id": "EVID-DIG-001",
+    "case_id": "DL-2026-0412",
+    "laboratory": "Cyber Forensics Division, Forensic Science Laboratory, Rohini, Delhi",
+    "examination_date": "2026-09-04T12:30:00Z",
+    "evidence_item": "Mobile Device Physical Extraction \u2014 Handset Samsung Galaxy A52",
+    "examiner": "Forensic Scientist Rajesh Chawla",
+    "examiner_badge": "FSL-CYB-048",
+    "device_id": "DEV-SAMSUNG-A52-RAKESH",
+    "imei": "358912091823901",
+    "sim_identifier": "8991004450192801920",
+    "artifact_id": "ART-GPS-GEO-881",
+    "artifact_type": "GPS Waypoint & Location Breadcrumb Artifact",
+    "application_source": "Google Location History Cache (gservices.db / SQLite)",
+    "recovered_data_type": "Hardware GPS Fix with DOP accuracy 4.2m",
+    "timestamp": "2026-09-02T21:40:12Z",
+    "location_gps": {
+      "latitude": 28.6675,
+      "longitude": 77.2289,
+      "accuracy_meters": 4.2,
+      "altitude_meters": 218.4,
+      "geofence_name": "ISBT Kashmere Gate Departure Outer Lane"
+    },
+    "associated_phone": "+919871044219",
+    "associated_entity": "person-rakesh",
+    "file_metadata": {
+      "database_table": "location_history",
+      "record_offset": "0x004F1820",
+      "utc_timestamp_epoch": 1788385212
+    },
+    "extraction_method": "JTAG / Physical Chip Extraction (Cellebrite UFED)",
+    "extraction_date": "2026-09-04T09:30:00Z",
+    "forensic_tool": "Cellebrite UFED Physical Analyzer v7.68.2",
+    "analyst": "Forensic Scientist Rajesh Chawla",
+    "confidence": 0.94,
+    "status": "Corroborating Evidence / Verified Waypoint",
+    "investigative_implication": "Independently corroborates Rakesh Kumar's physical presence at ISBT departure curb at 21:40."
+  },
+  "provenance": {
+    "sha256_hash": "e1ec55d62cc6580206b61a3097d6894cfae798d5e26b633219192495b530d03a",
+    "block_height": 1,
+    "previous_hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  }
+}

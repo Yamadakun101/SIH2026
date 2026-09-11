@@ -1,0 +1,45 @@
+{
+  "record_id": "REC-DIG-FSL-DEL-2026-310",
+  "source_type": "FORENSIC",
+  "ingested_at": "2026-09-11T17:54:36.508031+00:00",
+  "ingested_by_badge": "FSL-CYB-048",
+  "raw_content": {
+    "report_id": "DIG-FSL-DEL-2026-310",
+    "category": "DIGITAL_FORENSICS",
+    "evidence_id": "EVID-DIG-002",
+    "case_id": "DL-2026-0412",
+    "laboratory": "Cyber Forensics Division, Forensic Science Laboratory, Rohini, Delhi",
+    "examination_date": "2026-09-04T14:10:00Z",
+    "evidence_item": "Mobile Handset Logical Acquisition \u2014 Xiaomi Redmi Note 10",
+    "examiner": "Forensic Scientist Rajesh Chawla",
+    "examiner_badge": "FSL-CYB-048",
+    "device_id": "DEV-REDMI-NOTE10-VIKRAM",
+    "imei": "861942049182301",
+    "sim_identifier": "8991004104928172011",
+    "artifact_id": "ART-MSG-SIG-402",
+    "artifact_type": "Decrypted Instant Message Cache",
+    "application_source": "Signal Private Messenger (org.thoughtcrime.securesms / database WAL)",
+    "recovered_data_type": "Deleted encrypted message fragment recovered from unallocated flash blocks",
+    "timestamp": "2026-09-02T21:52:45Z",
+    "associated_phone": "+919711588201",
+    "associated_entity": "person-vikram",
+    "file_metadata": {
+      "sender": "Self (+91 97115 88201)",
+      "recipient": "+91 98710 44219",
+      "message_body": "Crossed outer ring road. Heading to Singhu toll. Switch off GPS now.",
+      "delivery_receipt": "DELIVERED_READ"
+    },
+    "extraction_method": "Advanced Logical Extraction via MSAB XRY v10.4",
+    "extraction_date": "2026-09-04T11:00:00Z",
+    "forensic_tool": "MSAB XRY Logical Analyzer v10.4",
+    "analyst": "Forensic Scientist Rajesh Chawla",
+    "confidence": 0.91,
+    "status": "Corroborating Evidence / Key Coordination Artifact",
+    "investigative_implication": "Provides incontrovertible evidence of conspiratorial vehicular transit toward Singhu Border."
+  },
+  "provenance": {
+    "sha256_hash": "0f6b99d6e8b90a8e6f406384428048e309d77eded1d75ca4e0c34e4649e6e5bc",
+    "block_height": 1,
+    "previous_hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  }
+}

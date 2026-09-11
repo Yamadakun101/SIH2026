@@ -1,0 +1,36 @@
+{
+  "record_id": "REC-IMP-FSL-DEL-2026-608",
+  "source_type": "FORENSIC",
+  "ingested_at": "2026-09-11T17:54:36.515111+00:00",
+  "ingested_by_badge": "FPB-IMP-066",
+  "raw_content": {
+    "report_id": "IMP-FSL-DEL-2026-608",
+    "category": "FOOTWEAR_TIRE_IMPRESSIONS",
+    "evidence_id": "EVID-IMP-002",
+    "case_id": "DL-2026-0412",
+    "laboratory": "Impression Bureau, Crime Branch, Delhi Police",
+    "examination_date": "2026-09-04T11:45:00Z",
+    "evidence_item": "Dental Stone Cast \u2014 Footwear Impression",
+    "examiner": "Impression Specialist Inspector M.K. Yadav",
+    "examiner_badge": "FPB-IMP-066",
+    "impression_id": "IMP-SHOE-DEL-608-B",
+    "impression_type": "Footwear Outsole Impression in Damp Mud",
+    "scene_location": "Kerbside verge near passenger boarding point, ISBT Gate 2",
+    "timestamp": "2026-09-03T09:50:00Z",
+    "pattern_characteristics": "Hexagonal perimeter perimeter tread with center chevron pivot and horizontal heel siping",
+    "size_dimensions": "Outsole total length 294mm, ball width 106mm (Approx UK/India Size 9)",
+    "tread_characteristics": "Woodland outdoor casual footwear sole with moderate lateral heel erosion wear",
+    "candidate_vehicle_or_person": "person-rakesh",
+    "comparison_result": "Investigative Lead / Class Characteristic & Wear Pattern Concordance",
+    "similarity_score": 0.74,
+    "confidence": 0.74,
+    "status": "Investigative Lead / Physical Footprint Corroboration",
+    "chain_of_custody_id": "COC-DEL-2026-011",
+    "investigative_implication": "Shoe print pattern and size at scene is consistent with Rakesh Kumar's physical profile."
+  },
+  "provenance": {
+    "sha256_hash": "afe12a153b0e9e05f88e8febb1272bfe88baf77ff1b0d883d553aeed38c3254a",
+    "block_height": 1,
+    "previous_hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  }
+}

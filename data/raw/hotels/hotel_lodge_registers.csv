@@ -1,0 +1,3 @@
+register_id,lodge_name,check_in_time,check_out_time,guest_name_entered,id_proof_type,id_proof_number_masked,contact_number,room_number,accompanying_person,payment_mode
+HTL-DEL-MAJNU-81,"Riverside Comfort Inn, Majnu Ka Tilla",2026-09-02T14:30:00Z,2026-09-02T20:45:00Z,R. Kumar,AADHAAR_PHOTOCOPY,•••• •••• 9921,+919871044219,304,Vikram S.,CASH
+HTL-HR-AMBALA-12,"Highway Tourist Rest House, Ambala GT Road",2026-09-03T01:15:00Z,2026-09-03T05:30:00Z,Vicky Singh,DRIVING_LICENSE,DL-••••••••381,+919711588201,108,2 Guests Unregistered,UPI

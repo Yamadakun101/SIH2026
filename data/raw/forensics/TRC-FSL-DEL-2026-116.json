@@ -1,0 +1,33 @@
+{
+  "record_id": "REC-TRC-FSL-DEL-2026-116",
+  "source_type": "FORENSIC",
+  "ingested_at": "2026-09-11T17:54:36.513257+00:00",
+  "ingested_by_badge": "FSL-CHM-053",
+  "raw_content": {
+    "report_id": "TRC-FSL-DEL-2026-116",
+    "category": "TRACE_EVIDENCE",
+    "evidence_id": "EVID-TRC-003",
+    "case_id": "DL-2026-0412",
+    "laboratory": "Chemistry & Toxicology Division, FSL Rohini, Delhi",
+    "examination_date": "2026-09-04T15:30:00Z",
+    "evidence_item": "Textile Fiber Sample \u2014 Front Passenger Headrest",
+    "examiner": "Senior Scientific Officer Dr. R.P. Nair",
+    "examiner_badge": "FSL-CHM-053",
+    "trace_type": "Synthetic Fiber Fragment",
+    "sample_id": "SMPL-FBR-DEL-116-C",
+    "collection_location": "Front Passenger Headrest, Vehicle DL 01 AB 9921",
+    "collection_timestamp": "2026-09-03T12:30:00Z",
+    "material_characteristics": "Blue polyester staple fiber with circular cross section and titanium dioxide delustering pigment",
+    "comparison_candidate": "Subject Reported Clothing Reference (Pure Silk Blend)",
+    "comparison_result": "Non-Matching / Exclusionary Fiber (Generic Commercial Upholstery)",
+    "similarity_confidence": 0.28,
+    "status": "Exclusionary Finding / Non-Evidentiary",
+    "chain_of_custody_id": "COC-DEL-2026-009",
+    "investigative_implication": "Exclusionary trace; fiber originates from standard commercial aftermarket seat cover."
+  },
+  "provenance": {
+    "sha256_hash": "3725b0a4554bc78a63faab23844906f991c8cc1aa8246f6908ca8564efaa05de",
+    "block_height": 1,
+    "previous_hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  }
+}

@@ -4,7 +4,7 @@
 
 import { CASE_PROTOTYPE_DATA, STATES_DATA, CASES_LIST } from '../data/casesData';
 
-const BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000/api/v1';
+const BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:8001/api/v1';
 
 async function fetchWithFallback(endpoint, fallbackData) {
   try {

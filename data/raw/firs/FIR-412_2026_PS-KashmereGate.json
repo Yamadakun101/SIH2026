@@ -1,0 +1,30 @@
+{
+  "record_id": "REC-FIR-FIR-412",
+  "source_type": "FIR",
+  "ingested_at": "2026-09-11T11:20:43.221154+00:00",
+  "ingested_by_badge": "DP-SI-4921",
+  "raw_content": {
+    "fir_number": "FIR-412/2026/PS-KashmereGate",
+    "case_id": "DL-2026-0412",
+    "police_station": "PS Kashmere Gate, North District, Delhi",
+    "date_of_registration": "2026-09-03T08:30:00Z",
+    "date_of_occurrence": "2026-09-02T22:00:00Z",
+    "acts_sections": [
+      "BNS Section 137(2) (Kidnapping)",
+      "BNS Section 143 (Human Trafficking)"
+    ],
+    "complainant_name": "Rajesh Sharma",
+    "complainant_relation": "Father",
+    "victim_name": "Priya Sharma",
+    "victim_age": 22,
+    "incident_narrative": "Complainant reports that his daughter Priya did not return from college in North Campus. Her mobile phone (+91 98112 00341) was found active near ISBT Kashmere Gate around 21:45 hrs on 02-Sep-2026 before being abruptly powered off.",
+    "investigating_officer": "Sub-Inspector Deepak Rawat",
+    "io_badge_number": "DP-SI-4921",
+    "status": "UNDER_ACTIVE_INVESTIGATION"
+  },
+  "provenance": {
+    "sha256_hash": "b5ca817f66f27a89616cebf2f816af4462c523a03d17c1039a08b46d36849337",
+    "block_height": 1,
+    "previous_hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  }
+}

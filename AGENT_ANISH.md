@@ -73,7 +73,7 @@ SIH2026/
 
 ## 4. Phase 1 Implementation Checklist
 
-- [ ] Create `data/dl-2026-0412.json` containing the complete synthetic network for Priya, Rakesh Kumar, Vikram, and associate nodes.
-- [ ] Validate that all nodes and edges have proper IDs, source records, and confidence scores matching [DATA_SCHEMA.md](file:///docs/DATA_SCHEMA.md).
-- [ ] Scaffold the basic FastAPI project structure in `backend/`.
-- [ ] Implement mock endpoints matching [API_CONTRACT.md](file:///docs/API_CONTRACT.md).
+- [x] Create `data/dl-2026-0412.json` containing the complete synthetic network for Priya, Rakesh Kumar, Vikram, and associate nodes.
+- [x] Validate that all nodes and edges have proper IDs, source records, and confidence scores matching [DATA_SCHEMA.md](file:///docs/DATA_SCHEMA.md).
+- [x] Scaffold the basic FastAPI project structure in `backend/`.
+- [x] Implement mock endpoints matching [API_CONTRACT.md](file:///docs/API_CONTRACT.md).

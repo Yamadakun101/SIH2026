@@ -1,3 +1,2 @@
-"""
-KavachNet Backend Package
-"""
+"""KavachNet Backend Application Package"""
+__version__ = "1.0.0"

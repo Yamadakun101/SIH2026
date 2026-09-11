@@ -1,0 +1,34 @@
+{
+  "record_id": "REC-FP-FSL-DEL-2026-219",
+  "source_type": "FORENSIC",
+  "ingested_at": "2026-09-11T17:54:36.505847+00:00",
+  "ingested_by_badge": "FPB-EXP-112",
+  "raw_content": {
+    "report_id": "FP-FSL-DEL-2026-219",
+    "category": "FINGERPRINT_LATENT",
+    "evidence_id": "EVID-FP-002",
+    "case_id": "DL-2026-0412",
+    "laboratory": "Fingerprint Bureau, Crime Branch, Delhi Police",
+    "examination_date": "2026-09-04T11:15:00Z",
+    "evidence_item": "Steering Wheel Rim (9 O'Clock Position) \u2014 Vehicle DL 01 AB 9921",
+    "examiner": "Fingerprint Expert Inspector K.S. Rathore",
+    "examiner_badge": "FPB-EXP-112",
+    "fingerprint_id": "FP-LAT-DEL-219-B",
+    "surface_or_object": "Polyurethane steering wheel rim",
+    "collection_location": "Vehicle Inspection Bay, PS Kashmere Gate",
+    "collection_timestamp": "2026-09-03T10:30:00Z",
+    "print_quality": "High (15 minutiae points)",
+    "print_type": "Latent Left Thumb Print (Plain Arch)",
+    "candidate_entity": "person-vikram",
+    "similarity_score": 0.94,
+    "comparison_result": "Verified Operator Print",
+    "status": "Verified / Driver Identity Confirmed",
+    "chain_of_custody_id": "COC-DEL-2026-005",
+    "investigative_implication": "Confirms Vikram Singh operated the conveyance during the incident timeframe."
+  },
+  "provenance": {
+    "sha256_hash": "31fbaa2ff70f7e47ccb77a6180e16b751c16a2f77ffba480882697a24f9ac4bf",
+    "block_height": 1,
+    "previous_hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  }
+}

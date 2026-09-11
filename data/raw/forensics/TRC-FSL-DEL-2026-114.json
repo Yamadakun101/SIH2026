@@ -1,0 +1,33 @@
+{
+  "record_id": "REC-TRC-FSL-DEL-2026-114",
+  "source_type": "FORENSIC",
+  "ingested_at": "2026-09-11T17:54:36.511398+00:00",
+  "ingested_by_badge": "FSL-CHM-053",
+  "raw_content": {
+    "report_id": "TRC-FSL-DEL-2026-114",
+    "category": "TRACE_EVIDENCE",
+    "evidence_id": "EVID-TRC-001",
+    "case_id": "DL-2026-0412",
+    "laboratory": "Chemistry & Toxicology Division, FSL Rohini, Delhi",
+    "examination_date": "2026-09-04T14:30:00Z",
+    "evidence_item": "Soil Mineralogy Crusting \u2014 Vehicle Right Rear Wheel Arch",
+    "examiner": "Senior Scientific Officer Dr. R.P. Nair",
+    "examiner_badge": "FSL-CHM-053",
+    "trace_type": "Soil Mineralogy & Petrographic Particulates",
+    "sample_id": "SMPL-SOIL-DEL-114-A",
+    "collection_location": "Vehicle Inspection Bay, PS Kashmere Gate, Delhi",
+    "collection_timestamp": "2026-09-03T12:00:00Z",
+    "material_characteristics": "Sandy-loam clay enriched with fly-ash microspheres and heavy diesel hydrocarbons characteristic of industrial roadworks",
+    "comparison_candidate": "Singhu Border NH-44 Toll Bypass Unpaved Shoulder Soil",
+    "comparison_result": "Strong Association / Geochemical Mineral Concordance",
+    "similarity_confidence": 0.88,
+    "status": "Corroborating Evidence / Environmental Concordance",
+    "chain_of_custody_id": "COC-DEL-2026-007",
+    "investigative_implication": "Physical soil matrix on vehicle wheels matches unique geologic profile of Singhu Border highway verge."
+  },
+  "provenance": {
+    "sha256_hash": "6b757af19e5d97e9ecf8ee46549b2106fbe84316b24083beb7846e5ed3a11632",
+    "block_height": 1,
+    "previous_hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  }
+}

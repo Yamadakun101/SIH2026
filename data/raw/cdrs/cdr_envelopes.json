@@ -1,0 +1,420 @@
+[
+  {
+    "record_id": "REC-CDR-DEL-0902-01",
+    "source_type": "CDR",
+    "ingested_at": "2026-09-11T11:20:43.223717+00:00",
+    "ingested_by_badge": "DL-INV-301",
+    "raw_content": {
+      "cdr_id": "CDR-DEL-0902-01",
+      "calling_number": "+919871044219",
+      "called_number": "+919811200341",
+      "call_timestamp": "2026-09-02T17:38:00Z",
+      "duration_seconds": 30,
+      "call_type": "VOICE",
+      "cell_tower_id": "TOW-DEL-KASHMERE-482",
+      "calling_imei": "358912091823901",
+      "called_imei": "864201049281720"
+    },
+    "provenance": {
+      "sha256_hash": "a64b577f1f49760ee6d4dd6a9e47b636d36da52aad1c3f47a5cb45dff80f4633",
+      "block_height": 1,
+      "previous_hash": "0000000000000000000000000000000000000000000000000000000000000000"
+    }
+  },
+  {
+    "record_id": "REC-CDR-DEL-0902-02",
+    "source_type": "CDR",
+    "ingested_at": "2026-09-11T11:20:43.223749+00:00",
+    "ingested_by_badge": "DL-INV-301",
+    "raw_content": {
+      "cdr_id": "CDR-DEL-0902-02",
+      "calling_number": "+919871044219",
+      "called_number": "+919811200341",
+      "call_timestamp": "2026-09-02T17:53:00Z",
+      "duration_seconds": 42,
+      "call_type": "VOICE",
+      "cell_tower_id": "TOW-DEL-KASHMERE-482",
+      "calling_imei": "358912091823901",
+      "called_imei": "864201049281720"
+    },
+    "provenance": {
+      "sha256_hash": "5b2143e7979cc2b5541adfbe21db2dab5a3d0b16e55b68bfc3259a4632b562ab",
+      "block_height": 1,
+      "previous_hash": "0000000000000000000000000000000000000000000000000000000000000000"
+    }
+  },
+  {
+    "record_id": "REC-CDR-DEL-0902-03",
+    "source_type": "CDR",
+    "ingested_at": "2026-09-11T11:20:43.223758+00:00",
+    "ingested_by_badge": "DL-INV-301",
+    "raw_content": {
+      "cdr_id": "CDR-DEL-0902-03",
+      "calling_number": "+919871044219",
+      "called_number": "+919811200341",
+      "call_timestamp": "2026-09-02T18:08:00Z",
+      "duration_seconds": 54,
+      "call_type": "VOICE",
+      "cell_tower_id": "TOW-DEL-KASHMERE-482",
+      "calling_imei": "358912091823901",
+      "called_imei": "864201049281720"
+    },
+    "provenance": {
+      "sha256_hash": "164689e5dfd0f5a545aa6f95890f975061c2ead800195f9b0c8d40faac58340f",
+      "block_height": 1,
+      "previous_hash": "0000000000000000000000000000000000000000000000000000000000000000"
+    }
+  },
+  {
+    "record_id": "REC-CDR-DEL-0902-04",
+    "source_type": "CDR",
+    "ingested_at": "2026-09-11T11:20:43.223765+00:00",
+    "ingested_by_badge": "DL-INV-301",
+    "raw_content": {
+      "cdr_id": "CDR-DEL-0902-04",
+      "calling_number": "+919871044219",
+      "called_number": "+919811200341",
+      "call_timestamp": "2026-09-02T18:23:00Z",
+      "duration_seconds": 66,
+      "call_type": "VOICE",
+      "cell_tower_id": "TOW-DEL-KASHMERE-482",
+      "calling_imei": "358912091823901",
+      "called_imei": "864201049281720"
+    },
+    "provenance": {
+      "sha256_hash": "801ed2a241dd72d2e9ae41ebbfa9b8064c99c8cd2cac2eaa5ac07ca9736f9642",
+      "block_height": 1,
+      "previous_hash": "0000000000000000000000000000000000000000000000000000000000000000"
+    }
+  },
+  {
+    "record_id": "REC-CDR-DEL-0902-05",
+    "source_type": "CDR",
+    "ingested_at": "2026-09-11T11:20:43.223771+00:00",
+    "ingested_by_badge": "DL-INV-301",
+    "raw_content": {
+      "cdr_id": "CDR-DEL-0902-05",
+      "calling_number": "+919871044219",
+      "called_number": "+919811200341",
+      "call_timestamp": "2026-09-02T18:38:00Z",
+      "duration_seconds": 78,
+      "call_type": "VOICE",
+      "cell_tower_id": "TOW-DEL-KASHMERE-482",
+      "calling_imei": "358912091823901",
+      "called_imei": "864201049281720"
+    },
+    "provenance": {
+      "sha256_hash": "9a6831e7e2250d586fd50c3ba80246c76771e7379c57a4806c2693fb60a34c9d",
+      "block_height": 1,
+      "previous_hash": "0000000000000000000000000000000000000000000000000000000000000000"
+    }
+  },
+  {
+    "record_id": "REC-CDR-DEL-0902-06",
+    "source_type": "CDR",
+    "ingested_at": "2026-09-11T11:20:43.223777+00:00",
+    "ingested_by_badge": "DL-INV-301",
+    "raw_content": {
+      "cdr_id": "CDR-DEL-0902-06",
+      "calling_number": "+919871044219",
+      "called_number": "+919811200341",
+      "call_timestamp": "2026-09-02T18:53:00Z",
+      "duration_seconds": 90,
+      "call_type": "VOICE",
+      "cell_tower_id": "TOW-DEL-KASHMERE-482",
+      "calling_imei": "358912091823901",
+      "called_imei": "864201049281720"
+    },
+    "provenance": {
+      "sha256_hash": "3bfb3a31730ca24786fd74a75d39aad5c7cc9562b7c189b14fd16696fe9bc19c",
+      "block_height": 1,
+      "previous_hash": "0000000000000000000000000000000000000000000000000000000000000000"
+    }
+  },
+  {
+    "record_id": "REC-CDR-DEL-0902-07",
+    "source_type": "CDR",
+    "ingested_at": "2026-09-11T11:20:43.223782+00:00",
+    "ingested_by_badge": "DL-INV-301",
+    "raw_content": {
+      "cdr_id": "CDR-DEL-0902-07",
+      "calling_number": "+919871044219",
+      "called_number": "+919811200341",
+      "call_timestamp": "2026-09-02T19:08:00Z",
+      "duration_seconds": 102,
+      "call_type": "VOICE",
+      "cell_tower_id": "TOW-DEL-KASHMERE-482",
+      "calling_imei": "358912091823901",
+      "called_imei": "864201049281720"
+    },
+    "provenance": {
+      "sha256_hash": "c98ebeef2d5fed91d82a816d1ef0d4692196b30ee6d2d558454df05e24b61d57",
+      "block_height": 1,
+      "previous_hash": "0000000000000000000000000000000000000000000000000000000000000000"
+    }
+  },
+  {
+    "record_id": "REC-CDR-DEL-0902-08",
+    "source_type": "CDR",
+    "ingested_at": "2026-09-11T11:20:43.223789+00:00",
+    "ingested_by_badge": "DL-INV-301",
+    "raw_content": {
+      "cdr_id": "CDR-DEL-0902-08",
+      "calling_number": "+919871044219",
+      "called_number": "+919811200341",
+      "call_timestamp": "2026-09-02T19:23:00Z",
+      "duration_seconds": 114,
+      "call_type": "VOICE",
+      "cell_tower_id": "TOW-DEL-KASHMERE-482",
+      "calling_imei": "358912091823901",
+      "called_imei": "864201049281720"
+    },
+    "provenance": {
+      "sha256_hash": "8853538d20961cd85adb6b8cfbd33a216d9fe6095510ea4d28704cd8c0c93df5",
+      "block_height": 1,
+      "previous_hash": "0000000000000000000000000000000000000000000000000000000000000000"
+    }
+  },
+  {
+    "record_id": "REC-CDR-DEL-0902-09",
+    "source_type": "CDR",
+    "ingested_at": "2026-09-11T11:20:43.223795+00:00",
+    "ingested_by_badge": "DL-INV-301",
+    "raw_content": {
+      "cdr_id": "CDR-DEL-0902-09",
+      "calling_number": "+919871044219",
+      "called_number": "+919811200341",
+      "call_timestamp": "2026-09-02T19:38:00Z",
+      "duration_seconds": 126,
+      "call_type": "VOICE",
+      "cell_tower_id": "TOW-DEL-KASHMERE-482",
+      "calling_imei": "358912091823901",
+      "called_imei": "864201049281720"
+    },
+    "provenance": {
+      "sha256_hash": "b48e7a09777677fc21e39b6258ea6987ed4256fae2e2f7f26f1bcfa99c8ae2c0",
+      "block_height": 1,
+      "previous_hash": "0000000000000000000000000000000000000000000000000000000000000000"
+    }
+  },
+  {
+    "record_id": "REC-CDR-DEL-0902-10",
+    "source_type": "CDR",
+    "ingested_at": "2026-09-11T11:20:43.223800+00:00",
+    "ingested_by_badge": "DL-INV-301",
+    "raw_content": {
+      "cdr_id": "CDR-DEL-0902-10",
+      "calling_number": "+919871044219",
+      "called_number": "+919811200341",
+      "call_timestamp": "2026-09-02T19:53:00Z",
+      "duration_seconds": 138,
+      "call_type": "VOICE",
+      "cell_tower_id": "TOW-DEL-KASHMERE-482",
+      "calling_imei": "358912091823901",
+      "called_imei": "864201049281720"
+    },
+    "provenance": {
+      "sha256_hash": "f78654b1d370d93fd48d57d11cd73c1d50d0e7b21c863ad33b04db5fa2a88e9d",
+      "block_height": 1,
+      "previous_hash": "0000000000000000000000000000000000000000000000000000000000000000"
+    }
+  },
+  {
+    "record_id": "REC-CDR-DEL-0902-11",
+    "source_type": "CDR",
+    "ingested_at": "2026-09-11T11:20:43.223806+00:00",
+    "ingested_by_badge": "DL-INV-301",
+    "raw_content": {
+      "cdr_id": "CDR-DEL-0902-11",
+      "calling_number": "+919871044219",
+      "called_number": "+919811200341",
+      "call_timestamp": "2026-09-02T20:08:00Z",
+      "duration_seconds": 150,
+      "call_type": "VOICE",
+      "cell_tower_id": "TOW-DEL-KASHMERE-482",
+      "calling_imei": "358912091823901",
+      "called_imei": "864201049281720"
+    },
+    "provenance": {
+      "sha256_hash": "2507e70c2cff884207c0c6e6e7c972b7d8e5799501074519e7ab3101795b3c1a",
+      "block_height": 1,
+      "previous_hash": "0000000000000000000000000000000000000000000000000000000000000000"
+    }
+  },
+  {
+    "record_id": "REC-CDR-DEL-0902-12",
+    "source_type": "CDR",
+    "ingested_at": "2026-09-11T11:20:43.223811+00:00",
+    "ingested_by_badge": "DL-INV-301",
+    "raw_content": {
+      "cdr_id": "CDR-DEL-0902-12",
+      "calling_number": "+919871044219",
+      "called_number": "+919811200341",
+      "call_timestamp": "2026-09-02T20:23:00Z",
+      "duration_seconds": 162,
+      "call_type": "VOICE",
+      "cell_tower_id": "TOW-DEL-KASHMERE-482",
+      "calling_imei": "358912091823901",
+      "called_imei": "864201049281720"
+    },
+    "provenance": {
+      "sha256_hash": "67ac91b6f2260ec1c8e24f3f3a46dfd7139908fec69944c969fae04eda5eea59",
+      "block_height": 1,
+      "previous_hash": "0000000000000000000000000000000000000000000000000000000000000000"
+    }
+  },
+  {
+    "record_id": "REC-CDR-DEL-0902-13",
+    "source_type": "CDR",
+    "ingested_at": "2026-09-11T11:20:43.223817+00:00",
+    "ingested_by_badge": "DL-INV-301",
+    "raw_content": {
+      "cdr_id": "CDR-DEL-0902-13",
+      "calling_number": "+919871044219",
+      "called_number": "+919811200341",
+      "call_timestamp": "2026-09-02T20:38:00Z",
+      "duration_seconds": 174,
+      "call_type": "VOICE",
+      "cell_tower_id": "TOW-DEL-KASHMERE-482",
+      "calling_imei": "358912091823901",
+      "called_imei": "864201049281720"
+    },
+    "provenance": {
+      "sha256_hash": "298cd889893b855e7b5d8bb8d0df6d7c612db0099520325d87d749057a58c5ad",
+      "block_height": 1,
+      "previous_hash": "0000000000000000000000000000000000000000000000000000000000000000"
+    }
+  },
+  {
+    "record_id": "REC-CDR-DEL-0902-14",
+    "source_type": "CDR",
+    "ingested_at": "2026-09-11T11:20:43.223822+00:00",
+    "ingested_by_badge": "DL-INV-301",
+    "raw_content": {
+      "cdr_id": "CDR-DEL-0902-14",
+      "calling_number": "+919871044219",
+      "called_number": "+919811200341",
+      "call_timestamp": "2026-09-02T21:45:00Z",
+      "duration_seconds": 142,
+      "call_type": "VOICE",
+      "cell_tower_id": "TOW-DEL-KASHMERE-482",
+      "calling_imei": "358912091823901",
+      "called_imei": "864201049281720"
+    },
+    "provenance": {
+      "sha256_hash": "764d8bc1ff35f19e69daec8ac640708ac0d8a75e4e172f826a1e322cf18ca479",
+      "block_height": 1,
+      "previous_hash": "0000000000000000000000000000000000000000000000000000000000000000"
+    }
+  },
+  {
+    "record_id": "REC-CDR-COORD-0902-01",
+    "source_type": "CDR",
+    "ingested_at": "2026-09-11T11:20:43.223827+00:00",
+    "ingested_by_badge": "DL-INV-301",
+    "raw_content": {
+      "cdr_id": "CDR-COORD-0902-01",
+      "calling_number": "+919871044219",
+      "called_number": "+919711588201",
+      "call_timestamp": "2026-09-02T21:50:00Z",
+      "duration_seconds": 45,
+      "call_type": "VOICE",
+      "cell_tower_id": "TOW-DEL-KASHMERE-482",
+      "calling_imei": "358912091823901",
+      "called_imei": "354019280192831"
+    },
+    "provenance": {
+      "sha256_hash": "829ee01a7148737fd402b4b960315f453ca88281d775e4b4c75542f68351cb5f",
+      "block_height": 1,
+      "previous_hash": "0000000000000000000000000000000000000000000000000000000000000000"
+    }
+  },
+  {
+    "record_id": "REC-CDR-COORD-0902-02",
+    "source_type": "CDR",
+    "ingested_at": "2026-09-11T11:20:43.223833+00:00",
+    "ingested_by_badge": "DL-INV-301",
+    "raw_content": {
+      "cdr_id": "CDR-COORD-0902-02",
+      "calling_number": "+919871044219",
+      "called_number": "+919711588201",
+      "call_timestamp": "2026-09-02T22:00:00Z",
+      "duration_seconds": 60,
+      "call_type": "VOICE",
+      "cell_tower_id": "TOW-DEL-KASHMERE-482",
+      "calling_imei": "358912091823901",
+      "called_imei": "354019280192831"
+    },
+    "provenance": {
+      "sha256_hash": "ea39c940ef80ef2b679e8692f9ef456e640e1d6237b2c04b9e717179509ece38",
+      "block_height": 1,
+      "previous_hash": "0000000000000000000000000000000000000000000000000000000000000000"
+    }
+  },
+  {
+    "record_id": "REC-CDR-COORD-0902-03",
+    "source_type": "CDR",
+    "ingested_at": "2026-09-11T11:20:43.223838+00:00",
+    "ingested_by_badge": "DL-INV-301",
+    "raw_content": {
+      "cdr_id": "CDR-COORD-0902-03",
+      "calling_number": "+919871044219",
+      "called_number": "+919711588201",
+      "call_timestamp": "2026-09-02T22:10:00Z",
+      "duration_seconds": 75,
+      "call_type": "VOICE",
+      "cell_tower_id": "TOW-DEL-SINGHU-109",
+      "calling_imei": "358912091823901",
+      "called_imei": "354019280192831"
+    },
+    "provenance": {
+      "sha256_hash": "ac1a2dd36d1233eed260d30c24421cd489ed268ce622d73a6985a7c101298ffb",
+      "block_height": 1,
+      "previous_hash": "0000000000000000000000000000000000000000000000000000000000000000"
+    }
+  },
+  {
+    "record_id": "REC-CDR-COORD-0902-04",
+    "source_type": "CDR",
+    "ingested_at": "2026-09-11T11:20:43.223844+00:00",
+    "ingested_by_badge": "DL-INV-301",
+    "raw_content": {
+      "cdr_id": "CDR-COORD-0902-04",
+      "calling_number": "+919871044219",
+      "called_number": "+919711588201",
+      "call_timestamp": "2026-09-02T22:20:00Z",
+      "duration_seconds": 90,
+      "call_type": "VOICE",
+      "cell_tower_id": "TOW-DEL-SINGHU-109",
+      "calling_imei": "358912091823901",
+      "called_imei": "354019280192831"
+    },
+    "provenance": {
+      "sha256_hash": "7126ad803bb522ed38c9980022ee3878bd24093be26afd37e05032c2267eed3e",
+      "block_height": 1,
+      "previous_hash": "0000000000000000000000000000000000000000000000000000000000000000"
+    }
+  },
+  {
+    "record_id": "REC-CDR-COORD-0902-05",
+    "source_type": "CDR",
+    "ingested_at": "2026-09-11T11:20:43.223849+00:00",
+    "ingested_by_badge": "DL-INV-301",
+    "raw_content": {
+      "cdr_id": "CDR-COORD-0902-05",
+      "calling_number": "+919871044219",
+      "called_number": "+919711588201",
+      "call_timestamp": "2026-09-02T22:30:00Z",
+      "duration_seconds": 105,
+      "call_type": "VOICE",
+      "cell_tower_id": "TOW-DEL-SINGHU-109",
+      "calling_imei": "358912091823901",
+      "called_imei": "354019280192831"
+    },
+    "provenance": {
+      "sha256_hash": "4641a8d0fcf0dc4ceb0e3ad3fd4627ef7acd131e97e9e4684c4f4fc0d0ebe637",
+      "block_height": 1,
+      "previous_hash": "0000000000000000000000000000000000000000000000000000000000000000"
+    }
+  }
+]

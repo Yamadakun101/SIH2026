@@ -1,0 +1,18 @@
+{
+  "BANK:HDFC-4091": {
+    "source_system": "MOCK_FIU_FINANCIAL_INTELLIGENCE",
+    "account_number": "HDFC-••4091",
+    "account_holder_official": "Rakesh Kumar d/b/a R.K. Enterprises",
+    "pan_linked": "ABCDE1234F",
+    "suspicious_activity_flag": "HIGH_VELOCITY_WITHDRAWAL",
+    "recent_transactions": [
+      {
+        "tx_ref": "FIU-TX-88401",
+        "amount": 45000.0,
+        "type": "ATM_CASH",
+        "timestamp": "2026-09-02T22:05:00Z",
+        "location": "Civil Lines Delhi ATM #04"
+      }
+    ]
+  }
+}
