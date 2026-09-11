@@ -90,28 +90,28 @@ export default function NetworkGraph({
   useEffect(() => {
     if (!containerRef.current || !graphData) return;
 
-    // Topology layout matching Image 1
+    // Spacious non-overlapping topology layout with generous hitbox clearances
     const initialPositions = {
-      'fir-104-maurice': { x: 100, y: 80 },
-      'person-pooja': { x: 200, y: 150 },
-      'loc-north-campus': { x: 300, y: 200 },
-      'cctv-du-exit': { x: 280, y: 280 },
-      'vehicle-dl01-ax': { x: 400, y: 340 },
-      'cctv-isbt-gate3': { x: 480, y: 240 },
-      'vehicle-hr26-dq': { x: 380, y: 240 },
-      'loc-murthal-toll': { x: 420, y: 190 },
-      'loc-safehouse-kundli': { x: 340, y: 440 },
-      'loc-kashmere-isbt': { x: 490, y: 500 },
-      'person-sunil': { x: 560, y: 370 },
-      'bank-icici': { x: 670, y: 310 },
-      'txn-upi-50k': { x: 770, y: 410 },
-      'bank-hdfc': { x: 700, y: 540 },
-      'person-vikram': { x: 650, y: 550 },
-      'fir-78-civil-lines': { x: 670, y: 690 },
-      'person-rakesh': { x: 590, y: 650 },
-      'phone-rakesh-primary': { x: 670, y: 820 },
-      'phone-fir-linked': { x: 730, y: 690 },
-      'phone-associate-contact': { x: 690, y: 940 }
+      'fir-104-maurice': { x: 120, y: 120 },
+      'person-pooja': { x: 360, y: 220 },
+      'loc-north-campus': { x: 600, y: 300 },
+      'cctv-du-exit': { x: 480, y: 480 },
+      'vehicle-dl01-ax': { x: 740, y: 520 },
+      'vehicle-hr26-dq': { x: 700, y: 340 },
+      'loc-murthal-toll': { x: 800, y: 180 },
+      'cctv-isbt-gate3': { x: 960, y: 360 },
+      'loc-safehouse-kundli': { x: 580, y: 740 },
+      'loc-kashmere-isbt': { x: 880, y: 720 },
+      'person-sunil': { x: 1120, y: 520 },
+      'bank-icici': { x: 1360, y: 360 },
+      'txn-upi-50k': { x: 1600, y: 520 },
+      'bank-hdfc': { x: 1440, y: 720 },
+      'person-vikram': { x: 1220, y: 800 },
+      'person-rakesh': { x: 1040, y: 1020 },
+      'fir-78-civil-lines': { x: 1300, y: 1020 },
+      'phone-fir-linked': { x: 1560, y: 1020 },
+      'phone-rakesh-primary': { x: 1180, y: 1240 },
+      'phone-associate-contact': { x: 1180, y: 1440 }
     };
 
     const cyNodes = graphData.nodes.map((node) => {
@@ -266,8 +266,12 @@ export default function NetworkGraph({
       layout: {
         name: 'preset',
         fit: true,
-        padding: 50
-      }
+        padding: 60
+      },
+      minZoom: 0.25,
+      maxZoom: 3.5,
+      wheelSensitivity: 0.25,
+      boxSelectionEnabled: false
     });
 
     // Handle Node Click & Directional Arrow Highlighting
@@ -419,6 +423,25 @@ export default function NetworkGraph({
     cyRef.current.fit();
   };
 
+  const handleAutoSpace = () => {
+    if (!cyRef.current) return;
+    cyRef.current.layout({
+      name: 'fcose',
+      quality: 'proof',
+      randomize: false,
+      animate: true,
+      animationDuration: 600,
+      nodeDimensionsIncludeLabels: true,
+      nodeRepulsion: 15000,
+      idealEdgeLength: 220,
+      edgeElasticity: 0.35,
+      nestingFactor: 0.1,
+      gravity: 0.15,
+      fit: true,
+      padding: 60
+    }).run();
+  };
+
   return (
     <div className="graph-view-container">
       {/* Graph Toolbar */}
@@ -458,6 +481,14 @@ export default function NetworkGraph({
           onClick={() => cyRef.current?.fit()}
         >
           <Maximize2 size={16} />
+        </button>
+
+        <button 
+          className="graph-tool-btn" 
+          title="Auto Space & Avoid Collisions"
+          onClick={handleAutoSpace}
+        >
+          <Layers size={16} />
         </button>
 
         <button 
