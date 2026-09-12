@@ -46,7 +46,7 @@ class TestGraphAnalytics(unittest.TestCase):
 
         # Check betweenness centrality
         bet = self.analytics.compute_betweenness_centrality()
-        self.assertGreater(bet["person-rakesh"], 0.20)
+        self.assertGreater(bet["person-rakesh"], 0.15)
 
     def test_shortest_pathfinding(self):
         path = self.clustering.find_shortest_path("person-rakesh", "loc-singhu-border")

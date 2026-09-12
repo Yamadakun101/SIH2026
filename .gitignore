@@ -1,10 +1,10 @@
-# Virtual Environment
+# Python & Virtual Environments
 .venv/
 venv/
 ENV/
 env/
 
-# Python cache & build artifacts
+# Python cache & artifacts
 __pycache__/
 *.py[cod]
 *$py.class
@@ -26,17 +26,14 @@ wheels/
 .installed.cfg
 *.egg
 
+# Node / Frontend build artifacts
+node_modules/
+.vite/
+
 # Testing & Coverage
 .coverage
 .pytest_cache/
 htmlcov/
-
-# Node / Frontend build artifacts
-frontend/node_modules/
-node_modules/
-frontend/dist/
-dist/
-.vite/
 
 # IDE & OS
 .idea/
