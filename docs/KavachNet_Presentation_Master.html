@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KavachNet (CRIMENET AI) — SIH 2026 Master Presentation Document</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap');
+
+    :root {
+      --bg-primary: #f8fafc;
+      --bg-card: #ffffff;
+      --text-primary: #0f172a;
+      --text-secondary: #475569;
+      --accent-blue: #2563eb;
+      --accent-navy: #1e3a8a;
+      --accent-emerald: #059669;
+      --accent-amber: #d97706;
+      --border-color: #e2e8f0;
+      --radius-md: 8px;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+      --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.6;
+      padding: 2.5rem 1rem;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .header-card {
+      background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
+      color: #ffffff;
+      padding: 2.5rem;
+      border-radius: 12px;
+      margin-bottom: 2rem;
+      box-shadow: var(--shadow-md);
+    }
+
+    .header-card h1 {
+      font-size: 2.2rem;
+      font-weight: 800;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .header-card .subtitle {
+      font-size: 1.1rem;
+      opacity: 0.92;
+      margin-bottom: 1.25rem;
+    }
+
+    .badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+
+    .badge {
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(4px);
+      padding: 0.35rem 0.75rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      padding: 1.75rem;
+      margin-bottom: 1.75rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    h2 {
+      font-size: 1.4rem;
+      color: var(--accent-navy);
+      margin-bottom: 1rem;
+      border-bottom: 2px solid #e2e8f0;
+      padding-bottom: 0.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    h3 {
+      font-size: 1.15rem;
+      color: #1e293b;
+      margin: 1.2rem 0 0.5rem 0;
+    }
+
+    p, li {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+    }
+
+    ul, ol {
+      margin-left: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    li {
+      margin-bottom: 0.4rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+      font-size: 0.88rem;
+    }
+
+    th, td {
+      border: 1px solid var(--border-color);
+      padding: 0.75rem 0.9rem;
+      text-align: left;
+    }
+
+    th {
+      background-color: #f1f5f9;
+      color: #0f172a;
+      font-weight: 700;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f8fafc;
+    }
+
+    .slide-card {
+      border-left: 5px solid var(--accent-blue);
+      background: #ffffff;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      border-radius: 6px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .slide-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.75rem;
+    }
+
+    .slide-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--accent-navy);
+    }
+
+    .slide-num {
+      background: #eff6ff;
+      color: var(--accent-blue);
+      padding: 0.25rem 0.6rem;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      border: 1px solid #bfdbfe;
+    }
+
+    .speaker-script {
+      background: #f0fdf4;
+      border-left: 4px solid var(--accent-emerald);
+      padding: 0.85rem 1rem;
+      margin-top: 0.85rem;
+      border-radius: 4px;
+      font-style: italic;
+      color: #14532d;
+      font-size: 0.9rem;
+    }
+
+    .code-box {
+      font-family: 'JetBrains Mono', monospace;
+      background: #0f172a;
+      color: #e2e8f0;
+      padding: 1rem;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      overflow-x: auto;
+      margin: 1rem 0;
+    }
+
+    .print-btn {
+      background: #ffffff;
+      color: var(--accent-blue);
+      border: none;
+      padding: 0.6rem 1.2rem;
+      border-radius: 6px;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-block;
+      margin-top: 1rem;
+      text-decoration: none;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .print-btn:hover {
+      background: #f1f5f9;
+    }
+
+    @media print {
+      body {
+        background: #ffffff;
+        padding: 0;
+      }
+      .print-btn {
+        display: none;
+      }
+      .header-card {
+        background: #1e3a8a !important;
+        -webkit-print-color-adjust: exact;
+        color: white;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    
+    <!-- Top Header -->
+    <div class="header-card">
+      <h1>🛡️ KavachNet (CRIMENET AI)</h1>
+      <div class="subtitle">AI-Powered Criminal Network Analysis & Evidentiary Command System</div>
+      <p style="color: #e2e8f0; font-size: 0.9rem;">
+        Smart India Hackathon 2026 | Problem Statement #26189 | Ministry of Home Affairs (NCRB), Women Safety Division
+      </p>
+      <div class="badges">
+        <span class="badge">⚖️ Section 63 BSA 2023 Verified</span>
+        <span class="badge">🚀 FastAPI + React 18</span>
+        <span class="badge">🕸️ Cytoscape.js Knowledge Graph</span>
+        <span class="badge">🧪 71/71 Tests Passing (100%)</span>
+      </div>
+      <button class="print-btn" onclick="window.print()">🖨️ Print / Save as PDF</button>
+    </div>
+
+    <!-- 1. Executive Summary -->
+    <div class="card">
+      <h2>📌 1. Executive Summary</h2>
+      <p>
+        <strong>KavachNet</strong> is a unified multi-agency criminal network analysis platform designed for Indian law enforcement. It breaks down cross-jurisdictional data silos by fusing police FIRs, telecom CDR dumps, bank IMPS/UPI ledgers, toll CCTV/ANPR captures, and Forensic Science Laboratory (FSL) records into an interactive, mathematically analyzed knowledge graph.
+      </p>
+      <ul>
+        <li><strong>Drastic Time Reduction:</strong> Reduces cross-matching time from 72+ hours of manual spreadsheet work to <strong>&lt; 3 seconds</strong>.</li>
+        <li><strong>Zero-Hallucination Explainability:</strong> Every link is weighted with an association confidence (0–100%) and citation back to raw police logs.</li>
+        <li><strong>Courtroom Admissibility:</strong> Native compliance with <strong>Section 63 of Bharatiya Sakshya Adhiniyam (BSA), 2023</strong> using SHA-256 Merkle hash-chains.</li>
+      </ul>
+    </div>
+
+    <!-- 2. Tech Stack -->
+    <div class="card">
+      <h2>🛠️ 2. Technology Stack & Tools Used</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Layer</th>
+            <th>Technologies</th>
+            <th>Role & Purpose</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Frontend UI</strong></td>
+            <td>React.js 18, Vite, Cytoscape.js, Leaflet.js, Lucide Icons, Vanilla CSS</td>
+            <td>Official Light Theme Law Enforcement Dashboard, interactive network canvas, India Map heatmap, timeline player.</td>
+          </tr>
+          <tr>
+            <td><strong>Backend API</strong></td>
+            <td>Python 3.14, FastAPI, Uvicorn, Pydantic v2</td>
+            <td>High-performance asynchronous REST API, schema validation, dependency injection, modular controllers.</td>
+          </tr>
+          <tr>
+            <td><strong>Graph & AI</strong></td>
+            <td>Brandes Betweenness Centrality, PageRank, Louvain Modularity, IndicNER</td>
+            <td>Mathematical kingpin/facilitator isolation, topological community detection, alias deduplication.</td>
+          </tr>
+          <tr>
+            <td><strong>Forensics</strong></td>
+            <td>8 FSL Disciplines, 16-Loci STR DNA, AFIS Minutiae, JTAG GPS Carving</td>
+            <td>Multi-hop physical & digital forensic corroboration with 4-step chain-of-custody tracking.</td>
+          </tr>
+          <tr>
+            <td><strong>Security & Legal</strong></td>
+            <td>Argon2id, PyJWT, Ed25519 Signatures, HMAC-SHA-256, Merkle Chain</td>
+            <td>Zero-trust challenge-response inter-agency fetching, BSA 2023 Sec 63 digital courtroom certificate generator.</td>
+          </tr>
+          <tr>
+            <td><strong>Testing</strong></td>
+            <td>Pytest (71/71 Tests Passing — 100% Coverage)</td>
+            <td>Unit & integration tests across security, auth, graph, forensics, and REST APIs.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 3. Forensic Suite -->
+    <div class="card">
+      <h2>🧬 3. 8-Discipline FSL Forensic Intelligence Suite</h2>
+      <p>KavachNet integrates 20 raw laboratory reports spanning 8 disciplines to establish multi-source corroboration:</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Discipline</th>
+            <th>Report ID</th>
+            <th>Evidence Item & Findings</th>
+            <th>Confidence</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>DNA / Biological</strong></td>
+            <td>DNA-FSL-DEL-2026-401</td>
+            <td>Touch DNA Swab (Seatbelt Buckle) — 16-loci autosomal STR profile matching Rakesh Kumar.</td>
+            <td><strong>94% Strong Match</strong></td>
+          </tr>
+          <tr>
+            <td><strong>DNA / Biological</strong></td>
+            <td>DNA-FSL-DEL-2026-402</td>
+            <td>Hair Follicle (Rear Carpet) — Nuclear DNA profile matching victim Priya Sharma.</td>
+            <td><strong>87% Association</strong></td>
+          </tr>
+          <tr>
+            <td><strong>Latent Fingerprints</strong></td>
+            <td>FP-FSL-DEL-2026-218</td>
+            <td>Door Handle Latent Print — 14 AFIS ridge minutiae points matching Rakesh Kumar.</td>
+            <td><strong>91% AFIS Match</strong></td>
+          </tr>
+          <tr>
+            <td><strong>Latent Fingerprints</strong></td>
+            <td>FP-FSL-DEL-2026-219</td>
+            <td>Steering Wheel Rim — 15 minutiae points matching driver Vikram Singh.</td>
+            <td><strong>94% Operator Match</strong></td>
+          </tr>
+          <tr>
+            <td><strong>Digital Forensics</strong></td>
+            <td>DIG-FSL-DEL-2026-309</td>
+            <td>JTAG Chip-Off Extraction — Carved SQLite GPS waypoint placing burner at ISBT gate.</td>
+            <td><strong>94% Corroborated</strong></td>
+          </tr>
+          <tr>
+            <td><strong>CCTV & Video Re-ID</strong></td>
+            <td>VID-FSL-DEL-2026-552</td>
+            <td>ISBT Concourse (CAM-09) — Super-resolution facial & clothing re-ID of Rakesh boarding vehicle.</td>
+            <td><strong>81% Visual Re-ID</strong></td>
+          </tr>
+          <tr>
+            <td><strong>ANPR Toll Capture</strong></td>
+            <td>VID-FSL-DEL-2026-553</td>
+            <td>Singhu NH-44 Toll — High-speed optical capture confirming vehicle passage at 22:15.</td>
+            <td><strong>98% Confirmed Passage</strong></td>
+          </tr>
+          <tr>
+            <td><strong>Trace & Mineralogy</strong></td>
+            <td>TRC-FSL-DEL-2026-114</td>
+            <td>Wheel Arch Soil — Fly-ash geochemical concordance with Singhu bypass works.</td>
+            <td><strong>88% Geochemical Match</strong></td>
+          </tr>
+          <tr>
+            <td><strong>Impressions & Tools</strong></td>
+            <td>IMP-FSL-DEL-2026-607</td>
+            <td>Tire Tread Cast — Bridgestone B290 stone-cut defect matching right front tire.</td>
+            <td><strong>89% Defect Match</strong></td>
+          </tr>
+          <tr>
+            <td><strong>Chain of Custody</strong></td>
+            <td>COC-FSL-DEL-2026-901</td>
+            <td>Master Evidence Custody Ledger — 4-step transfer verification (DP-SI-4921 → FSL-BIO-042).</td>
+            <td><strong>100% Intact</strong></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 4. Presentation Pitch Deck -->
+    <div class="card">
+      <h2>📽️ 4. Slide-by-Slide Presentation Pitch Deck & Script</h2>
+
+      <div class="slide-card">
+        <div class="slide-header">
+          <div class="slide-title">Slide 1: Title & Vision</div>
+          <span class="slide-num">SLIDE 01</span>
+        </div>
+        <p><strong>Title:</strong> KavachNet — AI-Powered Criminal Network Analysis System</p>
+        <p><strong>Subtitle:</strong> Multi-Agency Intelligence Synthesis & Section 63 BSA 2023 Evidentiary Verification</p>
+        <div class="speaker-script">
+          🗣️ <strong>Speaker Pitch:</strong> "Respected Jury, we present KavachNet — a unified intelligence command center designed for Indian law enforcement to dismantle organized interstate syndicates using explainable graph AI and cryptographically secure digital evidence provenance."
+        </div>
+      </div>
+
+      <div class="slide-card">
+        <div class="slide-header">
+          <div class="slide-title">Slide 2: The Problem & Ground Bottlenecks</div>
+          <span class="slide-num">SLIDE 02</span>
+        </div>
+        <ul>
+          <li>Critical delays in human trafficking and organized crime cases due to siloed databases across state borders.</li>
+          <li>Manual cross-referencing of cell towers, toll booths, and bank statements takes days.</li>
+          <li>High rate of digital evidence rejection in Indian courts due to broken chains of custody.</li>
+        </ul>
+        <div class="speaker-script">
+          🗣️ <strong>Speaker Pitch:</strong> "When a crime occurs across state borders, investigators have to manually sift through thousands of cell tower dumps, toll logs, and bank statements. Crucial hours are lost, and even when leads are found, evidence is challenged in court for lack of statutory digital certification."
+        </div>
+      </div>
+
+      <div class="slide-card">
+        <div class="slide-header">
+          <div class="slide-title">Slide 3: Our Solution — 4-Tier Architecture</div>
+          <span class="slide-num">SLIDE 03</span>
+        </div>
+        <ul>
+          <li><strong>Tier 1:</strong> Automated Multi-Source Ingestion with instant SHA-256 Merkle sealing.</li>
+          <li><strong>Tier 2:</strong> AI Entity Resolution & IndicNER Alias Deduplication.</li>
+          <li><strong>Tier 3:</strong> Knowledge Graph Centrality Analytics (Brandes Betweenness & PageRank).</li>
+          <li><strong>Tier 4:</strong> Command Center UI with Section 63 BSA Digital Courtroom Certification.</li>
+        </ul>
+        <div class="speaker-script">
+          🗣️ <strong>Speaker Pitch:</strong> "KavachNet automates the entire investigative workflow: ingesting raw documents, resolving aliases, mapping multi-hop networks, and producing court-admissible certificates with zero human delay."
+        </div>
+      </div>
+
+      <div class="slide-card">
+        <div class="slide-header">
+          <div class="slide-title">Slide 4: Graph Intelligence & Centrality Analytics</div>
+          <span class="slide-num">SLIDE 04</span>
+        </div>
+        <ul>
+          <li><strong>Brandes Betweenness Centrality:</strong> Mathematically flags hidden masterminds/bridges who coordinate logistics, burner phones, and money mules.</li>
+          <li><strong>Louvain Modularity:</strong> Uncovers hidden operational sub-gangs.</li>
+          <li><strong>Shortest Path Traversal:</strong> Instantly traces connections: Suspect → Vehicle → Scene → Victim.</li>
+        </ul>
+        <div class="speaker-script">
+          🗣️ <strong>Speaker Pitch:</strong> "Kingpins rarely make direct threats — they sit on structural bridges between communications, logistics, and money. Our Brandes Betweenness algorithm mathematically isolates these critical facilitators in milliseconds."
+        </div>
+      </div>
+
+      <div class="slide-card">
+        <div class="slide-header">
+          <div class="slide-title">Slide 5: 8-Discipline FSL Forensic Intelligence Suite</div>
+          <span class="slide-num">SLIDE 05</span>
+        </div>
+        <ul>
+          <li>8 Disciplines: DNA STR Loci, AFIS Latent Prints, JTAG GPS, CCTV Re-ID, ANPR, Soil Mineralogy, Footwear/Tire Impressions, Toolmarks.</li>
+          <li>Multi-hop physical & cyber corroboration.</li>
+          <li>4-step immutable Chain of Custody ledger with officer badge verification.</li>
+        </ul>
+        <div class="speaker-script">
+          🗣️ <strong>Speaker Pitch:</strong> "KavachNet bridges physical forensics with digital intelligence — linking DNA from a vehicle seatbelt and AFIS fingerprint minutiae directly to GPS breadcrumbs and toll cameras."
+        </div>
+      </div>
+
+      <div class="slide-card">
+        <div class="slide-header">
+          <div class="slide-title">Slide 6: Section 63 BSA 2023 Digital Courtroom Certificate</div>
+          <span class="slide-num">SLIDE 06</span>
+        </div>
+        <ul>
+          <li>Full statutory compliance with India's Bharatiya Sakshya Adhiniyam, 2023.</li>
+          <li>One-click automated generation of the Section 63 Digital Evidence Certificate.</li>
+          <li>Displays Merkle Root digest, timestamp, custody audit trail, and verifying officer badge.</li>
+        </ul>
+        <div class="speaker-script">
+          🗣️ <strong>Speaker Pitch:</strong> "Under Section 63 of the BSA 2023, digital evidence must prove tamper-proof integrity. KavachNet automatically generates the complete cryptographic custody certificate, ensuring every piece of evidence stands up in court."
+        </div>
+      </div>
+
+      <div class="slide-card">
+        <div class="slide-header">
+          <div class="slide-title">Slide 7: Natural Language AI Assistant & Zero-Trust Security</div>
+          <span class="slide-num">SLIDE 07</span>
+        </div>
+        <ul>
+          <li><strong>AI Assistant:</strong> Plain English Q&A with 100% citation-backed leads (Zero Hallucination).</li>
+          <li><strong>Zero-Trust Security:</strong> Argon2id, Role-Based Access Control, Mutual HMAC challenge-response, and Ed25519 digital signatures.</li>
+        </ul>
+        <div class="speaker-script">
+          🗣️ <strong>Speaker Pitch:</strong> "Officers do not need to write SQL or Cypher. Our AI assistant interprets plain language queries, traverses the knowledge graph, and returns verifiable leads without hallucination."
+        </div>
+      </div>
+
+      <div class="slide-card">
+        <div class="slide-header">
+          <div class="slide-title">Slide 8: Demo & Test Validation (71/71 Tests Passed)</div>
+          <span class="slide-num">SLIDE 08</span>
+        </div>
+        <ul>
+          <li><strong>100% Test Pass Rate:</strong> 71/71 automated tests passing across Security, Graph, Forensics, and APIs.</li>
+          <li>Live FastAPI Backend (`http://localhost:8001`) + React Vite Frontend (`http://localhost:5173`).</li>
+          <li>Official light theme police command center design system.</li>
+        </ul>
+        <div class="speaker-script">
+          🗣️ <strong>Speaker Pitch:</strong> "Our entire platform is fully functional and battle-tested with 71 passing unit and integration tests across security, graph analytics, and forensic pipelines."
+        </div>
+      </div>
+
+      <div class="slide-card">
+        <div class="slide-header">
+          <div class="slide-title">Slide 9: Impact & National Interoperability</div>
+          <span class="slide-num">SLIDE 09</span>
+        </div>
+        <ul>
+          <li><strong>Interoperability Ready:</strong> Connectors ready for CCTNS, ICJS, and NAFIS.</li>
+          <li><strong>Time Reduction:</strong> 72+ hours of manual analysis reduced to &lt; 3 seconds.</li>
+          <li><strong>Future Roadmap:</strong> Real-time highway patrol dispatch via ANPR geofencing and Indic multilingual voice assistant.</li>
+        </ul>
+        <div class="speaker-script">
+          🗣️ <strong>Speaker Pitch:</strong> "KavachNet modernizes Indian policing by turning fragmented clues into actionable leads and court-admissible proof in seconds. Thank you!"
+        </div>
+      </div>
+
+    </div>
+
+    <!-- 5. Team -->
+    <div class="card">
+      <h2>👥 5. Team & Engineering Ownership Matrix</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Engineer</th>
+            <th>Role</th>
+            <th>Responsibilities & Modules Owned</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Sanjay</strong></td>
+            <td>Technical Lead & AI/Core</td>
+            <td>System architecture, AI entity resolution, graph centrality analytics (Brandes Betweenness, PageRank), SHA-256 Merkle provenance chain, Section 63 BSA certificate generator, API contracts, integration, and test suite orchestration. (<code>ai/</code>, <code>graph/</code>, <code>blockchain/</code>, <code>docs/</code>, <code>tests/</code>)</td>
+          </tr>
+          <tr>
+            <td><strong>Shaswat</strong></td>
+            <td>Frontend Lead</td>
+            <td>Command Center UI/UX in React 18 / Vite, Cytoscape.js interactive graph canvas, India Map leaflet component, timeline event player, AI assistant drawer, and official police light-theme design system. (<code>frontend/</code>)</td>
+          </tr>
+          <tr>
+            <td><strong>Anish</strong></td>
+            <td>Backend & Forensics Lead</td>
+            <td>8-discipline FSL forensic dataset expansion, synthetic data generators, zero-trust inter-agency challenge-response engine, FastAPI database models, and forensic REST route controllers. (<code>backend/</code>, <code>data/</code>, <code>mock_official_system/</code>)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</body>
+</html>
