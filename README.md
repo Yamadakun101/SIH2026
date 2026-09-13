@@ -1,165 +1,152 @@
-# 🛡️ KavachNet (CRIMENET AI)
+# 🛡️ VIDUR — CrimeNet
 ### **AI-Powered Criminal Network Analysis & Evidentiary Command System**
 
 [![SIH 2026](https://img.shields.io/badge/SIH-2026-orange.svg)](https://www.sih.gov.in/)
 [![Problem Statement](https://img.shields.io/badge/PS%20%2326189-MHA%20%7C%20NCRB-blue.svg)](https://www.sih.gov.in/)
-[![Legal Standard](https://img.shields.io/badge/BSA%202023-Section%2063%20Verified-emerald.svg)](https://indiacode.nic.in)
+[![Legal Basis](https://img.shields.io/badge/BSA%202023-Section%2063%20Aligned-emerald.svg)](https://indiacode.nic.in)
 [![FastAPI](https://img.shields.io/badge/Backend-FastAPI%200.110+-009688.svg)](https://fastapi.tiangolo.com/)
 [![React 18](https://img.shields.io/badge/Frontend-React%2018%20%2B%20Vite-61DAFB.svg)](https://react.dev/)
 [![Cytoscape.js](https://img.shields.io/badge/Graph-Cytoscape.js-E65100.svg)](https://js.cytoscape.org/)
-[![Tests](https://img.shields.io/badge/Tests-71%2F71%20Passing%20(100%25)-brightgreen.svg)](tests/)
+[![Tests](https://img.shields.io/badge/Tests-71%2F71%20Passing-brightgreen.svg)](tests/)
 
-> **Ministry of Home Affairs (MHA) $\rightarrow$ National Crime Records Bureau (NCRB), Women Safety Division**  
-> *Transforming multi-jurisdictional, fragmented crime data into an explainable, tamper-evident knowledge graph — powered by graph centrality AI to uncover hidden syndicates, and cryptographic hash-chains to ensure 100% court admissibility under **Section 63 of Bharatiya Sakshya Adhiniyam (BSA), 2023**.*
+> **Ministry of Home Affairs (MHA) → National Crime Records Bureau (NCRB), Women Safety Division**
+> *A prototype that turns fragmented, multi-jurisdictional crime data into an explainable, tamper-evident knowledge graph — using graph centrality algorithms to surface hidden network structure, and a cryptographic hash-chain to help evidence integrity hold up under **Section 63 of the Bharatiya Sakshya Adhiniyam (BSA), 2023**.*
+
+> **⚠️ All case data in this repository — names, phone numbers, forensic matches, bank transactions, and the case `DL-2026-0412` itself — is entirely synthetic and fictional, generated for demonstration purposes only. Nothing here describes a real person, a real investigation, or real evidence.**
 
 ---
 
 ## 📑 Table of Contents
-1. [Executive Summary](#-1-executive-summary)
-2. [Problem Statement & Ground Challenges](#-2-problem-statement--ground-challenges)
-3. [Core Philosophy & Legal Non-Guilt Principle](#-3-core-philosophy--legal-non-guilt-principle)
-4. [4-Tier System Architecture](#-4-4-tier-system-architecture)
-5. [Key Modules & Technical Innovations](#-5-key-modules--technical-innovations)
-6. [Forensic Intelligence Suite (8 FSL Disciplines)](#-6-forensic-intelligence-suite-8-fsl-disciplines)
-7. [Technology Stack & Tools Used](#-7-technology-stack--tools-used)
-8. [Zero-Trust Security & Inter-Agency Architecture](#-8-zero-trust-security--inter-agency-architecture)
-9. [REST API Documentation & Endpoints](#-9-rest-api-documentation--endpoints)
-10. [Repository Structure](#-10-repository-structure)
-11. [Quickstart & Local Installation](#-11-quickstart--local-installation)
-12. [Canonical Demonstration Scenario (Case `DL-2026-0412`)](#-12-canonical-demonstration-scenario-case-dl-2026-0412)
-13. [Test Suite Verification (100% Pass)](#-13-test-suite-verification-100-pass)
-14. [Team & Engineering Ownership Matrix](#-14-team--engineering-ownership-matrix)
-15. [Future Roadmap & National Interoperability](#-15-future-roadmap--national-interoperability)
+1. [Executive Summary](#1-executive-summary)
+2. [Problem Statement & Ground Challenges](#2-problem-statement--ground-challenges)
+3. [Core Philosophy & Legal Non-Guilt Principle](#3-core-philosophy--legal-non-guilt-principle)
+4. [4-Tier System Architecture](#4-4-tier-system-architecture)
+5. [Key Modules & Technical Innovations](#5-key-modules--technical-innovations)
+6. [Forensic Intelligence Suite (8 FSL Disciplines)](#6-forensic-intelligence-suite-8-fsl-disciplines)
+7. [Technology Stack & Tools Used](#7-technology-stack--tools-used)
+8. [Zero-Trust Security & Inter-Agency Architecture](#8-zero-trust-security--inter-agency-architecture)
+9. [REST API Documentation & Endpoints](#9-rest-api-documentation--endpoints)
+10. [Repository Structure](#10-repository-structure)
+11. [Quickstart & Local Installation](#11-quickstart--local-installation)
+12. [Canonical Demonstration Scenario (Case `DL-2026-0412`)](#12-canonical-demonstration-scenario-case-dl-2026-0412)
+13. [Test Suite Verification](#13-test-suite-verification)
+14. [Team & Engineering Ownership Matrix](#14-team--engineering-ownership-matrix)
+15. [Future Roadmap & National Interoperability](#15-future-roadmap--national-interoperability)
 
 ---
 
 ## 🚀 1. Executive Summary
 
-**KavachNet** is a production-ready, multi-agency crime analytics and evidence provenance platform designed for Indian law enforcement agencies (Police Special Cells, Crime Branches, State STFs, and Central Agencies).
+**VIDUR** is a crime analytics and evidence-provenance prototype, built under the product name **CrimeNet**, for Indian law-enforcement investigative workflows (Police Special Cells, Crime Branches, State STFs, and Central Agencies).
 
-When organized crimes (such as human trafficking, drug trafficking, or financial fraud syndicates) occur across state borders, investigators are forced to manually sift through siloed police FIRs, telecom tower CDRs, bank transaction ledgers, toll booth CCTV/ANPR captures, and forensic laboratory reports. 
+When organized crimes — human trafficking, financial fraud syndicates, narcotics networks — span state borders, investigators have to manually cross-reference siloed FIRs, telecom CDRs, bank transaction ledgers, CCTV/ANPR captures, and forensic lab reports by hand.
 
-KavachNet automates cross-source entity resolution, builds an interactive knowledge graph, calculates mathematical node centrality (identifying kingpins and facilitator bridges), provides an AI natural language assistant, and binds every piece of ingested evidence into an immutable SHA-256 Merkle hash-chain that automatically produces **Section 63 BSA 2023 Digital Courtroom Certificates**.
+CrimeNet automates cross-source entity resolution, builds an interactive knowledge graph, computes graph centrality (surfacing likely hubs and bridge entities), provides a natural-language investigative assistant, and hashes every piece of ingested evidence into a SHA-256 Merkle chain that produces a **BSA 2023 Section 63 evidence-documentation certificate** for each item.
+
+This is a **hackathon prototype demonstrating the approach**, not a fielded government system — see [§15](#15-future-roadmap--national-interoperability) for what real deployment would require.
 
 ---
 
-## 🚨 2. Problem Statement & Ground Challenges
+## ⚖️ 2. Problem Statement & Ground Challenges
 
-| Challenge | Ground Reality in Police Investigations | KavachNet Solution |
+| Challenge | Ground Reality in Police Investigations | CrimeNet's Approach |
 | :--- | :--- | :--- |
-| **Data Fragmentation** | FIRs, CDR dumps, FASTag logs, and Bank IMPS records reside in disparate databases. | Automated multi-source ingestion engine normalizing all records into unified entity dossiers. |
-| **Cross-Border Blindspots** | Perpetrators exploit state border transitions (e.g., Delhi $\rightarrow$ Haryana $\rightarrow$ UP). | National State Map & federated case intelligence correlation engine. |
-| **Manual Analysis Delays** | 72+ hours spent manually cross-referencing timestamps across spreadsheets. | Instant multi-hop graph pathfinding and chronological event reconstruction in **< 3 seconds**. |
-| **Courtroom Inadmissibility** | Digital evidence is frequently dismissed in Indian courts due to broken chain of custody. | Native **Section 63 BSA 2023 Certificate Generation** with SHA-256 Merkle root verification. |
-| **AI Black-Box / Hallucination** | Generic AI models hallucinate false claims without proof. | 100% citation-backed AI assistant generating probabilistic leads with explainable source logs. |
+| **Data Fragmentation** | FIRs, CDR dumps, FASTag logs, and bank records sit in disparate databases. | An ingestion layer that normalizes multi-source records into unified entity dossiers. |
+| **Cross-Border Blindspots** | Perpetrators exploit state-border transitions (e.g., Delhi → Haryana → UP). | A national state map and cross-case correlation view. |
+| **Manual Analysis Delays** | Investigators can spend a long time manually cross-referencing timestamps across spreadsheets. | Automated multi-hop graph pathfinding and chronological event reconstruction. |
+| **Evidentiary Chain-of-Custody Gaps** | Digital evidence has been thrown out in Indian courts over broken chain-of-custody. | A SHA-256 Merkle hash-chain and a BSA 2023 §63-aligned certificate generator, intended to *support* documentation — not a substitute for lawful acquisition and judicial evaluation. |
+| **AI Black-Box Risk** | Generic AI assistants can state things with no traceable source. | Every assistant answer is grounded in the case graph and cites the evidence/relationships behind it. |
 
 ---
 
-## ⚖️ 3. Core Philosophy & Legal Non-Guilt Principle
+## 🧠 3. Core Philosophy & Legal Non-Guilt Principle
 
-KavachNet is strictly engineered as an **Investigative Lead Generator**, **NOT a Courtroom Verdict Machine**.
+CrimeNet is built strictly as an **investigative lead-generation tool — not a verdict machine.**
 
-- ✅ **Compliant Language**: `"Investigative Lead"`, `"Possible Central Network Entity"`, `"Association Confidence: 94%"`, `"Corroborated Finding"`, `"Inconclusive Lead"`.
-- ❌ **Forbidden Black-Box Labels**: `"Guilty"`, `"Criminal"`, `"Convicted Perpetrator"`.
+- ✅ **Language it uses**: `"Investigative Lead"`, `"Possible Central Network Entity"`, `"Association Confidence: 94%"`, `"Corroborated Finding"`, `"Inconclusive Lead"`.
+- ❌ **Language it never uses**: `"Guilty"`, `"Criminal"`, `"Convicted Perpetrator"`, or anything phrased as a legal conclusion.
 
-Every association between two entities provides:
-1. **Mathematical Confidence Score (0% – 100%)**.
-2. **Human-Readable Justification** *(e.g., "14 direct phone calls across 4 hours + co-located at ISBT Kashmere Gate Cell Tower on 02-Sep")*.
-3. **Cryptographic Provenance Hash** linked to the original raw record.
+Every association between two entities is shown with:
+1. A confidence score (0–100%), never presented as certainty.
+2. A human-readable justification (e.g., *"14 phone calls across 4 hours + co-located at the same cell tower on a given date"*).
+3. A provenance hash linking back to the original raw record.
+
+This isn't just a style choice — it's what makes the system's output something an investigator can actually act on and defend, rather than a black-box score.
 
 ---
 
-## 🏛️ 4. 4-Tier System Architecture
+## 🏗️ 4. 4-Tier System Architecture
 
 ```mermaid
 flowchart TD
-    subgraph S1["Tier 1: Multi-Source Ingestion & Provenance"]
-        A1["Police FIRs & GD Entries"]
-        A2["Telecom CDRs & Tower Triangulation"]
-        A3["Bank / UPI / Mule Statements"]
-        A4["CCTV / Toll ANPR Sightings"]
-        A5["FSL Forensic Lab Reports (8 Disciplines)"]
-        H1["SHA-256 Hasher & Tamper-Evident Ledger"]
+    subgraph Tier1["Tier 1: Multi-Source Ingestion & Provenance"]
+        A1["Police FIR Documents"]
+        A2["Telecom CDR Triangulation"]
+        A3["Bank Transaction Ledgers"]
+        A4["Toll FASTag / CCTV ANPR"]
+        A5["Forensic FSL Lab Reports"]
+        H1["SHA-256 Merkle Hash-Chain Engine"]
     end
 
-    subgraph S2["Tier 2: AI & Entity Resolution Engine"]
-        B1["IndicNER & Unstructured Text Extraction"]
-        B2["Cross-Jurisdiction Alias Resolution"]
-        B3["Algorithmic Association & Confidence Scorer"]
-        B4["Chronological Event Sequence Extractor"]
+    subgraph Tier2["Tier 2: Knowledge Graph & Entity Resolution"]
+        B1["IndicNER & Cross-Entity Disambiguation"]
+        B2["Centrality Analytics & Hub Detection"]
+        B3["Louvain Modularity Sub-Cluster Detection"]
     end
 
-    subgraph S3["Tier 3: Knowledge Graph & Network Analytics"]
-        C1[("Cytoscape.js Directed Graph Model")]
-        C2["Brandes Betweenness Centrality (Bridge Detection)"]
-        C3["Power-Iteration PageRank (Influence Scoring)"]
-        C4["Louvain Modularity (Syndicate Clustering)"]
-        C5["Multi-Hop Shortest Pathfinding"]
+    subgraph Tier3["Tier 3: REST API & Security Perimeter"]
+        C1["FastAPI Application Services"]
+        C2["Argon2id + JWT RBAC Authorization"]
+        C3["Ed25519 Inter-Agency Exchange"]
     end
 
-    subgraph S4["Tier 4: Investigative Command Center UI"]
-        D1["Interactive India Heatmap & Case Drawer"]
+    subgraph Tier4["Tier 4: Command Center & Evidentiary UI"]
+        D1["National State Map & Intelligence View"]
         D2["Cytoscape.js Visual Graph & Entity Inspector"]
         D3["Multi-Category Chronological Timeline"]
         D4["Natural Language AI Assistant Drawer"]
-        D5["BSA 2023 Sec 63 Digital Courtroom Certificate"]
+        D5["BSA 2023 Sec 63 Evidence Certificate"]
     end
 
     A1 & A2 & A3 & A4 & A5 --> H1
     H1 --> B1
-    B1 --> B2 --> B3 --> B4
-    B3 --> C1
-    B4 --> C1
-    C1 --> C2 & C3 & C4 & C5
-    C1 & C2 & C3 & C4 & C5 & H1 --> D1 & D2 & D3 & D4 & D5
+    B1 --> B2 & B3
+    B2 & B3 --> C1
+    C1 --> C2 & C3
+    C1 --> D1 & D2 & D3 & D4 & D5
 ```
 
 ---
 
 ## 🔬 5. Key Modules & Technical Innovations
 
-### 1. Mathematical Graph Centrality & Kingpin Identification
-- **Brandes Algorithm for Betweenness Centrality**: Flags hidden network bridges/coordinators who connect disparate operations (e.g., burner phones to getaway drivers to money mules) even if they keep a low call volume.
-- **Normalized Degree & Closeness Centrality**: Identifies high-frequency communicators and operational hubs.
-- **Power-Iteration PageRank**: Measures topological influence across the criminal syndicate.
-- **Louvain Modularity Clustering**: Automatically segments entities into distinct operational sub-gangs (e.g., *Logistics Cluster*, *Financial Laundering Cell*).
+### 1. Graph Centrality & Key-Entity Identification
+- **Brandes algorithm (betweenness centrality)**: surfaces entities that structurally bridge otherwise-separate parts of a network — potential coordinators or connectors, even at low individual call/transaction volume.
+- **Degree centrality**: highlights high-frequency communicators and operational hubs.
+- **Power-iteration PageRank**: measures topological influence across the network, not just raw connection count.
+- **Louvain modularity clustering**: groups entities into likely sub-clusters (e.g., a logistics cluster vs. a financial cluster) for the investigator to examine — a structural signal, not a confirmed grouping.
 
-### 2. Multi-Source Ingestion & Deduplication (IndicNER)
-- Resolves multiple phone numbers, vehicle registrations, bank VPAs, and aliases (e.g., *"Rakesh Kumar"*, *"Rocky"*, *"Operator-01"*) into unified **Entity Dossiers**.
+### 2. Multi-Source Ingestion & Entity Resolution (IndicNER)
+Resolves phone numbers, vehicle registrations, bank identifiers, and name aliases into unified entity dossiers.
 
-### 3. Natural Language AI Investigative Assistant
-- Investigators can query the case in natural English without writing SQL or Cypher queries.
-- Powered by graph traversal algorithms with strict zero-hallucination constraints:
-  - *"What connects Rakesh Kumar to the vehicle sighted at Singhu Border?"*
-  - *"Identify all suspicious mule accounts or financial transfers."*
-  - *"Summarize the chronological sequence of events before Priya's phone went dark."*
+### 3. Natural-Language Investigative Assistant
+Investigators can query the case graph in plain English instead of writing queries directly, e.g.:
+- *"What connects this person to the vehicle sighted at the border checkpoint?"*
+- *"List transactions flagged as unusual for this case."*
+- *"Summarize the event sequence leading up to the last known contact."*
 
-### 4. Bharatiya Sakshya Adhiniyam (BSA) 2023 Section 63 Certification
-- In compliance with India's new criminal laws (BSA 2023 replacing the Indian Evidence Act 1872), every raw digital item generates an immutable SHA-256 Merkle block.
-- Generates a **Section 63 Digital Court Certificate** displaying Merkle root digests, timestamps, officer badge credentials, and cryptographic integrity verification ready for judicial submission.
+Every answer is grounded in the case's own graph/evidence data — it does not introduce facts that aren't present in the case.
+
+### 4. Bharatiya Sakshya Adhiniyam (BSA) 2023, Section 63 — Documentation Support
+For each ingested digital item, the system generates a SHA-256 Merkle block and a certificate recording hash digests, timestamps, and handling metadata — intended to **support** the documentation Section 63 requires for electronic evidence. This assists with evidentiary documentation; it does not itself determine legal admissibility, which remains a matter of lawful acquisition, proper handling, and judicial evaluation.
 
 ---
 
 ## 🧬 6. Forensic Intelligence Suite (8 FSL Disciplines)
 
-KavachNet integrates **20 raw laboratory reports** across **8 specialized Forensic Science Laboratory (FSL)** categories:
+*(All entries below are synthetic demo records tied to the fictional case `DL-2026-0412` — see the disclaimer at the top of this document.)*
 
-| Category | Forensic Report ID | Evidence Item & Findings | Match Confidence |
-| :--- | :--- | :--- | :--- |
-| **DNA / Biological** | `DNA-FSL-DEL-2026-401` | **Touch DNA Swab (Seatbelt Buckle)**: 16-loci autosomal STR profile (`PROF-STR-DEL-9912`) from vehicle `DL 01 AB 9921` matching **Rakesh Kumar**. | **94% Strong Association** |
-| **DNA / Biological** | `DNA-FSL-DEL-2026-402` | **Hair Follicle (Rear Carpet)**: Nuclear DNA profile matching victim **Priya Sharma**. | **87% Association** |
-| **Latent Fingerprints** | `FP-FSL-DEL-2026-218` | **Door Handle Latent Print**: 14 AFIS ridge minutiae points matching **Rakesh Kumar**. | **91% AFIS Match** |
-| **Latent Fingerprints** | `FP-FSL-DEL-2026-219` | **Steering Wheel Rim**: 15 minutiae points matching driver **Vikram Singh**. | **94% Operator Match** |
-| **Digital Forensics** | `DIG-FSL-DEL-2026-309` | **JTAG Chip-Off Extraction**: Carved physical SQLite GPS waypoint (`28.6675, 77.2289`) placing burner device at ISBT outer gate at `21:40:12Z`. | **94% Corroboration** |
-| **Digital Forensics** | `DIG-FSL-DEL-2026-310` | **Deleted Signal Cache**: Fragment recovered from Vikram's handset: *"Crossed outer ring road. Heading to Singhu toll."* | **91% Corroboration** |
-| **CCTV & Video Re-ID** | `VID-FSL-DEL-2026-552` | **ISBT Concourse (CAM-09)**: Super-resolution facial & clothing re-ID capturing Rakesh boarding white Swift Dzire at `21:43:15Z`. | **81% Visual Re-ID** |
-| **CCTV / ANPR** | `VID-FSL-DEL-2026-553` | **Singhu NH-44 Toll (Lane 04)**: High-speed ANPR camera capture confirming vehicle passage at `22:15:32Z`. | **98% Confirmed Sighting** |
-| **Trace & Mineralogy** | `TRC-FSL-DEL-2026-114` | **Wheel Arch Soil**: Petrographic analysis showing fly-ash and sandy-loam ratio unique to Singhu Toll bypass works. | **88% Geochemical Match** |
-| **Trace & Paint** | `TRC-FSL-DEL-2026-115` | **Front Bumper Paint Scuff**: Py-GC-MS spectral signature matching yellow alkyd barrier enamel from ISBT Bay 4 bollard. | **87% Spectral Concordance** |
-| **Tire Impressions** | `IMP-FSL-DEL-2026-607` | **ISBT Gate 2 Verge**: Dental stone tire tread cast matching Bridgestone B290 with specific stone cut defect on right front tire. | **89% Individualized Defect** |
-| **Footwear Outsole** | `IMP-FSL-DEL-2026-608` | **ISBT Kerbside Mud**: UK Size 9 casual shoe impression matching Rakesh's gait and lateral heel wear. | **74% Investigative Lead** |
-| **Ballistics / Toolmarks**| `BAL-FSL-DEL-2026-083` | **Lodge Padlock Striation**: Micro-striation marks on forced lock matching pry tool recovered from vehicle boot. | **78% Potential Tool Match** |
-| **Chain of Custody** | `COC-FSL-DEL-2026-901` | **Master Evidence Custody Ledger**: 4-step sequential transfer ledger (`DP-SI-4921` $\rightarrow$ `FSL-BIO-042`) with tamper-evident seal logs. | **100% Intact & Verified** |
+CrimeNet's synthetic dataset spans 8 forensic categories to demonstrate cross-discipline correlation: DNA/biological, latent fingerprints, digital forensics, CCTV/video, trace & mineralogy, tire/footwear impressions, ballistics/toolmarks, and chain-of-custody records. Each record carries a category, a fabricated match-confidence figure, and a plain-language finding, so the graph and timeline views have realistic, varied evidence to correlate against. Full sample data lives in `data/dl-2026-0412.json` and `data/raw/forensics/`.
 
 ---
 
@@ -169,20 +156,18 @@ KavachNet integrates **20 raw laboratory reports** across **8 specialized Forens
 ┌───────────────────────────────────────────────────────────────────────────┐
 │                              FRONTEND                                     │
 │  React.js 18  •  Vite  •  Cytoscape.js  •  Leaflet.js  •  Lucide Icons    │
-│  Vanilla CSS Police Light Theme Design System (#ffffff, #f8fafc, #2563eb) │
+│  Vanilla CSS design system (light, government-dashboard style)            │
 ├───────────────────────────────────────────────────────────────────────────┤
 │                              BACKEND                                      │
 │  FastAPI (Async Python)  •  Uvicorn ASGI  •  Pydantic v2  •  Python 3.14  │
-├───────────────────────────────────────────────────────────────────────────┤
-│                       AI & GRAPH ALGORITHMS                               │
-│  Brandes Betweenness  •  PageRank  •  Louvain Modularity  •  IndicNER     │
+│  NetworkX  •  Scikit-Learn  •  Argon2id  •  Cryptography (PyCA)           │
 ├───────────────────────────────────────────────────────────────────────────┤
 │                     SECURITY & CRYPTOGRAPHY                               │
 │  Argon2id  •  PyJWT RBAC  •  Ed25519 Signatures  •  HMAC-SHA-256 Nonces    │
-│  SHA-256 Merkle Provenance Chains  •  Section 63 BSA 2023 Compliance      │
+│  SHA-256 Merkle Provenance Chains  •  BSA 2023 Section 63 alignment       │
 ├───────────────────────────────────────────────────────────────────────────┤
 │                        TESTING & QUALITY                                  │
-│  Pytest (71/71 Tests Passing)  •  Unittest  •  FastAPI TestClient / Httpx │
+│  Pytest (71/71 tests passing)  •  FastAPI TestClient / Httpx              │
 └───────────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -190,229 +175,189 @@ KavachNet integrates **20 raw laboratory reports** across **8 specialized Forens
 
 ## 🔒 8. Zero-Trust Security & Inter-Agency Architecture
 
-KavachNet implements a high-assurance security perimeter for inter-agency and external departmental data fetching:
-
 ```mermaid
 sequenceDiagram
     autonumber
-    participant UI as Investigator UI
-    participant API as KavachNet Backend
+    participant API as CrimeNet Backend
     participant Auth as RBAC & Clearance Service
     participant Ext as Mock External Provider (Bank/Telco/Vahan)
-    participant DB as Knowledge Graph & BSA Vault
+    participant DB as Knowledge Graph & Evidence Vault
 
     UI->>API: POST /api/v1/auth/login (Argon2id Hash)
     API-->>UI: JWT Bearer Token (Role: INVESTIGATOR, Case: DL-2026-0412)
-    UI->>API: POST /api/v1/external/fetch (Token + Case Clearance)
-    API->>Auth: Verify JWT & Case Assignment Clearance
-    Auth-->>API: Clearance Granted
-    API->>Ext: POST /challenge (client_id, request_id, resource)
-    Ext-->>API: Ephemeral Nonce + Timestamp + Challenge Window
-    API->>API: Compute HMAC-SHA-256 Proof over Canonical Request String
-    API->>Ext: POST /fetch (Proof + Nonce + Request ID)
-    Ext->>Ext: Validate HMAC & Enforce Single-Use Nonce (Replay Protection)
+    UI->>API: POST /api/v1/external/fetch (Request CDR/Banking with JWT)
+    API->>Auth: Validate Officer Clearance & Scope
+    Auth-->>API: Clearance Approved
+    API->>Ext: POST /challenge/request (Nonce + Timestamp)
+    Ext-->>API: Challenge Token (Cryptographic Nonce)
+    API->>Ext: POST /fetch (Signed Token + Case Request ID)
     Ext->>Ext: Sign Canonical Payload with Ed25519 Private Key
     Ext-->>API: SecureDataPacket (Payload + SHA-256 Digest + Ed25519 Sig)
     API->>API: Verify SHA-256 Digest & Ed25519 Signature
-    API->>DB: Seal Raw Ingestion Envelope (BSA 2023 Sec 63 Blockchain Block)
+    API->>DB: Seal Raw Ingestion Envelope (BSA 2023 Sec 63 Block)
     API->>DB: Ingest Entities & Relationships into Knowledge Graph
     API-->>UI: Sanitized Ingestion Summary & Envelope Record
 ```
+
+This mock inter-agency exchange (`mock_official_system/`) exists to demonstrate the security pattern the architecture is designed around — it is a simulated external provider, not a connection to any real government or telecom system.
 
 ---
 
 ## 🌐 9. REST API Documentation & Endpoints
 
-Interactive Swagger UI documentation is available at `http://localhost:8001/docs`.
+Interactive Swagger UI documentation is available at `http://localhost:8001/docs` once the backend is running.
 
-### Core Endpoints:
-- `GET /health`: Health check and service status.
-- `GET /api/v1/states`: List state crime statistics and coordinates.
-- `GET /api/v1/cases`: List active cases with optional `?state=DL` filtering.
-- `GET /api/v1/cases/{case_id}`: Full case metadata and FIR summary.
-- `GET /api/v1/cases/{case_id}/graph`: Cytoscape.js formatted network graph with computed centrality scores.
-- `GET /api/v1/cases/{case_id}/timeline`: Chronological multi-category events.
-- `GET /api/v1/cases/{case_id}/entities/{entity_id}`: Granular entity profile dossier with provenance hashes.
-- `POST /api/v1/cases/{case_id}/query`: AI Natural Language Assistant query endpoint.
+### Core Endpoints
+- `GET /health` — Health check and service status.
+- `GET /api/v1/states` — State-level crime statistics and coordinates.
+- `GET /api/v1/cases` — List active cases, optionally filtered by `?state=DL`.
+- `GET /api/v1/cases/{case_id}` — Full case metadata and FIR summary.
+- `GET /api/v1/cases/{case_id}/graph` — Cytoscape.js-formatted network graph with computed centrality scores.
+- `GET /api/v1/cases/{case_id}/timeline` — Chronological, multi-category events.
+- `GET /api/v1/cases/{case_id}/entities/{entity_id}` — Entity profile with provenance hashes.
+- `POST /api/v1/cases/{case_id}/query` — Natural-language assistant query endpoint.
 
-### Forensic Endpoints:
-- `GET /api/v1/cases/{case_id}/forensics`: Multi-category forensic intelligence overview.
-- `GET /api/v1/cases/{case_id}/forensics/categories/{category}`: Filter forensic records by discipline (`dna`, `fingerprint`, `digital`, `cctv`, `trace`, `impression`, `ballistics`, `chain_of_custody`).
-- `GET /api/v1/cases/{case_id}/forensics/chain-of-custody/{evidence_id}`: Granular chain of custody transfer events and officer badge IDs.
+### Forensic Endpoints
+- `GET /api/v1/cases/{case_id}/forensics` — Multi-category forensic overview.
+- `GET /api/v1/cases/{case_id}/forensics/categories/{category}` — Filter by discipline (`dna`, `fingerprint`, `digital`, `cctv`, `trace`, `impression`, `ballistics`, `chain_of_custody`).
+- `GET /api/v1/cases/{case_id}/forensics/chain-of-custody/{evidence_id}` — Chain-of-custody transfer events.
 
-### Provenance & Evidence Endpoints:
-- `GET /api/v1/cases/{case_id}/provenance/verify`: Validates SHA-256 Merkle root and returns Section 63 BSA 2023 compliance status.
+### Provenance & Evidence Endpoints
+- `GET /api/v1/cases/{case_id}/provenance/verify` — Validates the SHA-256 Merkle root and reports BSA 2023 §63-alignment status.
 
 ---
 
-## 📁 10. Repository Structure
+## 🗂️ 10. Repository Structure
 
 ```
 SIH2026/
-├── backend/                        # FastAPI REST API Backend
+├── .antigravity/                    # Internal AI pair-programming instructions
+│                                    # (agent role files, dev prompts — not required to run or evaluate the project)
+├── backend/                        # FastAPI REST API backend
 │   ├── app/
-│   │   ├── api/v1/endpoints/       # Modular API Route Controllers
-│   │   │   ├── auth.py             # Argon2id Authentication & Token Routing
-│   │   │   ├── cases.py            # Case Metadata & Listing
-│   │   │   ├── entities.py         # Entity Profile Dossiers
-│   │   │   ├── external.py         # Inter-Agency Zero-Trust Fetching
-│   │   │   ├── forensics.py        # 8-Discipline FSL Forensic Routes
-│   │   │   ├── graph.py            # Cytoscape Graph Endpoints
-│   │   │   ├── provenance.py       # BSA 2023 Sec 63 Certification
-│   │   │   ├── query.py            # AI Natural Language Assistant
-│   │   │   ├── states.py           # State Map Statistics
-│   │   │   └── timeline.py         # Chronological Timeline
-│   │   ├── auth/                   # JWT & Password Hashing Engines
-│   │   ├── core/config.py          # Environment & Application Settings
-│   │   ├── models/                 # Pydantic v2 Request/Response Schemas
-│   │   ├── services/case_service.py# Case Service & Business Logic
-│   │   └── main.py                 # FastAPI Application Entry Point
-│   └── requirements.txt            # Python Dependencies
-├── frontend/                       # React 18 + Vite Light Theme UI
+│   │   ├── api/v1/endpoints/       # Modular API route controllers
+│   │   │   ├── auth.py             # Argon2id authentication & token routing
+│   │   │   ├── cases.py            # Case metadata & listing
+│   │   │   ├── entities.py         # Entity profile dossiers
+│   │   │   ├── external.py         # Inter-agency zero-trust fetching
+│   │   │   ├── forensics.py        # 8-discipline FSL forensic routes
+│   │   │   ├── graph.py            # Cytoscape graph endpoints
+│   │   │   ├── provenance.py       # BSA 2023 Sec 63 certification
+│   │   │   ├── query.py            # AI natural-language assistant
+│   │   │   ├── states.py           # State map statistics
+│   │   │   └── timeline.py         # Chronological timeline
+│   │   ├── auth/                   # JWT & password-hashing engines
+│   │   ├── core/config.py          # Environment & application settings
+│   │   ├── models/                 # Pydantic v2 request/response schemas
+│   │   ├── services/case_service.py# Case service & business logic
+│   │   └── main.py                 # FastAPI application entry point
+│   └── requirements.txt            # Python dependencies
+├── frontend/                       # React 18 + Vite investigator UI
 │   ├── src/
 │   │   ├── components/
-│   │   │   ├── Assistant/          # AI Natural Language Chat Drawer
-│   │   │   ├── Certificate/        # BSA 2023 Court Certificate Modal
-│   │   │   ├── Evidence/           # Digital Custody Ledger Table
-│   │   │   ├── Graph/              # Cytoscape.js Visual Graph Canvas
-│   │   │   ├── IndiaMap/           # Leaflet State Heatmap Component
-│   │   │   ├── Inspector/          # Entity Deep-Dive Side Drawer
-│   │   │   ├── Overview/           # Case Overview & Quick Metrics
-│   │   │   └── Timeline/           # Chronological Event Player
-│   │   ├── services/api.js         # API Integration Layer
-│   │   ├── styles/                 # Police Light Theme CSS System
-│   │   ├── App.jsx                 # Main Command Center Layout
-│   │   └── main.jsx                # React DOM Bootstrapper
-│   ├── index.html                  # HTML5 Entry Point
-│   └── package.json                # Frontend Dependencies
-├── ai/                             # AI & Entity Resolution Engine
-│   ├── assistant_engine.py         # NLP Query Answering & Graph Search
-│   └── entity_resolution.py        # IndicNER & Alias Disambiguation
-├── graph/                          # Network Analytics & Graph Logic
-│   ├── centrality_analytics.py     # Brandes Betweenness, PageRank, Degree
-│   ├── graph_builder.py            # Cytoscape.js Graph Model
-│   └── syndicate_clustering.py     # Louvain Modularity & Shortest Path
-├── blockchain/                     # Evidence Provenance & BSA 2023
-│   ├── bsa_section_63_certificate.py # Courtroom Certificate Generator
-│   └── hash_chain.py               # SHA-256 Merkle Ledger
-├── data/                           # Canonical & Raw Forensic Datasets
-│   ├── dl-2026-0412.json           # Canonical Case DL-2026-0412 Dataset
-│   ├── raw/forensics/              # 20 FSL Laboratory JSON Reports
-│   └── generators/                 # Synthetic Data & Forensic Expansion Scripts
-├── mock_official_system/           # Inter-Agency Mutual Challenge Server
-├── tests/                          # Automated Pytest Suite (71 Tests)
-│   ├── security/                   # Auth, Challenge, Rate-Limiting Tests
-│   ├── test_api_endpoints.py       # REST API Endpoint Tests
-│   ├── test_assistant_engine.py    # AI Query Engine Tests
-│   ├── test_bsa_certificate.py     # BSA 2023 Certification Tests
-│   ├── test_forensic_expansion.py  # FSL Forensic Expansion Tests
-│   └── test_graph_analytics.py     # Centrality & Clustering Tests
-├── docs/                           # Project Documentation
-│   ├── ARCHITECTURE.md             # System & Security Architecture
-│   └── API_CONTRACT.md             # REST API Contract Specifications
-├── README.md                       # Master Project Guide (This file)
-└── pytest.ini                      # Pytest Configuration
+│   │   │   ├── Assistant/          # AI natural-language chat drawer
+│   │   │   ├── Certificate/        # BSA 2023 evidence certificate modal
+│   │   │   ├── Evidence/           # Digital custody ledger table
+│   │   │   ├── Graph/              # Cytoscape.js visual graph canvas
+│   │   │   ├── IndiaMap/           # Leaflet state heatmap component
+│   │   │   ├── Inspector/          # Entity deep-dive side drawer
+│   │   │   ├── Overview/           # Case overview & quick metrics
+│   │   │   └── Timeline/           # Chronological event player
+│   │   ├── services/api.js         # API integration layer
+│   │   ├── styles/                 # Light-theme CSS system
+│   │   ├── App.jsx                 # Main command-center layout
+│   │   └── main.jsx                # React DOM bootstrapper
+│   ├── index.html                  # HTML5 entry point
+│   └── package.json                # Frontend dependencies
+├── ai/                              # AI & entity-resolution engine
+│   ├── assistant_engine.py         # NLP query answering & graph search
+│   └── entity_resolution.py        # IndicNER & alias disambiguation
+├── graph/                           # Network analytics & graph logic
+│   ├── centrality_analytics.py     # Brandes betweenness, PageRank, degree
+│   ├── graph_builder.py            # Cytoscape.js graph model
+│   └── syndicate_clustering.py     # Louvain modularity & shortest path
+├── blockchain/                      # Evidence provenance & BSA 2023
+│   ├── bsa_certificate.py          # Evidence certificate generator
+│   └── hash_chain.py               # SHA-256 Merkle ledger
+├── data/                            # Canonical & raw synthetic datasets
+│   ├── dl-2026-0412.json           # Canonical (fictional) case dataset
+│   ├── raw/forensics/              # Synthetic FSL laboratory records
+│   └── generators/                 # Synthetic data generation scripts
+├── mock_official_system/           # Simulated inter-agency challenge server
+├── tests/                           # Automated pytest suite
+│   ├── security/                   # Auth, challenge, rate-limiting tests
+│   ├── test_api_endpoints.py       # REST API endpoint tests
+│   ├── test_assistant_engine.py    # AI query engine tests
+│   ├── test_bsa_certificate.py     # BSA 2023 certification tests
+│   ├── test_forensic_expansion.py  # FSL forensic expansion tests
+│   └── test_graph_analytics.py     # Centrality & clustering tests
+├── docs/                            # Project documentation
+│   ├── ARCHITECTURE.md             # System & security architecture
+│   └── API_CONTRACT.md             # REST API contract specifications
+├── README.md                        # This file
+└── pytest.ini                       # Pytest configuration
 ```
 
 ---
 
 ## ⚡ 11. Quickstart & Local Installation
 
-### Prerequisites:
-- **Python 3.11+ / 3.14+**
+### Prerequisites
+- **Python 3.11+**
 - **Node.js 18+ & npm**
 - **Git**
 
-### 1. Clone & Set Up Backend
+### 1. Clone & set up the backend
 ```bash
-# Navigate to project directory
-cd SIH2026/SIH2026
+git clone https://github.com/Yamadakun101/SIH2026.git
+cd SIH2026
 
-# Create and activate Python virtual environment
 python -m venv .venv
-# On Windows:
+# Windows:
 .\.venv\Scripts\activate
-# On Linux/macOS:
+# Linux/macOS:
 source .venv/bin/activate
 
-# Install backend dependencies
 pip install -r backend/requirements.txt
-
-# Start FastAPI Backend Server (Runs on Port 8001)
 python -m uvicorn backend.app.main:app --host 0.0.0.0 --port 8001 --reload
 ```
 
-### 2. Set Up & Launch Frontend
+### 2. Set up & launch the frontend
 ```bash
-# In a separate terminal, navigate to frontend directory
 cd frontend
-
-# Install npm dependencies
 npm install
-
-# Launch Vite Frontend Dev Server (Runs on Port 5173)
 npm run dev -- --port 5173 --host 0.0.0.0
 ```
 
-### 3. Open in Browser
-- **Command Center Dashboard**: [`http://localhost:5173`](http://localhost:5173)
-- **Interactive Swagger API Docs**: [`http://localhost:8001/docs`](http://localhost:8001/docs)
+### 3. Open in browser
+- **Command center dashboard**: [`http://localhost:5173`](http://localhost:5173)
+- **Interactive Swagger API docs**: [`http://localhost:8001/docs`](http://localhost:8001/docs)
 
 ---
 
 ## 🎯 12. Canonical Demonstration Scenario (Case `DL-2026-0412`)
 
-- **Case Title**: *"Missing Woman — Suspected Interstate Trafficking Network"*
-- **Lead Agency**: Special Cell / Crime Branch, Delhi Police
-- **FIR Number**: `FIR-412/2026/PS-KashmereGate`
-- **Primary Search Subject**: **Priya Sharma** (`person-priya`)
-- **Key Suspect / Facilitator Hub**: **Rakesh Kumar** (`person-rakesh`)
-- **Key Getaway Driver**: **Vikram Singh** (`person-vikram`)
-- **Conveyance Used**: White Swift Dzire (`vehicle-dl01-9921`)
+*(Fictional — see disclaimer at the top of this document. No real persons, places, or events are depicted.)*
 
-### Investigative Multi-Hop Trail Discovered:
-1. **18:30 – 21:45**: 14 telephone calls from burner SIM `+91 98710 44219` to Priya's device, terminating at ISBT Kashmere Gate cell tower.
-2. **21:40**: JTAG mobile extraction carves GPS coordinates placing Rakesh's burner device at ISBT outer gate (`DIG-FSL-DEL-2026-309`).
-3. **21:43**: ISBT overhead CCTV camera (CAM-09) captures Rakesh boarding vehicle `DL 01 AB 9921` (`VID-FSL-DEL-2026-552`).
-4. **22:05**: Rakesh withdraws ₹45,000 cash from suspected mule account (`bank-mule-01`) at Civil Lines ATM.
-5. **22:15**: High-speed ANPR camera at Singhu Toll Plaza records vehicle crossing northbound toward Haryana (`VID-FSL-DEL-2026-553`).
-6. **Physical Forensics**: FSL lifts touch DNA (**94% match** to Rakesh) and latent prints (**91% AFIS match**) from the passenger interior door handle.
+- **Case title**: *"Missing Woman — Suspected Interstate Trafficking Network"*
+- **Lead agency (fictional)**: Special Cell / Crime Branch, Delhi Police
+- **FIR number (fictional)**: `FIR-412/2026/PS-KashmereGate`
+- **Primary search subject**: Priya Sharma (`person-priya`)
+- **Possible central network entity**: Rakesh Kumar (`person-rakesh`)
+- **Associated entity**: Vikram Singh (`person-vikram`)
+- **Vehicle of interest**: White Swift Dzire (`vehicle-dl01-9921`)
+
+The synthetic dataset threads a multi-hop investigative trail through this case — phone records, a digital forensic extraction, a CCTV sighting, a financial withdrawal, an ANPR toll capture, and DNA/fingerprint matches — specifically so the demo can show entity resolution, timeline reconstruction, and graph analytics all working on one coherent, fabricated story. Full detail is in `data/dl-2026-0412.json`.
 
 ---
 
-## 🧪 13. Test Suite Verification (100% Pass)
-
-To verify the entire system, run the automated test suite:
+## 🧪 13. Test Suite Verification
 
 ```bash
-# Run all 71 unit and integration tests
 pytest
 ```
 
-```
-============================= test session starts =============================
-platform win32 -- Python 3.14.6, pytest-9.1.1
-collected 71 items
-
-tests\security\test_audit.py ...                                         [  4%]
-tests\security\test_authentication.py .....                              [ 11%]
-tests\security\test_authorization.py ..                                  [ 14%]
-tests\security\test_challenge_response.py .......                        [ 23%]
-tests\security\test_external_api.py ...                                  [ 28%]
-tests\security\test_packet.py ...                                        [ 32%]
-tests\security\test_rate_limiting.py ..                                  [ 35%]
-tests\test_api_endpoints.py ..........                                   [ 49%]
-tests\test_assistant_engine.py .....                                     [ 56%]
-tests\test_bsa_certificate.py ..                                         [ 59%]
-tests\test_database_models.py .                                          [ 60%]
-tests\test_entity_resolution.py ...                                      [ 64%]
-tests\test_forensic_expansion.py ............                            [ 81%]
-tests\test_graph_analytics.py .....                                      [ 88%]
-tests\test_hash_chain.py .....                                           [ 95%]
-tests\test_ingestion_engine.py ...                                       [100%]
-
-======================= 71 passed in 3.57s ========================
-```
+71 automated tests currently cover the security layer (auth, challenge-response, rate limiting), the REST API endpoints, the AI assistant engine, BSA certificate generation, entity resolution, forensic-data expansion, graph analytics, and the hash chain.
 
 ---
 
@@ -420,24 +365,24 @@ tests\test_ingestion_engine.py ...                                       [100%]
 
 | Engineer | Core Responsibilities | Modules Owned |
 | :--- | :--- | :--- |
-| **Sanjay** *(Technical Lead & AI/Core)* | System architecture, AI entity resolution, graph centrality analytics (Brandes, PageRank), SHA-256 Merkle hash chain, BSA 2023 Section 63 certificate generator, API contract design, end-to-end system integration, and test suite orchestration. | `ai/`, `graph/`, `blockchain/`, `docs/`, `tests/` |
-| **Shaswat** *(Frontend Lead)* | Command Center UI/UX in React 18 / Vite, Cytoscape.js interactive graph integration, India Map leaflet component, timeline event player, AI assistant drawer, and official police light-theme dashboard design system. | `frontend/` |
-| **Anish** *(Backend & Forensics Lead)* | 8-discipline FSL forensic dataset expansion, synthetic data generators, zero-trust inter-agency challenge-response engine, FastAPI database models, and forensic REST route controllers. | `backend/`, `data/`, `mock_official_system/` |
+| **Sanjay** *(Technical Lead & AI/Core)* | System architecture, AI entity resolution, graph centrality analytics, SHA-256 Merkle hash chain, BSA 2023 §63 certificate generator, API contract design, end-to-end integration, test suite. | `ai/`, `graph/`, `blockchain/`, `docs/`, `tests/` |
+| **Shaswat** *(Frontend Lead)* | Command-center UI/UX in React 18/Vite, Cytoscape.js graph integration, India map component, timeline player, AI assistant drawer, design system. | `frontend/` |
+| **Anish** *(Backend & Forensics Lead)* | FSL forensic dataset design, synthetic data generators, inter-agency challenge-response engine, FastAPI database models, forensic route controllers. | `backend/`, `data/`, `mock_official_system/` |
 
 ---
 
 ## 🔮 15. Future Roadmap & National Interoperability
 
-1. **National Interoperability Integration**:
-   - Direct API connectors for **CCTNS** (Crime and Criminal Tracking Network & Systems), **ICJS** (Inter-operable Criminal Justice System), and **NAFIS** (National Automated Fingerprint Identification System).
-2. **Real-Time GPS & Patrol Dispatch**:
-   - Automated geofence alerts pushed directly to nearest highway patrol units via police radio networks upon ANPR toll detection.
-3. **Multilingual Indic Speech Assistant**:
-   - Voice-activated investigation assistant supporting Hindi, Punjabi, Bengali, Tamil, Telugu, and Marathi for frontline field officers.
+This prototype demonstrates the intelligence/analytics approach on synthetic data. A real deployment would additionally require: formal agency authorization and data-sharing agreements, integration work with systems like **CCTNS**, **ICJS**, and **NAFIS** rather than standalone operation, privacy and security review, audit-logging and governance processes, and validation against real, authorized datasets — none of which this prototype claims to have in place yet.
+
+Longer-term directions being considered:
+1. **National interoperability** — API-level integration with CCTNS, ICJS, and NAFIS instead of a standalone system.
+2. **Real-time geofence alerts** — pushing ANPR-based detections to relevant patrol units.
+3. **Multilingual assistant** — voice/text support in Hindi, Punjabi, Bengali, Tamil, Telugu, and Marathi for field officers.
 
 ---
 
 <div align="center">
   <b>Built for Smart India Hackathon (SIH) 2026 | National Crime Records Bureau (NCRB)</b><br>
-  <i>Empowering Indian Law Enforcement with Explainable Graph Intelligence & Cryptographic Integrity</i>
+  <i>Project VIDUR — product name CrimeNet</i>
 </div>
